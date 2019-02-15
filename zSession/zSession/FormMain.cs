@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using zSession.SystemSetup;
 
 namespace zSession
 {
@@ -38,6 +39,33 @@ namespace zSession
 
         private void FormMain_Shown(object sender, EventArgs e)
         {
+            if(!bgkInit.IsBusy)
+            {
+                bgkInit.RunWorkerAsync();
+            }
+        }
+
+        private void bgkInit_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //读取本机数据库，获取配置信息
+
+            //获取
+
+        }
+
+        private void bgkInit_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        private bool GitConnection(out ConnectStatus NetStatus)
+        {
+            NetStatus = ConnectStatus.Strong;
+            return false;
+        }
+
+        private void LoadPersonInfo()
+        {
 
         }
 
@@ -47,6 +75,65 @@ namespace zSession
         }
 
         private void btnMin_Click(object sender, EventArgs e)
+        {
+
+        }
+                
+        private void btnSetup_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #region 系统基础功能
+
+        private void btnMail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+
+        }               
+
+        private void btnAssistant_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSocialNet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMarket_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNews_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbDeviceManagement_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbApplicationCenter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbGameCenter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbWareMarket_Click(object sender, EventArgs e)
         {
 
         }

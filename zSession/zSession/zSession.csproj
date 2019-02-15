@@ -61,46 +61,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assistant\AssistantPanel.cs">
+    <Compile Include="Basic\Assistant\AssistantPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Assistant\AssistantPanel.Designer.cs">
+    <Compile Include="Basic\Assistant\AssistantPanel.Designer.cs">
       <DependentUpon>AssistantPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Intelligent\DevicePanel.cs">
+    <Compile Include="Extend\Intelligent\DevicePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Intelligent\DevicePanel.Designer.cs">
+    <Compile Include="Extend\Intelligent\DevicePanel.Designer.cs">
       <DependentUpon>DevicePanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Assistant\Journal\JournalAndSchedule.cs">
+    <Compile Include="Basic\Assistant\Journal\JournalAndSchedule.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Assistant\Journal\JournalAndSchedule.Designer.cs">
+    <Compile Include="Basic\Assistant\Journal\JournalAndSchedule.Designer.cs">
       <DependentUpon>JournalAndSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Assistant\Journal\JournalPanel.cs">
+    <Compile Include="Basic\Assistant\Journal\JournalPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Assistant\Journal\JournalPanel.Designer.cs">
+    <Compile Include="Basic\Assistant\Journal\JournalPanel.Designer.cs">
       <DependentUpon>JournalPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Intelligent\Monitor.cs">
+    <Compile Include="Extend\Intelligent\Monitor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Intelligent\Monitor.Designer.cs">
+    <Compile Include="Extend\Intelligent\Monitor.Designer.cs">
       <DependentUpon>Monitor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Assistant\project\ProjectManagement.cs">
+    <Compile Include="Basic\Assistant\project\ProjectManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Assistant\project\ProjectManagement.Designer.cs">
+    <Compile Include="Basic\Assistant\project\ProjectManagement.Designer.cs">
       <DependentUpon>ProjectManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Assistant\project\ProjectPanel.cs">
+    <Compile Include="Basic\Assistant\project\ProjectPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Assistant\project\ProjectPanel.Designer.cs">
+    <Compile Include="Basic\Assistant\project\ProjectPanel.Designer.cs">
       <DependentUpon>ProjectPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
@@ -109,22 +109,22 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Market\GoodsInfo.cs">
+    <Compile Include="Basic\Market\GoodsInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Market\GoodsInfo.Designer.cs">
+    <Compile Include="Basic\Market\GoodsInfo.Designer.cs">
       <DependentUpon>GoodsInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Market\MarketPanel.cs">
+    <Compile Include="Basic\Market\MarketPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Market\MarketPanel.Designer.cs">
+    <Compile Include="Basic\Market\MarketPanel.Designer.cs">
       <DependentUpon>MarketPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="News\NewsPanel.cs">
+    <Compile Include="Basic\News\NewsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="News\NewsPanel.Designer.cs">
+    <Compile Include="Basic\News\NewsPanel.Designer.cs">
       <DependentUpon>NewsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -134,97 +134,98 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Session\SessionPanel.cs">
+    <Compile Include="Basic\Session\SessionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Session\SessionPanel.Designer.cs">
+    <Compile Include="Basic\Session\SessionPanel.Designer.cs">
       <DependentUpon>SessionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocialNet\Customized\CustomizedNet.cs">
+    <Compile Include="Basic\SocialNet\Customized\CustomizedNet.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SocialNet\Customized\CustomizedNet.Designer.cs">
+    <Compile Include="Basic\SocialNet\Customized\CustomizedNet.Designer.cs">
       <DependentUpon>CustomizedNet.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocialNet\Customized\ZMessage.cs">
+    <Compile Include="Basic\SocialNet\Customized\ZMessage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SocialNet\Customized\ZMessage.Designer.cs">
+    <Compile Include="Basic\SocialNet\Customized\ZMessage.Designer.cs">
       <DependentUpon>ZMessage.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocialNet\Privates\PrivateNet.cs">
+    <Compile Include="Basic\SocialNet\Privates\PrivateNet.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SocialNet\Privates\PrivateNet.Designer.cs">
+    <Compile Include="Basic\SocialNet\Privates\PrivateNet.Designer.cs">
       <DependentUpon>PrivateNet.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocialNet\Privates\Friend\FriendInfo.cs">
+    <Compile Include="Basic\SocialNet\Privates\Friend\FriendInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SocialNet\Privates\Friend\FriendInfo.Designer.cs">
+    <Compile Include="Basic\SocialNet\Privates\Friend\FriendInfo.Designer.cs">
       <DependentUpon>FriendInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocialNet\Privates\Friend\FriendList.cs">
+    <Compile Include="Basic\SocialNet\Privates\Friend\FriendList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SocialNet\Privates\Friend\FriendList.Designer.cs">
+    <Compile Include="Basic\SocialNet\Privates\Friend\FriendList.Designer.cs">
       <DependentUpon>FriendList.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocialNet\Privates\Personal\personalWall.cs">
+    <Compile Include="Basic\SocialNet\Privates\Personal\personalWall.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SocialNet\Privates\Personal\personalWall.Designer.cs">
+    <Compile Include="Basic\SocialNet\Privates\Personal\personalWall.Designer.cs">
       <DependentUpon>personalWall.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocialNet\Publics\PublicNet.cs">
+    <Compile Include="Basic\SocialNet\Publics\PublicNet.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SocialNet\Publics\PublicNet.Designer.cs">
+    <Compile Include="Basic\SocialNet\Publics\PublicNet.Designer.cs">
       <DependentUpon>PublicNet.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocialNet\Publics\PublicNetDetials.cs">
+    <Compile Include="Basic\SocialNet\Publics\PublicNetDetials.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SocialNet\Publics\PublicNetDetials.Designer.cs">
+    <Compile Include="Basic\SocialNet\Publics\PublicNetDetials.Designer.cs">
       <DependentUpon>PublicNetDetials.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocialNet\SocialNetPanel.cs">
+    <Compile Include="Basic\SocialNet\SocialNetPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SocialNet\SocialNetPanel.Designer.cs">
+    <Compile Include="Basic\SocialNet\SocialNetPanel.Designer.cs">
       <DependentUpon>SocialNetPanel.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Assistant\AssistantPanel.resx">
+    <Compile Include="SystemSetup\common.cs" />
+    <EmbeddedResource Include="Basic\Assistant\AssistantPanel.resx">
       <DependentUpon>AssistantPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Intelligent\DevicePanel.resx">
+    <EmbeddedResource Include="Extend\Intelligent\DevicePanel.resx">
       <DependentUpon>DevicePanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assistant\Journal\JournalAndSchedule.resx">
+    <EmbeddedResource Include="Basic\Assistant\Journal\JournalAndSchedule.resx">
       <DependentUpon>JournalAndSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assistant\Journal\JournalPanel.resx">
+    <EmbeddedResource Include="Basic\Assistant\Journal\JournalPanel.resx">
       <DependentUpon>JournalPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Intelligent\Monitor.resx">
+    <EmbeddedResource Include="Extend\Intelligent\Monitor.resx">
       <DependentUpon>Monitor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assistant\project\ProjectManagement.resx">
+    <EmbeddedResource Include="Basic\Assistant\project\ProjectManagement.resx">
       <DependentUpon>ProjectManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assistant\project\ProjectPanel.resx">
+    <EmbeddedResource Include="Basic\Assistant\project\ProjectPanel.resx">
       <DependentUpon>ProjectPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Market\GoodsInfo.resx">
+    <EmbeddedResource Include="Basic\Market\GoodsInfo.resx">
       <DependentUpon>GoodsInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Market\MarketPanel.resx">
+    <EmbeddedResource Include="Basic\Market\MarketPanel.resx">
       <DependentUpon>MarketPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="News\NewsPanel.resx">
+    <EmbeddedResource Include="Basic\News\NewsPanel.resx">
       <DependentUpon>NewsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -232,34 +233,34 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Session\SessionPanel.resx">
+    <EmbeddedResource Include="Basic\Session\SessionPanel.resx">
       <DependentUpon>SessionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SocialNet\Customized\CustomizedNet.resx">
+    <EmbeddedResource Include="Basic\SocialNet\Customized\CustomizedNet.resx">
       <DependentUpon>CustomizedNet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SocialNet\Customized\ZMessage.resx">
+    <EmbeddedResource Include="Basic\SocialNet\Customized\ZMessage.resx">
       <DependentUpon>ZMessage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SocialNet\Privates\PrivateNet.resx">
+    <EmbeddedResource Include="Basic\SocialNet\Privates\PrivateNet.resx">
       <DependentUpon>PrivateNet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SocialNet\Privates\Friend\FriendInfo.resx">
+    <EmbeddedResource Include="Basic\SocialNet\Privates\Friend\FriendInfo.resx">
       <DependentUpon>FriendInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SocialNet\Privates\Friend\FriendList.resx">
+    <EmbeddedResource Include="Basic\SocialNet\Privates\Friend\FriendList.resx">
       <DependentUpon>FriendList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SocialNet\Privates\Personal\personalWall.resx">
+    <EmbeddedResource Include="Basic\SocialNet\Privates\Personal\personalWall.resx">
       <DependentUpon>personalWall.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SocialNet\Publics\PublicNet.resx">
+    <EmbeddedResource Include="Basic\SocialNet\Publics\PublicNet.resx">
       <DependentUpon>PublicNet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SocialNet\Publics\PublicNetDetials.resx">
+    <EmbeddedResource Include="Basic\SocialNet\Publics\PublicNetDetials.resx">
       <DependentUpon>PublicNetDetials.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SocialNet\SocialNetPanel.resx">
+    <EmbeddedResource Include="Basic\SocialNet\SocialNetPanel.resx">
       <DependentUpon>SocialNetPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -276,8 +277,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="E-Mall\" />
-    <Folder Include="GameCenter\" />
+    <Folder Include="Extend\ApplicationCenter\" />
+    <Folder Include="Extend\E_Mail\" />
+    <Folder Include="Extend\GameCenter\" />
+    <Folder Include="Extend\WareMarket\" />
+    <Folder Include="SystemSetup\DataBase\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rain.png" />
@@ -877,15 +881,8 @@
     <None Include="Resources\tool.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BackGroundImage\backgrond.jpeg" />
-    <Content Include="BackGroundImage\title.jpg" />
-    <Content Include="DataBase\Session.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataBase\Session_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Session.mdf</DependentUpon>
-    </Content>
+    <Content Include="Resources_BGImage\backgrond.jpeg" />
+    <Content Include="Resources_BGImage\title.jpg" />
     <None Include="Resources\setup16.png" />
     <None Include="Resources\setup.png" />
     <None Include="Resources\setup256.png" />
