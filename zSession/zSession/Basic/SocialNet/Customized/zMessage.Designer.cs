@@ -156,7 +156,7 @@
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.Image = global::zSession.Properties.Resources.offert;
+            this.toolStripButton1.Image = global::zSession.Properties.Resources.label_orange;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(76, 23);
@@ -211,7 +211,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::zSession.Properties.Resources.info;
+            this.pictureBox4.Image = global::zSession.Properties.Resources.chat_info;
             this.pictureBox4.Location = new System.Drawing.Point(459, 192);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox4.Name = "pictureBox4";

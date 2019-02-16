@@ -93,6 +93,7 @@ namespace zSession
 
         #endregion
 
+        #region 主要功能
         private void btnChat_Click(object sender, EventArgs e)
         {
 
@@ -118,6 +119,11 @@ namespace zSession
 
         }
 
+        #endregion
+
+
+
+        #region  扩展功能
         private void tsbDeviceManagement_Click(object sender, EventArgs e)
         {
 
@@ -138,6 +144,6 @@ namespace zSession
 
         }
 
-        
+        #endregion
     }
 }

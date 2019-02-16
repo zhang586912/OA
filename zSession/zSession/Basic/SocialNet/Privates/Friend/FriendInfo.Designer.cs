@@ -187,7 +187,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::zSession.Properties.Resources.info;
+            this.pictureBox2.Image = global::zSession.Properties.Resources.chat_info;
             this.pictureBox2.Location = new System.Drawing.Point(253, 104);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
@@ -211,7 +211,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Image = global::zSession.Properties.Resources.info;
+            this.pictureBox4.Image = global::zSession.Properties.Resources.chat_info;
             this.pictureBox4.Location = new System.Drawing.Point(253, 222);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox4.Name = "pictureBox4";

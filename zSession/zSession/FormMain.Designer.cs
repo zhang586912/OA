@@ -293,7 +293,7 @@
             // 
             this.btnSetup.BackColor = System.Drawing.Color.Transparent;
             this.btnSetup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSetup.Image = global::zSession.Properties.Resources.setup16;
+            this.btnSetup.Image = global::zSession.Properties.Resources.setup;
             this.btnSetup.Location = new System.Drawing.Point(375, 1);
             this.btnSetup.Margin = new System.Windows.Forms.Padding(1);
             this.btnSetup.Name = "btnSetup";
@@ -345,7 +345,7 @@
             // 
             // picWeatherStatus
             // 
-            this.picWeatherStatus.Image = global::zSession.Properties.Resources.rain;
+            this.picWeatherStatus.Image = global::zSession.Properties.Resources.web;
             this.picWeatherStatus.Location = new System.Drawing.Point(3, 3);
             this.picWeatherStatus.Name = "picWeatherStatus";
             this.picWeatherStatus.Size = new System.Drawing.Size(54, 40);
