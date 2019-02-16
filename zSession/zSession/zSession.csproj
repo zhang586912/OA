@@ -297,12 +297,6 @@
     <Folder Include="SystemSetup\DataBase\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\rain.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sleet.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\wireless-blue.png" />
   </ItemGroup>
   <ItemGroup>
@@ -319,9 +313,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete-alt.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\QT_B_0605_8.JPG" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\access.png" />
@@ -417,9 +408,6 @@
     <None Include="Resources\DJ-on.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dollar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\door.png" />
   </ItemGroup>
   <ItemGroup>
@@ -472,9 +460,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\emoticon-12.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\euro.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exclamation.png" />
@@ -651,9 +636,6 @@
     <None Include="Resources\package-up.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\paste.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\phone-blue.png" />
   </ItemGroup>
   <ItemGroup>
@@ -780,12 +762,6 @@
     <None Include="Resources\Thumbs.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\trash-empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\trash-full.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\undo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -825,12 +801,6 @@
     <None Include="Resources\zoom+.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\return.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pie_chart.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\plan_edit.png" />
   </ItemGroup>
   <ItemGroup>
@@ -868,7 +838,6 @@
     <None Include="Resources\delete-alt.ico" />
     <None Include="Resources\DJ-off.ico" />
     <None Include="Resources\DJ-on.ico" />
-    <None Include="Resources\dollar.ico" />
     <None Include="Resources\door.ico" />
     <None Include="Resources\down.ico" />
     <None Include="Resources\down-alt.ico" />
@@ -887,7 +856,6 @@
     <None Include="Resources\emoticon-10.ico" />
     <None Include="Resources\emoticon-11.ico" />
     <None Include="Resources\emoticon-12.ico" />
-    <None Include="Resources\euro.ico" />
     <None Include="Resources\exclamation.ico" />
     <None Include="Resources\faq.ico" />
     <None Include="Resources\favorites.ico" />
@@ -946,7 +914,6 @@
     <None Include="Resources\package-down.ico" />
     <None Include="Resources\Package-remove.ico" />
     <None Include="Resources\package-up.ico" />
-    <None Include="Resources\paste.ico" />
     <None Include="Resources\phone-blue.ico" />
     <None Include="Resources\phone-green.ico" />
     <None Include="Resources\phone-red.ico" />
@@ -989,8 +956,6 @@
     <None Include="Resources\stop.ico" />
     <None Include="Resources\stop-alt.ico" />
     <None Include="Resources\Thumbs.ico" />
-    <None Include="Resources\trash-empty.ico" />
-    <None Include="Resources\trash-full.ico" />
     <None Include="Resources\undo.ico" />
     <None Include="Resources\unlock.ico" />
     <None Include="Resources\up.ico" />
@@ -1237,9 +1202,6 @@
     <None Include="Resources\zSession.ico" />
     <Content Include="Resources_BGImage\backgrond.jpeg" />
     <Content Include="Resources_BGImage\title.jpg" />
-    <None Include="Resources\setup16.png" />
-    <None Include="Resources\setup256.png" />
-    <None Include="Resources\setup32.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
