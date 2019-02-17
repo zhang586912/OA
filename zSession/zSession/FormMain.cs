@@ -14,13 +14,56 @@ namespace zSession
 {
     public partial class FormMain : Form
     {
+        private AnchorStyles StopAanhor = AnchorStyles.None;
+        private Timer hoverTimer = new Timer();
         public FormMain()
         {
             InitializeComponent();
-
+            this.MinimumSize = this.Size;
             tpMain.Location = new Point(2, 2);
             tpMain.Size = new Size(this.Width - 5, this.Height - 5);
-            
+
+            hoverTimer.Interval = 100;//定时周期3秒
+            hoverTimer.Tick += new EventHandler((object o, EventArgs ev) => {
+                if (this.Bounds.Contains(Cursor.Position))
+                {
+                    switch (this.StopAanhor)
+                    {
+                        case AnchorStyles.Top:
+                            //窗体在最上方隐藏时，鼠标接触自动出现
+                            this.Location = new Point(this.Location.X, 0);
+                            break;
+                        case AnchorStyles.Left:
+                            //窗体在最左方隐藏时，鼠标接触自动出现
+                            this.Location = new Point(0, this.Location.Y);
+                            break;
+                        case AnchorStyles.Right:
+                            //窗体在最右方隐藏时，鼠标接触自动出现
+                            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - this.Width, this.Location.Y);
+                            break;
+                    }
+                }
+                else
+                {
+                    //窗体隐藏时在靠近边界的一侧边会出现2像素原因：感应鼠标，同时2像素不会影响用户视线
+                    switch (this.StopAanhor)
+                    {
+                        case AnchorStyles.Top:
+                            //窗体在顶部时时，隐藏在顶部，底部边界出现2像素
+                            this.Location = new Point(this.Location.X, (this.Height - 2) * (-1));
+                            break;
+                        case AnchorStyles.Left:
+                            //窗体在最左边时时，隐藏在左边，右边边界出现2像素
+                            this.Location = new Point((-1) * (this.Width - 2), this.Location.Y);
+                            break;
+                        case AnchorStyles.Right:
+                            //窗体在最右边时时，隐藏在右边，左边边界出现2像素
+                            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 2, this.Location.Y);
+                            break;
+                    }
+                }
+            });//到3秒了自动隐藏
+            hoverTimer.Enabled = true; //是否不断重复定时器操作
         }
 
         #region 实现窗体可以移动
@@ -104,14 +147,45 @@ namespace zSession
 
         #endregion
 
+        private void FormMain_LocationChanged(object sender, EventArgs e)
+        {
+            this.mStopAnhor();
+        }
+        /// <summary>
+        /// 固定了窗体位置的类型
+        /// </summary>
+        private void mStopAnhor()
+        {
+            if (this.Top <= 0)
+            {
+                StopAanhor = AnchorStyles.Top;
+            }
+            else if (this.Left <= 0)
+            {
+                StopAanhor = AnchorStyles.Left;
+            }
+            else if (this.Left >= Screen.PrimaryScreen.Bounds.Width - this.Width)
+            {
+                StopAanhor = AnchorStyles.Right;
+            }
+            else
+            {
+                StopAanhor = AnchorStyles.None;
+            }
+
+        }
+
         private void FormMain_Shown(object sender, EventArgs e)
-        {           
+        {
 
             if (!bgkInit.IsBusy)
             {
                 bgkInit.RunWorkerAsync();
-            }
+            }   
+            
         }
+
+        
 
         
 
@@ -125,7 +199,7 @@ namespace zSession
 
         private void bgkInit_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
+            hoverTimer.Start();
         }
 
         private bool GitConnection(out ConnectStatus NetStatus)
@@ -218,8 +292,9 @@ namespace zSession
 
 
 
+
         #endregion
 
-       
+        
     }
 }

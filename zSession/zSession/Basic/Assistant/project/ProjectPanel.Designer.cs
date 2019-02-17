@@ -28,79 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lbProjectName = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tpMain = new System.Windows.Forms.TableLayoutPanel();
+            this.lklProjectName = new System.Windows.Forms.LinkLabel();
+            this.picFlag = new System.Windows.Forms.PictureBox();
+            this.tpMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFlag)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tpMain
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel1.Controls.Add(this.progressBar1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lbProjectName, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(492, 25);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tpMain.ColumnCount = 2;
+            this.tpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tpMain.Controls.Add(this.lklProjectName, 1, 0);
+            this.tpMain.Controls.Add(this.picFlag, 0, 0);
+            this.tpMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpMain.Location = new System.Drawing.Point(0, 0);
+            this.tpMain.Name = "tpMain";
+            this.tpMain.RowCount = 1;
+            this.tpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tpMain.Size = new System.Drawing.Size(240, 24);
+            this.tpMain.TabIndex = 0;
             // 
-            // progressBar1
+            // lklProjectName
             // 
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBar1.Location = new System.Drawing.Point(123, 3);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(286, 19);
-            this.progressBar1.TabIndex = 0;
+            this.lklProjectName.AutoSize = true;
+            this.lklProjectName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lklProjectName.Location = new System.Drawing.Point(43, 0);
+            this.lklProjectName.Name = "lklProjectName";
+            this.lklProjectName.Size = new System.Drawing.Size(194, 24);
+            this.lklProjectName.TabIndex = 1;
+            this.lklProjectName.TabStop = true;
+            this.lklProjectName.Text = "到期项目及日程安排内容摘要";
+            this.lklProjectName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // button1
+            // picFlag
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(415, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 19);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "详情";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // lbProjectName
-            // 
-            this.lbProjectName.AutoSize = true;
-            this.lbProjectName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbProjectName.Location = new System.Drawing.Point(3, 3);
-            this.lbProjectName.Margin = new System.Windows.Forms.Padding(3);
-            this.lbProjectName.Name = "lbProjectName";
-            this.lbProjectName.Size = new System.Drawing.Size(114, 19);
-            this.lbProjectName.TabIndex = 2;
-            this.lbProjectName.Text = "项目名称";
-            this.lbProjectName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.picFlag.Image = global::zSession.Properties.Resources.flag_blue;
+            this.picFlag.Location = new System.Drawing.Point(3, 3);
+            this.picFlag.Name = "picFlag";
+            this.picFlag.Size = new System.Drawing.Size(34, 18);
+            this.picFlag.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFlag.TabIndex = 2;
+            this.picFlag.TabStop = false;
             // 
             // ProjectPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.tpMain);
             this.Name = "ProjectPanel";
-            this.Size = new System.Drawing.Size(492, 25);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.Size = new System.Drawing.Size(240, 24);
+            this.tpMain.ResumeLayout(false);
+            this.tpMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFlag)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lbProjectName;
+        private System.Windows.Forms.TableLayoutPanel tpMain;
+        private System.Windows.Forms.LinkLabel lklProjectName;
+        private System.Windows.Forms.PictureBox picFlag;
     }
 }
