@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -47,6 +47,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Resources\zSession.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>zSession.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -290,918 +297,936 @@
     <Folder Include="Extend\E_Mail\" />
     <Folder Include="Extend\GameCenter\" />
     <Folder Include="Extend\WareMarket\" />
-    <Folder Include="Resources_Finance\" />
-    <Folder Include="Resources_Personnel\" />
-    <Folder Include="Resources_system\" />
-    <Folder Include="Resources_weather\" />
+    <Folder Include="Images\Personnel\" />
+    <Folder Include="Images\Weather\" />
     <Folder Include="SystemSetup\DataBase\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\wireless-blue.png" />
+    <None Include="Images\Resources\wireless-blue.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\wireless-green.png" />
+    <None Include="Images\Resources\wireless-green.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\wireless-red.png" />
+    <None Include="Images\Resources\wireless-red.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\wireless-yellow.png" />
+    <None Include="Images\Resources\wireless-yellow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\delete.png" />
+    <None Include="Images\Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\delete-alt.png" />
+    <None Include="Images\Resources\delete-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\access.png" />
+    <None Include="Images\Resources\access.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\access-alt.png" />
+    <None Include="Images\Resources\access-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\add.png" />
+    <None Include="Images\Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\alert.png" />
+    <None Include="Images\Resources\alert.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\back up.png" />
+    <None Include="Images\Resources\back up.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\back.png" />
+    <None Include="Images\Resources\back.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\back-alt.png" />
+    <None Include="Images\Resources\back-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button blue alt.png" />
+    <None Include="Images\Resources\button blue alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button green alt.png" />
+    <None Include="Images\Resources\button green alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button red alt.png" />
+    <None Include="Images\Resources\button red alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button-blue.png" />
+    <None Include="Images\Resources\button-blue.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button-green.png" />
+    <None Include="Images\Resources\button-green.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button-red.png" />
+    <None Include="Images\Resources\button-red.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button-withe.png" />
+    <None Include="Images\Resources\button-withe.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button-yellow.png" />
+    <None Include="Images\Resources\button-yellow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cal.png" />
+    <None Include="Images\Resources\cal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CD.png" />
+    <None Include="Images\Resources\CD.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CD-burn.png" />
+    <None Include="Images\Resources\CD-burn.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CD-Music.png" />
+    <None Include="Images\Resources\CD-Music.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\clock.png" />
+    <None Include="Images\Resources\clock.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\coffe.png" />
+    <None Include="Images\Resources\coffe.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cpu.png" />
+    <None Include="Images\Resources\cpu.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cut.png" />
+    <None Include="Images\Resources\cut.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\db.png" />
+    <None Include="Images\Resources\db.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\db-add.png" />
+    <None Include="Images\Resources\db-add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\db-download.png" />
+    <None Include="Images\Resources\db-download.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\db-remove.png" />
+    <None Include="Images\Resources\db-remove.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\db-upload.png" />
+    <None Include="Images\Resources\db-upload.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\db-web.png" />
+    <None Include="Images\Resources\db-web.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DJ-off.png" />
+    <None Include="Images\Resources\DJ-off.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DJ-on.png" />
+    <None Include="Images\Resources\DJ-on.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\door.png" />
+    <None Include="Images\Resources\door.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\down.png" />
+    <None Include="Images\Resources\down.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\down-alt.png" />
+    <None Include="Images\Resources\down-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\download.png" />
+    <None Include="Images\Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\edit user.png" />
+    <None Include="Images\Resources\edit user.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\edit.png" />
+    <None Include="Images\Resources\edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-1.png" />
+    <None Include="Images\Resources\emoticon-1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-2.png" />
+    <None Include="Images\Resources\emoticon-2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-3.png" />
+    <None Include="Images\Resources\emoticon-3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-4.png" />
+    <None Include="Images\Resources\emoticon-4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-5.png" />
+    <None Include="Images\Resources\emoticon-5.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-6.png" />
+    <None Include="Images\Resources\emoticon-6.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-7.png" />
+    <None Include="Images\Resources\emoticon-7.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-8.png" />
+    <None Include="Images\Resources\emoticon-8.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-9.png" />
+    <None Include="Images\Resources\emoticon-9.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-10.png" />
+    <None Include="Images\Resources\emoticon-10.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-11.png" />
+    <None Include="Images\Resources\emoticon-11.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\emoticon-12.png" />
+    <None Include="Images\Resources\emoticon-12.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\exclamation.png" />
+    <None Include="Images\Resources\exclamation.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\faq.png" />
+    <None Include="Images\Resources\faq.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\favorites.png" />
+    <None Include="Images\Resources\favorites.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\favorites-add.png" />
+    <None Include="Images\Resources\favorites-add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fax.png" />
+    <None Include="Images\Resources\fax.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\file.png" />
+    <None Include="Images\Resources\file.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\file-copy.png" />
+    <None Include="Images\Resources\file-copy.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\file-doc.png" />
+    <None Include="Images\Resources\file-doc.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\file-down.png" />
+    <None Include="Images\Resources\file-down.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\file-edit.png" />
+    <None Include="Images\Resources\file-edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\file-new.png" />
+    <None Include="Images\Resources\file-new.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\file-up.png" />
+    <None Include="Images\Resources\file-up.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\first.png" />
+    <None Include="Images\Resources\first.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder-blue rename.png" />
+    <None Include="Images\Resources\folder-blue rename.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder-blue up.png" />
+    <None Include="Images\Resources\folder-blue up.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder-blue.png" />
+    <None Include="Images\Resources\folder-blue.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder-blue-down.png" />
+    <None Include="Images\Resources\folder-blue-down.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder-blue-image.png" />
+    <None Include="Images\Resources\folder-blue-image.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder-image.png" />
+    <None Include="Images\Resources\folder-image.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder-white up.png" />
+    <None Include="Images\Resources\folder-white up.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder-white.png" />
+    <None Include="Images\Resources\folder-white.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder-white-down.png" />
+    <None Include="Images\Resources\folder-white-down.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder-white-rename.png" />
+    <None Include="Images\Resources\folder-white-rename.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\forward.png" />
+    <None Include="Images\Resources\forward.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\forward-alt.png" />
+    <None Include="Images\Resources\forward-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\HD.png" />
+    <None Include="Images\Resources\HD.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\HD-down.png" />
+    <None Include="Images\Resources\HD-down.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\HD-share.png" />
+    <None Include="Images\Resources\HD-share.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\HD-up.png" />
+    <None Include="Images\Resources\HD-up.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\help.png" />
+    <None Include="Images\Resources\help.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\home.png" />
+    <None Include="Images\Resources\home.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\info.png" />
+    <None Include="Images\Resources\info.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ipod-off.png" />
+    <None Include="Images\Resources\ipod-off.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ipod-on.png" />
+    <None Include="Images\Resources\ipod-on.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\key.png" />
+    <None Include="Images\Resources\key.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\last.png" />
+    <None Include="Images\Resources\last.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Layer 4.png" />
+    <None Include="Images\Resources\Layer 4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ligth-off.png" />
+    <None Include="Images\Resources\ligth-off.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ligth-on.png" />
+    <None Include="Images\Resources\ligth-on.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lock.png" />
+    <None Include="Images\Resources\lock.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\mail.png" />
+    <None Include="Images\Resources\mail.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\mail-edit.png" />
+    <None Include="Images\Resources\mail-edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\misc.png" />
+    <None Include="Images\Resources\misc.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\misc-blue.png" />
+    <None Include="Images\Resources\misc-blue.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\misc-green.png" />
+    <None Include="Images\Resources\misc-green.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\misc-red.png" />
+    <None Include="Images\Resources\misc-red.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\misc-yellow.png" />
+    <None Include="Images\Resources\misc-yellow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\module.png" />
+    <None Include="Images\Resources\module.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\monitor-off.png" />
+    <None Include="Images\Resources\monitor-off.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\monitor-on.png" />
+    <None Include="Images\Resources\monitor-on.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\music.png" />
+    <None Include="Images\Resources\music.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\offert.png" />
+    <None Include="Images\Resources\offert.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ok.png" />
+    <None Include="Images\Resources\ok.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\package.png" />
+    <None Include="Images\Resources\package.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\package-add.png" />
+    <None Include="Images\Resources\package-add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\package-down.png" />
+    <None Include="Images\Resources\package-down.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Package-remove.png" />
+    <None Include="Images\Resources\Package-remove.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\package-up.png" />
+    <None Include="Images\Resources\package-up.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\phone-blue.png" />
+    <None Include="Images\Resources\phone-blue.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\phone-green.png" />
+    <None Include="Images\Resources\phone-green.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\phone-red.png" />
+    <None Include="Images\Resources\phone-red.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\phone-yellow.png" />
+    <None Include="Images\Resources\phone-yellow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\picture.png" />
+    <None Include="Images\Resources\picture.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play.png" />
+    <None Include="Images\Resources\play.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play-back.png" />
+    <None Include="Images\Resources\play-back.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play-first.png" />
+    <None Include="Images\Resources\play-first.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play-forward.png" />
+    <None Include="Images\Resources\play-forward.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play-options.png" />
+    <None Include="Images\Resources\play-options.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play-pause.png" />
+    <None Include="Images\Resources\play-pause.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play-rec.png" />
+    <None Include="Images\Resources\play-rec.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play-repeat.png" />
+    <None Include="Images\Resources\play-repeat.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play-star.png" />
+    <None Include="Images\Resources\play-star.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play-stop.png" />
+    <None Include="Images\Resources\play-stop.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\preferences.png" />
+    <None Include="Images\Resources\preferences.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\print.png" />
+    <None Include="Images\Resources\print.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\print-preview.png" />
+    <None Include="Images\Resources\print-preview.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\public.png" />
+    <None Include="Images\Resources\public.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\question.png" />
+    <None Include="Images\Resources\question.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\redo.png" />
+    <None Include="Images\Resources\redo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\reload.png" />
+    <None Include="Images\Resources\reload.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\reload-alt.png" />
+    <None Include="Images\Resources\reload-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\remove.png" />
+    <None Include="Images\Resources\remove.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\remove-window.png" />
+    <None Include="Images\Resources\remove-window.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\save copy.png" />
+    <None Include="Images\Resources\save copy.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\save.png" />
+    <None Include="Images\Resources\save.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\save-alt.png" />
+    <None Include="Images\Resources\save-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\saveas-alt.png" />
+    <None Include="Images\Resources\saveas-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\save-copy-alt.png" />
+    <None Include="Images\Resources\save-copy-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\search.png" />
+    <None Include="Images\Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\search-file.png" />
+    <None Include="Images\Resources\search-file.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\search-web.png" />
+    <None Include="Images\Resources\search-web.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\server.png" />
+    <None Include="Images\Resources\server.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\sound.png" />
+    <None Include="Images\Resources\sound.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\star.png" />
+    <None Include="Images\Resources\star.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\statistic.png" />
+    <None Include="Images\Resources\statistic.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\status-off.png" />
+    <None Include="Images\Resources\status-off.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\status-on.png" />
+    <None Include="Images\Resources\status-on.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\stop.png" />
+    <None Include="Images\Resources\stop.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\stop-alt.png" />
+    <None Include="Images\Resources\stop-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Thumbs.png" />
+    <None Include="Images\Resources\Thumbs.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\undo.png" />
+    <None Include="Images\Resources\undo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\unlock.png" />
+    <None Include="Images\Resources\unlock.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\up.png" />
+    <None Include="Images\Resources\up.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\up-alt.png" />
+    <None Include="Images\Resources\up-alt.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\upload.png" />
+    <None Include="Images\Resources\upload.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\user.png" />
+    <None Include="Images\Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\users.png" />
+    <None Include="Images\Resources\users.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\vcard.png" />
+    <None Include="Images\Resources\vcard.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\web.png" />
+    <None Include="Images\Resources\web.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\web-ftp.png" />
+    <None Include="Images\Resources\web-ftp.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\window.png" />
+    <None Include="Images\Resources\window.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\zoom-.png" />
+    <None Include="Images\Resources\zoom-.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\zoom+.png" />
+    <None Include="Images\Resources\zoom+.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\plan_edit.png" />
+    <None Include="Images\Resources\plan_edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\access.ico" />
-    <None Include="Resources\access-alt.ico" />
-    <None Include="Resources\add.ico" />
-    <None Include="Resources\add-window.ico" />
-    <None Include="Resources\alert.ico" />
-    <None Include="Resources\back up.ico" />
-    <None Include="Resources\back.ico" />
-    <None Include="Resources\back-alt.ico" />
-    <None Include="Resources\button blue alt.ico" />
-    <None Include="Resources\button green alt.ico" />
-    <None Include="Resources\button red alt.ico" />
-    <None Include="Resources\button-blue.ico" />
-    <None Include="Resources\button-green.ico" />
-    <None Include="Resources\button-red.ico" />
-    <None Include="Resources\button-withe.ico" />
-    <None Include="Resources\button-yellow.ico" />
-    <None Include="Resources\cal.ico" />
-    <None Include="Resources\CD.ico" />
-    <None Include="Resources\CD-burn.ico" />
-    <None Include="Resources\CD-Music.ico" />
-    <None Include="Resources\clock.ico" />
-    <None Include="Resources\coffe.ico" />
-    <None Include="Resources\cpu.ico" />
-    <None Include="Resources\cut.ico" />
-    <None Include="Resources\db.ico" />
-    <None Include="Resources\db-add.ico" />
-    <None Include="Resources\db-download.ico" />
-    <None Include="Resources\db-remove.ico" />
-    <None Include="Resources\db-upload.ico" />
-    <None Include="Resources\db-web.ico" />
-    <None Include="Resources\delete.ico" />
-    <None Include="Resources\delete-alt.ico" />
-    <None Include="Resources\DJ-off.ico" />
-    <None Include="Resources\DJ-on.ico" />
-    <None Include="Resources\door.ico" />
-    <None Include="Resources\down.ico" />
-    <None Include="Resources\down-alt.ico" />
-    <None Include="Resources\download.ico" />
-    <None Include="Resources\edit user.ico" />
-    <None Include="Resources\edit.ico" />
-    <None Include="Resources\emoticon-1.ico" />
-    <None Include="Resources\emoticon-2.ico" />
-    <None Include="Resources\emoticon-3.ico" />
-    <None Include="Resources\emoticon-4.ico" />
-    <None Include="Resources\emoticon-5.ico" />
-    <None Include="Resources\emoticon-6.ico" />
-    <None Include="Resources\emoticon-7.ico" />
-    <None Include="Resources\emoticon-8.ico" />
-    <None Include="Resources\emoticon-9.ico" />
-    <None Include="Resources\emoticon-10.ico" />
-    <None Include="Resources\emoticon-11.ico" />
-    <None Include="Resources\emoticon-12.ico" />
-    <None Include="Resources\exclamation.ico" />
-    <None Include="Resources\faq.ico" />
-    <None Include="Resources\favorites.ico" />
-    <None Include="Resources\favorites-add.ico" />
-    <None Include="Resources\fax.ico" />
-    <None Include="Resources\file.ico" />
-    <None Include="Resources\file-copy.ico" />
-    <None Include="Resources\file-doc.ico" />
-    <None Include="Resources\file-down.ico" />
-    <None Include="Resources\file-edit.ico" />
-    <None Include="Resources\file-new.ico" />
-    <None Include="Resources\file-up.ico" />
-    <None Include="Resources\first.ico" />
-    <None Include="Resources\folder-blue rename.ico" />
-    <None Include="Resources\folder-blue up.ico" />
-    <None Include="Resources\folder-blue.ico" />
-    <None Include="Resources\folder-blue-down.ico" />
-    <None Include="Resources\folder-blue-image.ico" />
-    <None Include="Resources\folder-image.ico" />
-    <None Include="Resources\folder-white up.ico" />
-    <None Include="Resources\folder-white.ico" />
-    <None Include="Resources\folder-white-down.ico" />
-    <None Include="Resources\folder-white-rename.ico" />
-    <None Include="Resources\forward.ico" />
-    <None Include="Resources\forward-alt.ico" />
-    <None Include="Resources\HD.ico" />
-    <None Include="Resources\HD-down.ico" />
-    <None Include="Resources\HD-share.ico" />
-    <None Include="Resources\HD-up.ico" />
-    <None Include="Resources\help.ico" />
-    <None Include="Resources\home.ico" />
-    <None Include="Resources\info.ico" />
-    <None Include="Resources\ipod-off.ico" />
-    <None Include="Resources\ipod-on.ico" />
-    <None Include="Resources\key.ico" />
-    <None Include="Resources\last.ico" />
-    <None Include="Resources\Layer 4.ico" />
-    <None Include="Resources\ligth-off.ico" />
-    <None Include="Resources\ligth-on.ico" />
-    <None Include="Resources\lock.ico" />
-    <None Include="Resources\mail.ico" />
-    <None Include="Resources\mail-edit.ico" />
-    <None Include="Resources\misc.ico" />
-    <None Include="Resources\misc-blue.ico" />
-    <None Include="Resources\misc-green.ico" />
-    <None Include="Resources\misc-red.ico" />
-    <None Include="Resources\misc-yellow.ico" />
-    <None Include="Resources\module.ico" />
-    <None Include="Resources\monitor-off.ico" />
-    <None Include="Resources\monitor-on.ico" />
-    <None Include="Resources\music.ico" />
-    <None Include="Resources\offert.ico" />
-    <None Include="Resources\ok.ico" />
-    <None Include="Resources\package.ico" />
-    <None Include="Resources\package-add.ico" />
-    <None Include="Resources\package-down.ico" />
-    <None Include="Resources\Package-remove.ico" />
-    <None Include="Resources\package-up.ico" />
-    <None Include="Resources\phone-blue.ico" />
-    <None Include="Resources\phone-green.ico" />
-    <None Include="Resources\phone-red.ico" />
-    <None Include="Resources\phone-yellow.ico" />
-    <None Include="Resources\picture.ico" />
-    <None Include="Resources\play.ico" />
-    <None Include="Resources\play-back.ico" />
-    <None Include="Resources\play-first.ico" />
-    <None Include="Resources\play-forward.ico" />
-    <None Include="Resources\play-options.ico" />
-    <None Include="Resources\play-pause.ico" />
-    <None Include="Resources\play-rec.ico" />
-    <None Include="Resources\play-repeat.ico" />
-    <None Include="Resources\play-star.ico" />
-    <None Include="Resources\play-stop.ico" />
-    <None Include="Resources\preferences.ico" />
-    <None Include="Resources\print.ico" />
-    <None Include="Resources\print-preview.ico" />
-    <None Include="Resources\public.ico" />
-    <None Include="Resources\question.ico" />
-    <None Include="Resources\redo.ico" />
-    <None Include="Resources\reload.ico" />
-    <None Include="Resources\reload-alt.ico" />
-    <None Include="Resources\remove.ico" />
-    <None Include="Resources\remove-window.ico" />
-    <None Include="Resources\save copy.ico" />
-    <None Include="Resources\save.ico" />
-    <None Include="Resources\save-alt.ico" />
-    <None Include="Resources\saveas-alt.ico" />
-    <None Include="Resources\save-copy-alt.ico" />
-    <None Include="Resources\search.ico" />
-    <None Include="Resources\search-file.ico" />
-    <None Include="Resources\search-web.ico" />
-    <None Include="Resources\server.ico" />
-    <None Include="Resources\sound.ico" />
-    <None Include="Resources\star.ico" />
-    <None Include="Resources\statistic.ico" />
-    <None Include="Resources\status-off.ico" />
-    <None Include="Resources\status-on.ico" />
-    <None Include="Resources\stop.ico" />
-    <None Include="Resources\stop-alt.ico" />
-    <None Include="Resources\Thumbs.ico" />
-    <None Include="Resources\undo.ico" />
-    <None Include="Resources\unlock.ico" />
-    <None Include="Resources\up.ico" />
-    <None Include="Resources\up-alt.ico" />
-    <None Include="Resources\upload.ico" />
-    <None Include="Resources\user.ico" />
-    <None Include="Resources\users.ico" />
-    <None Include="Resources\vcard.ico" />
-    <None Include="Resources\web.ico" />
-    <None Include="Resources\web-ftp.ico" />
-    <None Include="Resources\window.ico" />
-    <None Include="Resources\wireless-blue.ico" />
-    <None Include="Resources\wireless-green.ico" />
-    <None Include="Resources\wireless-red.ico" />
-    <None Include="Resources\wireless-yellow.ico" />
-    <None Include="Resources\zoom-.ico" />
-    <None Include="Resources\zoom+.ico" />
-    <None Include="Resources\add-window.png" />
-    <None Include="Resources\app_comment.png" />
-    <None Include="Resources\App_Lib.png" />
-    <None Include="Resources\barGraph.png" />
-    <None Include="Resources\book_green.png" />
-    <None Include="Resources\book_orange.png" />
-    <None Include="Resources\camera.png" />
-    <None Include="Resources\chart.png" />
-    <None Include="Resources\chart_tendency.png" />
-    <None Include="Resources\chat.png" />
-    <None Include="Resources\clipboard.png" />
-    <None Include="Resources\Close.png" />
-    <None Include="Resources\configure.png" />
-    <None Include="Resources\confirm.png" />
-    <None Include="Resources\convert.png" />
-    <None Include="Resources\dap.png" />
-    <None Include="Resources\decrypted.png" />
-    <None Include="Resources\Defrag.png" />
-    <None Include="Resources\desktop_edit.png" />
-    <None Include="Resources\doc_redo.png" />
-    <None Include="Resources\dzh.png" />
-    <None Include="Resources\encrypted.png" />
-    <None Include="Resources\error.png" />
-    <None Include="Resources\exec.png" />
-    <None Include="Resources\fade%2520in.png" />
-    <None Include="Resources\fade20out.png" />
-    <None Include="Resources\Female.png" />
-    <None Include="Resources\file_delete.png" />
-    <None Include="Resources\file_info.png" />
-    <None Include="Resources\file_make.png" />
-    <None Include="Resources\file_message.png" />
-    <None Include="Resources\file_spreadsheet.png" />
-    <None Include="Resources\file-decrypted.png" />
-    <None Include="Resources\file-encrypted.png" />
-    <None Include="Resources\file-lock.png" />
-    <None Include="Resources\filetypes.png" />
-    <None Include="Resources\find.png" />
-    <None Include="Resources\flag_blue.png" />
-    <None Include="Resources\flag_red.png" />
-    <None Include="Resources\flag_yellow.png" />
-    <None Include="Resources\fore.png" />
-    <None Include="Resources\GameControllers.png" />
-    <None Include="Resources\goods.png" />
-    <None Include="Resources\grafle.png" />
-    <None Include="Resources\help_none.png" />
-    <None Include="Resources\Hourglass.png" />
-    <None Include="Resources\intelligent.png" />
-    <None Include="Resources\InternetOptions.png" />
-    <None Include="Resources\label-green.png" />
-    <None Include="Resources\label-red.png" />
-    <None Include="Resources\LinesSheet.png" />
-    <None Include="Resources\Link.png" />
-    <None Include="Resources\loop.png" />
-    <None Include="Resources\MagicWand.png" />
-    <None Include="Resources\mail_open.png" />
-    <None Include="Resources\Male.png" />
-    <None Include="Resources\map.png" />
-    <None Include="Resources\Map_Navigation.png" />
-    <None Include="Resources\metathesis.png" />
-    <None Include="Resources\Min.png" />
-    <None Include="Resources\money_RMB.png" />
-    <None Include="Resources\NewMail.png" />
-    <None Include="Resources\news.png" />
-    <None Include="Resources\officer.png" />
-    <None Include="Resources\OutlookExpress.png" />
-    <None Include="Resources\palette.png" />
-    <None Include="Resources\pan.png" />
-    <None Include="Resources\paperclip_black.png" />
-    <None Include="Resources\paperclip_Orange.png" />
-    <None Include="Resources\paperclip_sky.png" />
-    <None Include="Resources\PencilAndRuler.png" />
-    <None Include="Resources\PersonData.png" />
-    <None Include="Resources\PersonInput.png" />
-    <None Include="Resources\PhotoImages.png" />
-    <None Include="Resources\pieGraph.png" />
-    <None Include="Resources\PlaceOnFile.png" />
-    <None Include="Resources\plan.png" />
-    <None Include="Resources\product_tag.png" />
-    <None Include="Resources\recovery.png" />
-    <None Include="Resources\recurrence.png" />
-    <None Include="Resources\recurrence_orange.png" />
-    <None Include="Resources\report_BarGraph.png" />
-    <None Include="Resources\report_PieGraph.png" />
-    <None Include="Resources\Restricted 1.png" />
-    <None Include="Resources\Restricted 2.png" />
-    <None Include="Resources\ruler.png" />
-    <None Include="Resources\run.png" />
-    <None Include="Resources\Schedule.png" />
-    <None Include="Resources\Schedule_confirm.png" />
-    <None Include="Resources\Schedule_edit.png" />
-    <None Include="Resources\Schedule_query.png" />
-    <None Include="Resources\search2.png" />
-    <None Include="Resources\setup.png" />
-    <None Include="Resources\shield1.png" />
-    <None Include="Resources\shield2.png" />
-    <None Include="Resources\shield3.png" />
-    <None Include="Resources\shield4.png" />
-    <None Include="Resources\shopping_trolley.png" />
-    <None Include="Resources\shuffle.png" />
-    <None Include="Resources\sign_1_fixed.png" />
-    <None Include="Resources\sign_1_unfixed.png" />
-    <None Include="Resources\sign_fixed.png" />
-    <None Include="Resources\sign_unfixed.png" />
-    <None Include="Resources\start.png" />
-    <None Include="Resources\stats.png" />
-    <None Include="Resources\stepin.png" />
-    <None Include="Resources\Tablet_PC.png" />
-    <None Include="Resources\Time.png" />
-    <None Include="Resources\tool.png" />
-    <None Include="Resources\tools.png" />
-    <None Include="Resources\trash_empty.png" />
-    <None Include="Resources\trash_full.png" />
-    <None Include="Resources\UserAccounts.png" />
-    <None Include="Resources\zSession.png" />
-    <None Include="Resources\app_comment.ico" />
-    <None Include="Resources\App_Lib.ico" />
-    <None Include="Resources\barGraph.ico" />
-    <None Include="Resources\book_green.ico" />
-    <None Include="Resources\book_orange.ico" />
-    <None Include="Resources\camera.ico" />
-    <None Include="Resources\chart.ico" />
-    <None Include="Resources\chart_tendency.ico" />
-    <None Include="Resources\chat.ico" />
-    <None Include="Resources\clipboard.ico" />
-    <None Include="Resources\Close.ico" />
-    <None Include="Resources\configure.ico" />
-    <None Include="Resources\confirm.ico" />
-    <None Include="Resources\convert.ico" />
-    <None Include="Resources\dap.ico" />
-    <None Include="Resources\decrypted.ico" />
-    <None Include="Resources\defrag.ico" />
-    <None Include="Resources\desktop_edit.ico" />
-    <None Include="Resources\doc_redo.ico" />
-    <None Include="Resources\dzh.ico" />
-    <None Include="Resources\encrypted.ico" />
-    <None Include="Resources\error.ico" />
-    <None Include="Resources\exec.ico" />
-    <None Include="Resources\fade20in.ico" />
-    <None Include="Resources\fade20out.ico" />
-    <None Include="Resources\Female.ico" />
-    <None Include="Resources\file_delete.ico" />
-    <None Include="Resources\file_encrypted.ico" />
-    <None Include="Resources\file_info.ico" />
-    <None Include="Resources\file_make.ico" />
-    <None Include="Resources\file_message.ico" />
-    <None Include="Resources\file_spreadsheet.ico" />
-    <None Include="Resources\file-decrypted.ico" />
-    <None Include="Resources\file-lock.ico" />
-    <None Include="Resources\filetypes.ico" />
-    <None Include="Resources\find.ico" />
-    <None Include="Resources\flag_blue.ico" />
-    <None Include="Resources\flag_red.ico" />
-    <None Include="Resources\flag_yellow.ico" />
-    <None Include="Resources\fore.ico" />
-    <None Include="Resources\GameControllers.ico" />
-    <None Include="Resources\Goods.ico" />
-    <None Include="Resources\grafle.ico" />
-    <None Include="Resources\help_none.ico" />
-    <None Include="Resources\Hourglass.ico" />
-    <None Include="Resources\intelligent.ico" />
-    <None Include="Resources\InternetOptions.ico" />
-    <None Include="Resources\label-green.ico" />
-    <None Include="Resources\label-red.ico" />
-    <None Include="Resources\LinesSheet.ico" />
-    <None Include="Resources\Link.ico" />
-    <None Include="Resources\loop.ico" />
-    <None Include="Resources\MagicWand.ico" />
-    <None Include="Resources\mail_open.ico" />
-    <None Include="Resources\Male.ico" />
-    <None Include="Resources\map.ico" />
-    <None Include="Resources\Map_Navigation.ico" />
-    <None Include="Resources\metathesis.ico" />
-    <None Include="Resources\min.ico" />
-    <None Include="Resources\money_RMB.ico" />
-    <None Include="Resources\NewMail.ico" />
-    <None Include="Resources\news.ico" />
-    <None Include="Resources\officer.ico" />
-    <None Include="Resources\OutlookExpress.ico" />
-    <None Include="Resources\palette.ico" />
-    <None Include="Resources\pan.ico" />
-    <None Include="Resources\paperclip_black.ico" />
-    <None Include="Resources\paperclip_Orange.ico" />
-    <None Include="Resources\paperclip_sky.ico" />
-    <None Include="Resources\PencilAndRuler.ico" />
-    <None Include="Resources\PersonData.ico" />
-    <None Include="Resources\PersonInput.ico" />
-    <None Include="Resources\PhotoImages.ico" />
-    <None Include="Resources\pieGraph.ico" />
-    <None Include="Resources\PlaceOnFile.ico" />
-    <None Include="Resources\plan.ico" />
-    <None Include="Resources\product_tag.ico" />
-    <None Include="Resources\recovery.ico" />
-    <None Include="Resources\recurrence.ico" />
-    <None Include="Resources\recurrence_orange.ico" />
-    <None Include="Resources\report_BarGraph.ico" />
-    <None Include="Resources\report_PieGraph.ico" />
-    <None Include="Resources\Restricted 1.ico" />
-    <None Include="Resources\Restricted 2.ico" />
-    <None Include="Resources\ruler.ico" />
-    <None Include="Resources\run.ico" />
-    <None Include="Resources\Schedule.ico" />
-    <None Include="Resources\Schedule_confirm.ico" />
-    <None Include="Resources\Schedule_edit.ico" />
-    <None Include="Resources\Schedule_query.ico" />
-    <None Include="Resources\search2.ico" />
-    <None Include="Resources\setup.ico" />
-    <None Include="Resources\shield1.ico" />
-    <None Include="Resources\shield2.ico" />
-    <None Include="Resources\shield3.ico" />
-    <None Include="Resources\shield4.ico" />
-    <None Include="Resources\shopping_trolley.ico" />
-    <None Include="Resources\shuffle.ico" />
-    <None Include="Resources\sign_1_fixed.ico" />
-    <None Include="Resources\sign_1_unfixed.ico" />
-    <None Include="Resources\sign_fixed.ico" />
-    <None Include="Resources\sign_unfixed.ico" />
-    <None Include="Resources\start.ico" />
-    <None Include="Resources\stats.ico" />
-    <None Include="Resources\stepin.ico" />
-    <None Include="Resources\Tablet_PC.ico" />
-    <None Include="Resources\Time.ico" />
-    <None Include="Resources\tool.ico" />
-    <None Include="Resources\tools.ico" />
-    <None Include="Resources\trash_empty.ico" />
-    <None Include="Resources\trash_full.ico" />
-    <None Include="Resources\UserAccounts.ico" />
-    <None Include="Resources\zSession.ico" />
-    <Content Include="Resources_BGImage\backgrond.jpeg" />
-    <Content Include="Resources_BGImage\title.jpg" />
+    <None Include="Images\Resources\access.ico" />
+    <None Include="Images\Resources\access-alt.ico" />
+    <None Include="Images\Resources\add.ico" />
+    <None Include="Images\Resources\add-window.ico" />
+    <None Include="Images\Resources\alert.ico" />
+    <None Include="Images\Resources\back up.ico" />
+    <None Include="Images\Resources\back.ico" />
+    <None Include="Images\Resources\back-alt.ico" />
+    <None Include="Images\Resources\button blue alt.ico" />
+    <None Include="Images\Resources\button green alt.ico" />
+    <None Include="Images\Resources\button red alt.ico" />
+    <None Include="Images\Resources\button-blue.ico" />
+    <None Include="Images\Resources\button-green.ico" />
+    <None Include="Images\Resources\button-red.ico" />
+    <None Include="Images\Resources\button-withe.ico" />
+    <None Include="Images\Resources\button-yellow.ico" />
+    <None Include="Images\Resources\cal.ico" />
+    <None Include="Images\Resources\CD.ico" />
+    <None Include="Images\Resources\CD-burn.ico" />
+    <None Include="Images\Resources\CD-Music.ico" />
+    <None Include="Images\Resources\clock.ico" />
+    <None Include="Images\Resources\coffe.ico" />
+    <None Include="Images\Resources\cpu.ico" />
+    <None Include="Images\Resources\cut.ico" />
+    <None Include="Images\Resources\db.ico" />
+    <None Include="Images\Resources\db-add.ico" />
+    <None Include="Images\Resources\db-download.ico" />
+    <None Include="Images\Resources\db-remove.ico" />
+    <None Include="Images\Resources\db-upload.ico" />
+    <None Include="Images\Resources\db-web.ico" />
+    <None Include="Images\Resources\delete.ico" />
+    <None Include="Images\Resources\delete-alt.ico" />
+    <None Include="Images\Resources\DJ-off.ico" />
+    <None Include="Images\Resources\DJ-on.ico" />
+    <None Include="Images\Resources\door.ico" />
+    <None Include="Images\Resources\down.ico" />
+    <None Include="Images\Resources\down-alt.ico" />
+    <None Include="Images\Resources\download.ico" />
+    <None Include="Images\Resources\edit user.ico" />
+    <None Include="Images\Resources\edit.ico" />
+    <None Include="Images\Resources\emoticon-1.ico" />
+    <None Include="Images\Resources\emoticon-2.ico" />
+    <None Include="Images\Resources\emoticon-3.ico" />
+    <None Include="Images\Resources\emoticon-4.ico" />
+    <None Include="Images\Resources\emoticon-5.ico" />
+    <None Include="Images\Resources\emoticon-6.ico" />
+    <None Include="Images\Resources\emoticon-7.ico" />
+    <None Include="Images\Resources\emoticon-8.ico" />
+    <None Include="Images\Resources\emoticon-9.ico" />
+    <None Include="Images\Resources\emoticon-10.ico" />
+    <None Include="Images\Resources\emoticon-11.ico" />
+    <None Include="Images\Resources\emoticon-12.ico" />
+    <None Include="Images\Resources\exclamation.ico" />
+    <None Include="Images\Resources\faq.ico" />
+    <None Include="Images\Resources\favorites.ico" />
+    <None Include="Images\Resources\favorites-add.ico" />
+    <None Include="Images\Resources\fax.ico" />
+    <None Include="Images\Resources\file.ico" />
+    <None Include="Images\Resources\file-copy.ico" />
+    <None Include="Images\Resources\file-doc.ico" />
+    <None Include="Images\Resources\file-down.ico" />
+    <None Include="Images\Resources\file-edit.ico" />
+    <None Include="Images\Resources\file-new.ico" />
+    <None Include="Images\Resources\file-up.ico" />
+    <None Include="Images\Resources\first.ico" />
+    <None Include="Images\Resources\folder-blue rename.ico" />
+    <None Include="Images\Resources\folder-blue up.ico" />
+    <None Include="Images\Resources\folder-blue.ico" />
+    <None Include="Images\Resources\folder-blue-down.ico" />
+    <None Include="Images\Resources\folder-blue-image.ico" />
+    <None Include="Images\Resources\folder-image.ico" />
+    <None Include="Images\Resources\folder-white up.ico" />
+    <None Include="Images\Resources\folder-white.ico" />
+    <None Include="Images\Resources\folder-white-down.ico" />
+    <None Include="Images\Resources\folder-white-rename.ico" />
+    <None Include="Images\Resources\forward.ico" />
+    <None Include="Images\Resources\forward-alt.ico" />
+    <None Include="Images\Resources\HD.ico" />
+    <None Include="Images\Resources\HD-down.ico" />
+    <None Include="Images\Resources\HD-share.ico" />
+    <None Include="Images\Resources\HD-up.ico" />
+    <None Include="Images\Resources\help.ico" />
+    <None Include="Images\Resources\home.ico" />
+    <None Include="Images\Resources\info.ico" />
+    <None Include="Images\Resources\ipod-off.ico" />
+    <None Include="Images\Resources\ipod-on.ico" />
+    <None Include="Images\Resources\key.ico" />
+    <None Include="Images\Resources\last.ico" />
+    <None Include="Images\Resources\Layer 4.ico" />
+    <None Include="Images\Resources\ligth-off.ico" />
+    <None Include="Images\Resources\ligth-on.ico" />
+    <None Include="Images\Resources\lock.ico" />
+    <None Include="Images\Resources\mail.ico" />
+    <None Include="Images\Resources\mail-edit.ico" />
+    <None Include="Images\Resources\misc.ico" />
+    <None Include="Images\Resources\misc-blue.ico" />
+    <None Include="Images\Resources\misc-green.ico" />
+    <None Include="Images\Resources\misc-red.ico" />
+    <None Include="Images\Resources\misc-yellow.ico" />
+    <None Include="Images\Resources\module.ico" />
+    <None Include="Images\Resources\monitor-off.ico" />
+    <None Include="Images\Resources\monitor-on.ico" />
+    <None Include="Images\Resources\music.ico" />
+    <None Include="Images\Resources\offert.ico" />
+    <None Include="Images\Resources\ok.ico" />
+    <None Include="Images\Resources\package.ico" />
+    <None Include="Images\Resources\package-add.ico" />
+    <None Include="Images\Resources\package-down.ico" />
+    <None Include="Images\Resources\Package-remove.ico" />
+    <None Include="Images\Resources\package-up.ico" />
+    <None Include="Images\Resources\phone-blue.ico" />
+    <None Include="Images\Resources\phone-green.ico" />
+    <None Include="Images\Resources\phone-red.ico" />
+    <None Include="Images\Resources\phone-yellow.ico" />
+    <None Include="Images\Resources\picture.ico" />
+    <None Include="Images\Resources\play.ico" />
+    <None Include="Images\Resources\play-back.ico" />
+    <None Include="Images\Resources\play-first.ico" />
+    <None Include="Images\Resources\play-forward.ico" />
+    <None Include="Images\Resources\play-options.ico" />
+    <None Include="Images\Resources\play-pause.ico" />
+    <None Include="Images\Resources\play-rec.ico" />
+    <None Include="Images\Resources\play-repeat.ico" />
+    <None Include="Images\Resources\play-star.ico" />
+    <None Include="Images\Resources\play-stop.ico" />
+    <None Include="Images\Resources\preferences.ico" />
+    <None Include="Images\Resources\print.ico" />
+    <None Include="Images\Resources\print-preview.ico" />
+    <None Include="Images\Resources\public.ico" />
+    <None Include="Images\Resources\question.ico" />
+    <None Include="Images\Resources\redo.ico" />
+    <None Include="Images\Resources\reload.ico" />
+    <None Include="Images\Resources\reload-alt.ico" />
+    <None Include="Images\Resources\remove.ico" />
+    <None Include="Images\Resources\remove-window.ico" />
+    <None Include="Images\Resources\save copy.ico" />
+    <None Include="Images\Resources\save.ico" />
+    <None Include="Images\Resources\save-alt.ico" />
+    <None Include="Images\Resources\saveas-alt.ico" />
+    <None Include="Images\Resources\save-copy-alt.ico" />
+    <None Include="Images\Resources\search.ico" />
+    <None Include="Images\Resources\search-file.ico" />
+    <None Include="Images\Resources\search-web.ico" />
+    <None Include="Images\Resources\server.ico" />
+    <None Include="Images\Resources\sound.ico" />
+    <None Include="Images\Resources\star.ico" />
+    <None Include="Images\Resources\statistic.ico" />
+    <None Include="Images\Resources\status-off.ico" />
+    <None Include="Images\Resources\status-on.ico" />
+    <None Include="Images\Resources\stop.ico" />
+    <None Include="Images\Resources\stop-alt.ico" />
+    <None Include="Images\Resources\Thumbs.ico" />
+    <None Include="Images\Resources\undo.ico" />
+    <None Include="Images\Resources\unlock.ico" />
+    <None Include="Images\Resources\up.ico" />
+    <None Include="Images\Resources\up-alt.ico" />
+    <None Include="Images\Resources\upload.ico" />
+    <None Include="Images\Resources\user.ico" />
+    <None Include="Images\Resources\users.ico" />
+    <None Include="Images\Resources\vcard.ico" />
+    <None Include="Images\Resources\web.ico" />
+    <None Include="Images\Resources\web-ftp.ico" />
+    <None Include="Images\Resources\window.ico" />
+    <None Include="Images\Resources\wireless-blue.ico" />
+    <None Include="Images\Resources\wireless-green.ico" />
+    <None Include="Images\Resources\wireless-red.ico" />
+    <None Include="Images\Resources\wireless-yellow.ico" />
+    <None Include="Images\Resources\zoom-.ico" />
+    <None Include="Images\Resources\zoom+.ico" />
+    <None Include="Images\Resources\add-window.png" />
+    <None Include="Images\Resources\app_comment.png" />
+    <None Include="Images\Resources\App_Lib.png" />
+    <None Include="Images\Resources\barGraph.png" />
+    <None Include="Images\Resources\book_green.png" />
+    <None Include="Images\Resources\book_orange.png" />
+    <None Include="Images\Resources\camera.png" />
+    <None Include="Images\Resources\chart.png" />
+    <None Include="Images\Resources\chart_tendency.png" />
+    <None Include="Images\Resources\chat.png" />
+    <None Include="Images\Resources\clipboard.png" />
+    <None Include="Images\Resources\Close.png" />
+    <None Include="Images\Resources\configure.png" />
+    <None Include="Images\Resources\confirm.png" />
+    <None Include="Images\Resources\convert.png" />
+    <None Include="Images\Resources\dap.png" />
+    <None Include="Images\Resources\decrypted.png" />
+    <None Include="Images\Resources\Defrag.png" />
+    <None Include="Images\Resources\desktop_edit.png" />
+    <None Include="Images\Resources\doc_redo.png" />
+    <None Include="Images\Resources\dzh.png" />
+    <None Include="Images\Resources\encrypted.png" />
+    <None Include="Images\Resources\error.png" />
+    <None Include="Images\Resources\exec.png" />
+    <None Include="Images\Resources\fade%2520in.png" />
+    <None Include="Images\Resources\fade20out.png" />
+    <None Include="Images\Resources\Female.png" />
+    <None Include="Images\Resources\file_delete.png" />
+    <None Include="Images\Resources\file_info.png" />
+    <None Include="Images\Resources\file_make.png" />
+    <None Include="Images\Resources\file_message.png" />
+    <None Include="Images\Resources\file_spreadsheet.png" />
+    <None Include="Images\Resources\file-decrypted.png" />
+    <None Include="Images\Resources\file-encrypted.png" />
+    <None Include="Images\Resources\file-lock.png" />
+    <None Include="Images\Resources\filetypes.png" />
+    <None Include="Images\Resources\find.png" />
+    <None Include="Images\Resources\flag_blue.png" />
+    <None Include="Images\Resources\flag_red.png" />
+    <None Include="Images\Resources\flag_yellow.png" />
+    <None Include="Images\Resources\fore.png" />
+    <None Include="Images\Resources\GameControllers.png" />
+    <None Include="Images\Resources\goods.png" />
+    <None Include="Images\Resources\grafle.png" />
+    <None Include="Images\Resources\help_none.png" />
+    <None Include="Images\Resources\Hourglass.png" />
+    <None Include="Images\Resources\intelligent.png" />
+    <None Include="Images\Resources\InternetOptions.png" />
+    <None Include="Images\Resources\label-green.png" />
+    <None Include="Images\Resources\label-red.png" />
+    <None Include="Images\Resources\LinesSheet.png" />
+    <None Include="Images\Resources\Link.png" />
+    <None Include="Images\Resources\loop.png" />
+    <None Include="Images\Resources\MagicWand.png" />
+    <None Include="Images\Resources\mail_open.png" />
+    <None Include="Images\Resources\Male.png" />
+    <None Include="Images\Resources\map.png" />
+    <None Include="Images\Resources\Map_Navigation.png" />
+    <None Include="Images\Resources\metathesis.png" />
+    <None Include="Images\Resources\Min.png" />
+    <None Include="Images\Resources\money_RMB.png" />
+    <None Include="Images\Resources\NewMail.png" />
+    <None Include="Images\Resources\news.png" />
+    <None Include="Images\Resources\officer.png" />
+    <None Include="Images\Resources\OutlookExpress.png" />
+    <None Include="Images\Resources\palette.png" />
+    <None Include="Images\Resources\pan.png" />
+    <None Include="Images\Resources\paperclip_black.png" />
+    <None Include="Images\Resources\paperclip_Orange.png" />
+    <None Include="Images\Resources\paperclip_sky.png" />
+    <None Include="Images\Resources\PencilAndRuler.png" />
+    <None Include="Images\Resources\PersonData.png" />
+    <None Include="Images\Resources\PersonInput.png" />
+    <None Include="Images\Resources\PhotoImages.png" />
+    <None Include="Images\Resources\pieGraph.png" />
+    <None Include="Images\Resources\PlaceOnFile.png" />
+    <None Include="Images\Resources\plan.png" />
+    <None Include="Images\Resources\product_tag.png" />
+    <None Include="Images\Resources\recovery.png" />
+    <None Include="Images\Resources\recurrence.png" />
+    <None Include="Images\Resources\recurrence_orange.png" />
+    <None Include="Images\Resources\report_BarGraph.png" />
+    <None Include="Images\Resources\report_PieGraph.png" />
+    <None Include="Images\Resources\Restricted 1.png" />
+    <None Include="Images\Resources\Restricted 2.png" />
+    <None Include="Images\Resources\ruler.png" />
+    <None Include="Images\Resources\run.png" />
+    <None Include="Images\Resources\Schedule.png" />
+    <None Include="Images\Resources\Schedule_confirm.png" />
+    <None Include="Images\Resources\Schedule_edit.png" />
+    <None Include="Images\Resources\Schedule_query.png" />
+    <None Include="Images\Resources\search2.png" />
+    <None Include="Images\Resources\setup.png" />
+    <None Include="Images\Resources\shield1.png" />
+    <None Include="Images\Resources\shield2.png" />
+    <None Include="Images\Resources\shield3.png" />
+    <None Include="Images\Resources\shield4.png" />
+    <None Include="Images\Resources\shopping_trolley.png" />
+    <None Include="Images\Resources\shuffle.png" />
+    <None Include="Images\Resources\sign_1_fixed.png" />
+    <None Include="Images\Resources\sign_1_unfixed.png" />
+    <None Include="Images\Resources\sign_fixed.png" />
+    <None Include="Images\Resources\sign_unfixed.png" />
+    <None Include="Images\Resources\start.png" />
+    <None Include="Images\Resources\stats.png" />
+    <None Include="Images\Resources\stepin.png" />
+    <None Include="Images\Resources\Tablet_PC.png" />
+    <None Include="Images\Resources\Time.png" />
+    <None Include="Images\Resources\tool.png" />
+    <None Include="Images\Resources\tools.png" />
+    <None Include="Images\Resources\trash_empty.png" />
+    <None Include="Images\Resources\trash_full.png" />
+    <None Include="Images\Resources\UserAccounts.png" />
+    <None Include="Images\Resources\zSession.png" />
+    <None Include="Images\Resources\app_comment.ico" />
+    <None Include="Images\Resources\App_Lib.ico" />
+    <None Include="Images\Resources\barGraph.ico" />
+    <None Include="Images\Resources\book_green.ico" />
+    <None Include="Images\Resources\book_orange.ico" />
+    <None Include="Images\Resources\camera.ico" />
+    <None Include="Images\Resources\chart.ico" />
+    <None Include="Images\Resources\chart_tendency.ico" />
+    <None Include="Images\Resources\chat.ico" />
+    <None Include="Images\Resources\clipboard.ico" />
+    <None Include="Images\Resources\Close.ico" />
+    <None Include="Images\Resources\configure.ico" />
+    <None Include="Images\Resources\confirm.ico" />
+    <None Include="Images\Resources\convert.ico" />
+    <None Include="Images\Resources\dap.ico" />
+    <None Include="Images\Resources\decrypted.ico" />
+    <None Include="Images\Resources\defrag.ico" />
+    <None Include="Images\Resources\desktop_edit.ico" />
+    <None Include="Images\Resources\doc_redo.ico" />
+    <None Include="Images\Resources\dzh.ico" />
+    <None Include="Images\Resources\encrypted.ico" />
+    <None Include="Images\Resources\error.ico" />
+    <None Include="Images\Resources\exec.ico" />
+    <None Include="Images\Resources\fade20in.ico" />
+    <None Include="Images\Resources\fade20out.ico" />
+    <None Include="Images\Resources\Female.ico" />
+    <None Include="Images\Resources\file_delete.ico" />
+    <None Include="Images\Resources\file_encrypted.ico" />
+    <None Include="Images\Resources\file_info.ico" />
+    <None Include="Images\Resources\file_make.ico" />
+    <None Include="Images\Resources\file_message.ico" />
+    <None Include="Images\Resources\file_spreadsheet.ico" />
+    <None Include="Images\Resources\file-decrypted.ico" />
+    <None Include="Images\Resources\file-lock.ico" />
+    <None Include="Images\Resources\filetypes.ico" />
+    <None Include="Images\Resources\find.ico" />
+    <None Include="Images\Resources\flag_blue.ico" />
+    <None Include="Images\Resources\flag_red.ico" />
+    <None Include="Images\Resources\flag_yellow.ico" />
+    <None Include="Images\Resources\fore.ico" />
+    <None Include="Images\Resources\GameControllers.ico" />
+    <None Include="Images\Resources\Goods.ico" />
+    <None Include="Images\Resources\grafle.ico" />
+    <None Include="Images\Resources\help_none.ico" />
+    <None Include="Images\Resources\Hourglass.ico" />
+    <None Include="Images\Resources\intelligent.ico" />
+    <None Include="Images\Resources\InternetOptions.ico" />
+    <None Include="Images\Resources\label-green.ico" />
+    <None Include="Images\Resources\label-red.ico" />
+    <None Include="Images\Resources\LinesSheet.ico" />
+    <None Include="Images\Resources\Link.ico" />
+    <None Include="Images\Resources\loop.ico" />
+    <None Include="Images\Resources\MagicWand.ico" />
+    <None Include="Images\Resources\mail_open.ico" />
+    <None Include="Images\Resources\Male.ico" />
+    <None Include="Images\Resources\map.ico" />
+    <None Include="Images\Resources\Map_Navigation.ico" />
+    <None Include="Images\Resources\metathesis.ico" />
+    <None Include="Images\Resources\min.ico" />
+    <None Include="Images\Resources\money_RMB.ico" />
+    <None Include="Images\Resources\NewMail.ico" />
+    <None Include="Images\Resources\news.ico" />
+    <None Include="Images\Resources\officer.ico" />
+    <None Include="Images\Resources\OutlookExpress.ico" />
+    <None Include="Images\Resources\palette.ico" />
+    <None Include="Images\Resources\pan.ico" />
+    <None Include="Images\Resources\paperclip_black.ico" />
+    <None Include="Images\Resources\paperclip_Orange.ico" />
+    <None Include="Images\Resources\paperclip_sky.ico" />
+    <None Include="Images\Resources\PencilAndRuler.ico" />
+    <None Include="Images\Resources\PersonData.ico" />
+    <None Include="Images\Resources\PersonInput.ico" />
+    <None Include="Images\Resources\PhotoImages.ico" />
+    <None Include="Images\Resources\pieGraph.ico" />
+    <None Include="Images\Resources\PlaceOnFile.ico" />
+    <None Include="Images\Resources\plan.ico" />
+    <None Include="Images\Resources\product_tag.ico" />
+    <None Include="Images\Resources\recovery.ico" />
+    <None Include="Images\Resources\recurrence.ico" />
+    <None Include="Images\Resources\recurrence_orange.ico" />
+    <None Include="Images\Resources\report_BarGraph.ico" />
+    <None Include="Images\Resources\report_PieGraph.ico" />
+    <None Include="Images\Resources\Restricted 1.ico" />
+    <None Include="Images\Resources\Restricted 2.ico" />
+    <None Include="Images\Resources\ruler.ico" />
+    <None Include="Images\Resources\run.ico" />
+    <None Include="Images\Resources\Schedule.ico" />
+    <None Include="Images\Resources\Schedule_confirm.ico" />
+    <None Include="Images\Resources\Schedule_edit.ico" />
+    <None Include="Images\Resources\Schedule_query.ico" />
+    <None Include="Images\Resources\search2.ico" />
+    <None Include="Images\Resources\setup.ico" />
+    <None Include="Images\Resources\shield1.ico" />
+    <None Include="Images\Resources\shield2.ico" />
+    <None Include="Images\Resources\shield3.ico" />
+    <None Include="Images\Resources\shield4.ico" />
+    <None Include="Images\Resources\shopping_trolley.ico" />
+    <None Include="Images\Resources\shuffle.ico" />
+    <None Include="Images\Resources\sign_1_fixed.ico" />
+    <None Include="Images\Resources\sign_1_unfixed.ico" />
+    <None Include="Images\Resources\sign_fixed.ico" />
+    <None Include="Images\Resources\sign_unfixed.ico" />
+    <None Include="Images\Resources\start.ico" />
+    <None Include="Images\Resources\stats.ico" />
+    <None Include="Images\Resources\stepin.ico" />
+    <None Include="Images\Resources\Tablet_PC.ico" />
+    <None Include="Images\Resources\Time.ico" />
+    <None Include="Images\Resources\tool.ico" />
+    <None Include="Images\Resources\tools.ico" />
+    <None Include="Images\Resources\trash_empty.ico" />
+    <None Include="Images\Resources\trash_full.ico" />
+    <None Include="Images\Resources\UserAccounts.ico" />
+    <None Include="Images\Resources\zSession.ico" />
+    <Content Include="Images\Finance\Account.ico" />
+    <Content Include="Images\Finance\Account.png" />
+    <Content Include="Images\Finance\complete.ico" />
+    <Content Include="Images\Finance\complete.png" />
+    <Content Include="Images\Finance\currency\doller.ico" />
+    <Content Include="Images\Finance\currency\doller.png" />
+    <Content Include="Images\Finance\currency\Euro.ico" />
+    <Content Include="Images\Finance\currency\Euro.png" />
+    <Content Include="Images\Finance\currency\RMB.ico" />
+    <Content Include="Images\Finance\currency\RMB.png" />
+    <Content Include="Images\Finance\currency_others\dollar.ico" />
+    <Content Include="Images\Finance\currency_others\dollar.png" />
+    <Content Include="Images\Finance\currency_others\RMB.ico" />
+    <Content Include="Images\Finance\currency_others\RMB.png" />
+    <Content Include="Images\Finance\signature.ico" />
+    <Content Include="Images\Finance\signature.png" />
+    <Content Include="Images\Finance\stockmarket.ico" />
+    <Content Include="Images\Finance\stockmarket.png" />
+    <Content Include="Images\Finance\wallet.ico" />
+    <Content Include="Images\Finance\wallet.png" />
+    <Content Include="Images\systemImages\BackGround\backgrond.jpeg" />
+    <Content Include="Images\systemImages\BackGround\title.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">

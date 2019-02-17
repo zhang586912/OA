@@ -31,11 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbDeviceManagement = new System.Windows.Forms.ToolStripButton();
-            this.tsbApplicationCenter = new System.Windows.Forms.ToolStripButton();
-            this.tsbGameCenter = new System.Windows.Forms.ToolStripButton();
-            this.tsbWareMarket = new System.Windows.Forms.ToolStripButton();
             this.tpTop = new System.Windows.Forms.TableLayoutPanel();
             this.tpTitle = new System.Windows.Forms.TableLayoutPanel();
             this.btnExit = new System.Windows.Forms.Button();
@@ -71,9 +66,19 @@
             this.panelBody = new System.Windows.Forms.Panel();
             this.btnMarket = new System.Windows.Forms.Button();
             this.btnNews = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbDeviceManagement = new System.Windows.Forms.ToolStripButton();
+            this.tsbApplicationCenter = new System.Windows.Forms.ToolStripButton();
+            this.tsbGameCenter = new System.Windows.Forms.ToolStripButton();
+            this.tsbWareMarket = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.bgkInit = new System.ComponentModel.BackgroundWorker();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.tpMain.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.tpTop.SuspendLayout();
             this.tpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picConnectStatus)).BeginInit();
@@ -86,6 +91,7 @@
             this.tpAutograph.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tpBody.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpMain
@@ -93,10 +99,9 @@
             this.tpMain.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tpMain.BackgroundImage")));
             this.tpMain.ColumnCount = 1;
             this.tpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tpMain.Controls.Add(this.toolStrip1, 0, 2);
             this.tpMain.Controls.Add(this.tpTop, 0, 0);
             this.tpMain.Controls.Add(this.tpBody, 0, 1);
-            this.tpMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpMain.Controls.Add(this.toolStrip1, 0, 2);
             this.tpMain.Location = new System.Drawing.Point(0, 0);
             this.tpMain.Name = "tpMain";
             this.tpMain.RowCount = 3;
@@ -106,60 +111,6 @@
             this.tpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tpMain.Size = new System.Drawing.Size(464, 815);
             this.tpMain.TabIndex = 1;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbDeviceManagement,
-            this.tsbApplicationCenter,
-            this.tsbGameCenter,
-            this.tsbWareMarket});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 775);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(464, 40);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsbDeviceManagement
-            // 
-            this.tsbDeviceManagement.Image = global::zSession.Properties.Resources.access_alt;
-            this.tsbDeviceManagement.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDeviceManagement.Name = "tsbDeviceManagement";
-            this.tsbDeviceManagement.Size = new System.Drawing.Size(60, 37);
-            this.tsbDeviceManagement.Text = "设备管理";
-            this.tsbDeviceManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbDeviceManagement.Click += new System.EventHandler(this.tsbDeviceManagement_Click);
-            // 
-            // tsbApplicationCenter
-            // 
-            this.tsbApplicationCenter.Image = global::zSession.Properties.Resources.app_comment;
-            this.tsbApplicationCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbApplicationCenter.Name = "tsbApplicationCenter";
-            this.tsbApplicationCenter.Size = new System.Drawing.Size(60, 37);
-            this.tsbApplicationCenter.Text = "应用管理";
-            this.tsbApplicationCenter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbApplicationCenter.Click += new System.EventHandler(this.tsbApplicationCenter_Click);
-            // 
-            // tsbGameCenter
-            // 
-            this.tsbGameCenter.Image = global::zSession.Properties.Resources.CD_burn;
-            this.tsbGameCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbGameCenter.Name = "tsbGameCenter";
-            this.tsbGameCenter.Size = new System.Drawing.Size(60, 37);
-            this.tsbGameCenter.Text = "游戏中心";
-            this.tsbGameCenter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbGameCenter.Click += new System.EventHandler(this.tsbGameCenter_Click);
-            // 
-            // tsbWareMarket
-            // 
-            this.tsbWareMarket.Image = global::zSession.Properties.Resources.App_Lib;
-            this.tsbWareMarket.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbWareMarket.Name = "tsbWareMarket";
-            this.tsbWareMarket.Size = new System.Drawing.Size(60, 37);
-            this.tsbWareMarket.Text = "软件市场";
-            this.tsbWareMarket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbWareMarket.Click += new System.EventHandler(this.tsbWareMarket_Click);
             // 
             // tpTop
             // 
@@ -209,8 +160,9 @@
             // 
             // btnExit
             // 
+            this.btnExit.BackgroundImage = global::zSession.Properties.Resources.close;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExit.Image = global::zSession.Properties.Resources.close;
             this.btnExit.Location = new System.Drawing.Point(435, 1);
             this.btnExit.Margin = new System.Windows.Forms.Padding(1);
             this.btnExit.Name = "btnExit";
@@ -221,8 +173,9 @@
             // 
             // btnMin
             // 
+            this.btnMin.BackgroundImage = global::zSession.Properties.Resources.Min;
+            this.btnMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnMin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMin.Image = global::zSession.Properties.Resources.Min;
             this.btnMin.Location = new System.Drawing.Point(405, 1);
             this.btnMin.Margin = new System.Windows.Forms.Padding(1);
             this.btnMin.Name = "btnMin";
@@ -279,8 +232,9 @@
             // 
             // btnMail
             // 
+            this.btnMail.BackgroundImage = global::zSession.Properties.Resources.mail;
+            this.btnMail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnMail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMail.Image = global::zSession.Properties.Resources.mail;
             this.btnMail.Location = new System.Drawing.Point(345, 1);
             this.btnMail.Margin = new System.Windows.Forms.Padding(1);
             this.btnMail.Name = "btnMail";
@@ -292,8 +246,9 @@
             // btnSetup
             // 
             this.btnSetup.BackColor = System.Drawing.Color.Transparent;
+            this.btnSetup.BackgroundImage = global::zSession.Properties.Resources.setup;
+            this.btnSetup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSetup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSetup.Image = global::zSession.Properties.Resources.setup;
             this.btnSetup.Location = new System.Drawing.Point(375, 1);
             this.btnSetup.Margin = new System.Windows.Forms.Padding(1);
             this.btnSetup.Name = "btnSetup";
@@ -613,10 +568,99 @@
             this.btnNews.UseVisualStyleBackColor = true;
             this.btnNews.Click += new System.EventHandler(this.btnNews_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbDeviceManagement,
+            this.tsbApplicationCenter,
+            this.tsbGameCenter,
+            this.tsbWareMarket});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 775);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(464, 40);
+            this.toolStrip1.TabIndex = 6;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbDeviceManagement
+            // 
+            this.tsbDeviceManagement.Image = global::zSession.Properties.Resources.intelligent;
+            this.tsbDeviceManagement.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDeviceManagement.Name = "tsbDeviceManagement";
+            this.tsbDeviceManagement.Size = new System.Drawing.Size(60, 37);
+            this.tsbDeviceManagement.Text = "设备管理";
+            this.tsbDeviceManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbDeviceManagement.Click += new System.EventHandler(this.tsbDeviceManagement_Click);
+            // 
+            // tsbApplicationCenter
+            // 
+            this.tsbApplicationCenter.Image = global::zSession.Properties.Resources.app_comment;
+            this.tsbApplicationCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbApplicationCenter.Name = "tsbApplicationCenter";
+            this.tsbApplicationCenter.Size = new System.Drawing.Size(60, 37);
+            this.tsbApplicationCenter.Text = "应用管理";
+            this.tsbApplicationCenter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbApplicationCenter.Click += new System.EventHandler(this.tsbApplicationCenter_Click);
+            // 
+            // tsbGameCenter
+            // 
+            this.tsbGameCenter.Image = global::zSession.Properties.Resources.GameControllers;
+            this.tsbGameCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGameCenter.Name = "tsbGameCenter";
+            this.tsbGameCenter.Size = new System.Drawing.Size(60, 37);
+            this.tsbGameCenter.Text = "游戏中心";
+            this.tsbGameCenter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbGameCenter.Click += new System.EventHandler(this.tsbGameCenter_Click);
+            // 
+            // tsbWareMarket
+            // 
+            this.tsbWareMarket.Image = global::zSession.Properties.Resources.App_Lib;
+            this.tsbWareMarket.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbWareMarket.Name = "tsbWareMarket";
+            this.tsbWareMarket.Size = new System.Drawing.Size(60, 37);
+            this.tsbWareMarket.Text = "软件市场";
+            this.tsbWareMarket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbWareMarket.Click += new System.EventHandler(this.tsbWareMarket_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 23);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 23);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 23);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(107, 37);
+            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // bgkInit
             // 
             this.bgkInit.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgkInit_DoWork);
             this.bgkInit.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgkInit_RunWorkerCompleted);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 23);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 23);
             // 
             // FormMain
             // 
@@ -625,14 +669,15 @@
             this.ClientSize = new System.Drawing.Size(464, 815);
             this.Controls.Add(this.tpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "a";
             this.Shown += new System.EventHandler(this.FormMain_Shown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseMove);
+            this.Resize += new System.EventHandler(this.FormMain_Resize);
             this.tpMain.ResumeLayout(false);
             this.tpMain.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.tpTop.ResumeLayout(false);
             this.tpTitle.ResumeLayout(false);
             this.tpTitle.PerformLayout();
@@ -649,13 +694,14 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tpBody.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.TableLayoutPanel tpMain;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Panel panelBody;
         private System.Windows.Forms.ToolStripButton tsbWareMarket;
         private System.Windows.Forms.ToolStripButton tsbGameCenter;
@@ -696,6 +742,13 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiDisconnect;
         private System.Windows.Forms.FlowLayoutPanel flpVIP;
         private System.ComponentModel.BackgroundWorker bgkInit;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
     }
 }
 
