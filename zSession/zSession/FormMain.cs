@@ -16,6 +16,9 @@ namespace zSession
     {
         private AnchorStyles StopAanhor = AnchorStyles.None;
         private Timer hoverTimer = new Timer();
+
+        private Point loadPoint;
+
         public FormMain()
         {
             InitializeComponent();
@@ -75,11 +78,13 @@ namespace zSession
         public const int SC_MOVE = 0xF010;
         public const int HTCAPTION = 0x0002;
 
-        private void lblTitle_MouseDown(object sender, MouseEventArgs e)
+        private void tsTitle_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
+            loadPoint = this.Location;
         }
+        
 
         #endregion
 
@@ -141,8 +146,19 @@ namespace zSession
         }
 
         private void FormMain_Resize(object sender, EventArgs e)
-        {
-            tpMain.Size = new Size(this.Width - 5, this.Height - 5);
+        {           
+
+            if(this.WindowState== FormWindowState.Minimized)
+            {
+                this.Visible = false;
+                notifyIcon1.Visible = true;                
+            }
+            else
+            {
+                notifyIcon1.Visible = false;
+                tpMain.Size = new Size(this.Width - 5, this.Height - 5);
+                this.Visible = true;
+            }
         }
 
         #endregion
@@ -175,6 +191,37 @@ namespace zSession
 
         }
 
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs Mouse_e = (MouseEventArgs)e;
+
+            if (Mouse_e.Button == MouseButtons.Left)
+            {
+                this.Location = loadPoint;
+                this.Visible = true;
+                this.WindowState = FormWindowState.Normal;
+                //this.Activate();            
+            }
+        }
+               
+
+        private void tsmiShow_Click(object sender, EventArgs e)
+        {           
+            this.Location = loadPoint;
+            this.Visible = true;
+            this.WindowState = FormWindowState.Normal;
+            
+            //this.Activate();            
+        }
+
+        private void tsmiExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //this.Dispose();
+            //System.Environment.Exit(0);
+        }
+
+
         private void FormMain_Shown(object sender, EventArgs e)
         {
 
@@ -185,9 +232,11 @@ namespace zSession
             
         }
 
-        
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            loadPoint = this.Location;
+        }
 
-        
 
         private void bgkInit_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -220,7 +269,7 @@ namespace zSession
 
         private void btnMin_Click(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Minimized;
         }
                 
         private void btnSetup_Click(object sender, EventArgs e)
@@ -231,6 +280,20 @@ namespace zSession
         #region 系统基础功能
 
         private void btnMail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbJournal_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void tsbProject_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbTools_Click(object sender, EventArgs e)
         {
 
         }
@@ -287,6 +350,13 @@ namespace zSession
         {
 
         }
+
+
+
+
+
+
+
 
 
 

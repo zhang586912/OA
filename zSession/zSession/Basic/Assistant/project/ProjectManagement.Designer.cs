@@ -33,8 +33,6 @@
             this.tpMain = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -47,7 +45,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.projectPanel1 = new zSession.Assistant.project.ProjectPanel();
             this.tpMain.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -61,7 +58,6 @@
             this.tpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tpMain.Controls.Add(this.label1, 1, 0);
             this.tpMain.Controls.Add(this.label2, 2, 0);
-            this.tpMain.Controls.Add(this.toolStrip1, 0, 0);
             this.tpMain.Controls.Add(this.bindingNavigator1, 0, 2);
             this.tpMain.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tpMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -105,24 +101,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "我的参与";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(446, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton1.Text = "项目管理";
             // 
             // bindingNavigator1
             // 
@@ -226,6 +204,7 @@
             // 
             // projectPanel1
             // 
+            this.projectPanel1.BackColor = System.Drawing.Color.Transparent;
             this.projectPanel1.Location = new System.Drawing.Point(3, 3);
             this.projectPanel1.Name = "projectPanel1";
             this.projectPanel1.Size = new System.Drawing.Size(263, 25);
@@ -240,8 +219,6 @@
             this.Size = new System.Drawing.Size(606, 204);
             this.tpMain.ResumeLayout(false);
             this.tpMain.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
@@ -253,7 +230,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tpMain;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
@@ -265,7 +241,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private ProjectPanel projectPanel1;
     }

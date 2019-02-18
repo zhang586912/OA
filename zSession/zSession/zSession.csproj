@@ -110,6 +110,12 @@
     <Compile Include="Basic\Assistant\project\ProjectPanel.Designer.cs">
       <DependentUpon>ProjectPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,12 @@
     </Compile>
     <Compile Include="Basic\News\NewsPanel.Designer.cs">
       <DependentUpon>NewsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWelcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWelcome.Designer.cs">
+      <DependentUpon>FormWelcome.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,6 +241,9 @@
     <EmbeddedResource Include="Basic\Assistant\project\ProjectPanel.resx">
       <DependentUpon>ProjectPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Basic\News\NewsPanel.resx">
       <DependentUpon>NewsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWelcome.resx">
+      <DependentUpon>FormWelcome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -809,6 +827,10 @@
     <None Include="Images\Resources\plan_edit.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\systemImages\BackGround\header.jpg" />
+    <Content Include="Images\systemImages\BackGround\title.png" />
+    <None Include="Images\Resources\project.ico" />
+    <None Include="Images\Resources\project.png" />
     <None Include="Images\Resources\access.ico" />
     <None Include="Images\Resources\access-alt.ico" />
     <None Include="Images\Resources\add.ico" />
@@ -1226,7 +1248,6 @@
     <Content Include="Images\Finance\wallet.ico" />
     <Content Include="Images\Finance\wallet.png" />
     <Content Include="Images\systemImages\BackGround\backgrond.jpeg" />
-    <Content Include="Images\systemImages\BackGround\title.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
