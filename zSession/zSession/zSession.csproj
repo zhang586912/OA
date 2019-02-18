@@ -213,11 +213,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SystemSetup\common.cs" />
-    <Compile Include="SystemSetup\FormBase.cs">
+    <Compile Include="Base\common.cs" />
+    <Compile Include="Base\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SystemSetup\FormBase.Designer.cs">
+    <Compile Include="Base\FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Basic\Assistant\AssistantPanel.resx">
@@ -294,7 +294,7 @@
     <EmbeddedResource Include="Basic\SocialNet\SocialNetPanel.resx">
       <DependentUpon>SocialNetPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SystemSetup\FormBase.resx">
+    <EmbeddedResource Include="Base\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -311,13 +311,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Base\DataBase\" />
     <Folder Include="Extend\ApplicationCenter\" />
     <Folder Include="Extend\E_Mail\" />
     <Folder Include="Extend\GameCenter\" />
     <Folder Include="Extend\WareMarket\" />
     <Folder Include="Images\Personnel\" />
     <Folder Include="Images\Weather\" />
-    <Folder Include="SystemSetup\DataBase\" />
+    <Folder Include="SystemSetup\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Resources\wireless-blue.png" />

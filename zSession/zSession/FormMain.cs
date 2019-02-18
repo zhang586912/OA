@@ -271,13 +271,52 @@ namespace zSession
         {
             this.WindowState = FormWindowState.Minimized;
         }
-                
+
+        /// <summary>
+        /// 打开内部控件
+        /// </summary>
+        /// <param name="tabName"></param>
+        /// <param name="tabLabel"></param>
+        /// <param name="tabKey"></param>
+        /// <returns></returns>
+        private bool openTable(string tabName,string tabLabel,string tabKey)
+        {
+
+            return false;
+        }
+
+        /// <summary>
+        /// 打开扩展功能
+        /// </summary>
+        /// <param name="winName"></param>
+        /// <param name="winLabel"></param>
+        /// <param name="winKey"></param>
+        /// <returns></returns>
+        private bool openWindow(string winName,string winLabel,string winKey)
+        {
+
+            return false;
+        }
+
+        /// <summary>
+        /// 打开外部链接
+        /// </summary>
+        /// <param name="linkName"></param>
+        /// <param name="linkLabel"></param>
+        /// <param name="linkKey"></param>
+        /// <returns></returns>
+        private bool openLink(string linkName,string linkLabel,string linkKey)
+        {
+
+            return false;
+        }
+
+        #region 系统基础功能
         private void btnSetup_Click(object sender, EventArgs e)
         {
 
         }
 
-        #region 系统基础功能
 
         private void btnMail_Click(object sender, EventArgs e)
         {
