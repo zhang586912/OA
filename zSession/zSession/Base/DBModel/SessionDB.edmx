@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="mainModel.Store" Provider="Devart.Data.SQLite" ProviderManifestToken="SQLite, 3.27.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Session_Chat">
+          <Key>
+            <PropertyRef Name="sessionID" />
+          </Key>
+          <Property Name="sessionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="text" />
+          <Property Name="SessionContext" Type="blob" />
+          <Property Name="ContextType" Type="text" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityType Name="Session_Dpt_Roles">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dptID" Type="text" Nullable="false" />
+          <Property Name="roleID" Type="text" Nullable="false" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityType Name="Session_Dpt_Users">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dptID" Type="text" Nullable="false" />
+          <Property Name="userID" Type="text" Nullable="false" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityType Name="Session_Dpts">
+          <Key>
+            <PropertyRef Name="dptID" />
+          </Key>
+          <Property Name="dptID" Type="text" Nullable="false" />
+          <Property Name="parentID" Type="text" />
+          <Property Name="dptName" Type="text" />
+          <Property Name="dptTypeID" Type="text" />
+          <Property Name="isEnabled" Type="integer" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityType Name="Session_DptTypes">
+          <Key>
+            <PropertyRef Name="dptTypeID" />
+          </Key>
+          <Property Name="dptTypeID" Type="text" Nullable="false" />
+          <Property Name="dptTypeName" Type="text" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityType Name="Session_Grant_Dpts">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dptID" Type="text" Nullable="false" />
+          <Property Name="powerID" Type="text" Nullable="false" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityType Name="Session_Grant_Roles">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleID" Type="text" Nullable="false" />
+          <Property Name="powerID" Type="text" Nullable="false" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityType Name="Session_Grant_Users">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="text" Nullable="false" />
+          <Property Name="roleID" Type="text" Nullable="false" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityType Name="Session_Powers">
+          <Key>
+            <PropertyRef Name="powerID" />
+          </Key>
+          <Property Name="powerID" Type="text" Nullable="false" />
+          <Property Name="powerName" Type="text" />
+          <Property Name="isEnabled" Type="integer" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityType Name="Session_Roles">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="text" Nullable="false" />
+          <Property Name="roleName" Type="text" />
+          <Property Name="isEnabled" Type="integer" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityType Name="Session_Users">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="text" Nullable="false" />
+          <Property Name="userAccount" Type="text" />
+          <Property Name="userName" Type="text" />
+          <Property Name="userPhoto" Type="blob" />
+          <Property Name="userPSD" Type="text" />
+          <Property Name="isEnabled" Type="integer" />
+          <Property Name="lastLogTime" Type="text" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
+        <EntityContainer Name="mainModelStoreContainer">
+          <EntitySet Name="Session_Chat" EntityType="Self.Session_Chat" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Dpt_Roles" EntityType="Self.Session_Dpt_Roles" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Dpt_Users" EntityType="Self.Session_Dpt_Users" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Dpts" EntityType="Self.Session_Dpts" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_DptTypes" EntityType="Self.Session_DptTypes" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Grant_Dpts" EntityType="Self.Session_Grant_Dpts" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Grant_Roles" EntityType="Self.Session_Grant_Roles" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Grant_Users" EntityType="Self.Session_Grant_Users" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Powers" EntityType="Self.Session_Powers" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Roles" EntityType="Self.Session_Roles" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Users" EntityType="Self.Session_Users" Schema="main" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Session_Chat">
+          <Key>
+            <PropertyRef Name="sessionID" />
+          </Key>
+          <Property Name="sessionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SessionContext" Type="Binary" MaxLength="2147483647" FixedLength="false" />
+          <Property Name="ContextType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_Dpt_Roles">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dptID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="roleID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_Dpt_Users">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dptID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_Dpts">
+          <Key>
+            <PropertyRef Name="dptID" />
+          </Key>
+          <Property Name="dptID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="parentID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dptName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dptTypeID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isEnabled" Type="Int64" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_DptTypes">
+          <Key>
+            <PropertyRef Name="dptTypeID" />
+          </Key>
+          <Property Name="dptTypeID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dptTypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_Grant_Dpts">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dptID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="powerID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_Grant_Roles">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="powerID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_Grant_Users">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="roleID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_Powers">
+          <Key>
+            <PropertyRef Name="powerID" />
+          </Key>
+          <Property Name="powerID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="powerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isEnabled" Type="Int64" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_Roles">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="roleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isEnabled" Type="Int64" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_Users">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="userName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="userPhoto" Type="Binary" MaxLength="2147483647" FixedLength="false" />
+          <Property Name="userPSD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isEnabled" Type="Int64" />
+          <Property Name="lastLogTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="mainEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Session_Chat" EntityType="Self.Session_Chat" />
+          <EntitySet Name="Session_Dpt_Roles" EntityType="Self.Session_Dpt_Roles" />
+          <EntitySet Name="Session_Dpt_Users" EntityType="Self.Session_Dpt_Users" />
+          <EntitySet Name="Session_Dpts" EntityType="Self.Session_Dpts" />
+          <EntitySet Name="Session_DptTypes" EntityType="Self.Session_DptTypes" />
+          <EntitySet Name="Session_Grant_Dpts" EntityType="Self.Session_Grant_Dpts" />
+          <EntitySet Name="Session_Grant_Roles" EntityType="Self.Session_Grant_Roles" />
+          <EntitySet Name="Session_Grant_Users" EntityType="Self.Session_Grant_Users" />
+          <EntitySet Name="Session_Powers" EntityType="Self.Session_Powers" />
+          <EntitySet Name="Session_Roles" EntityType="Self.Session_Roles" />
+          <EntitySet Name="Session_Users" EntityType="Self.Session_Users" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mainModelStoreContainer" CdmEntityContainer="mainEntities">
+          <EntitySetMapping Name="Session_Chat">
+            <EntityTypeMapping TypeName="mainModel.Session_Chat">
+              <MappingFragment StoreEntitySet="Session_Chat">
+                <ScalarProperty Name="sessionID" ColumnName="sessionID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="SessionContext" ColumnName="SessionContext" />
+                <ScalarProperty Name="ContextType" ColumnName="ContextType" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Dpt_Roles">
+            <EntityTypeMapping TypeName="mainModel.Session_Dpt_Roles">
+              <MappingFragment StoreEntitySet="Session_Dpt_Roles">
+                <ScalarProperty Name="serialno" ColumnName="serialno" />
+                <ScalarProperty Name="dptID" ColumnName="dptID" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Dpt_Users">
+            <EntityTypeMapping TypeName="mainModel.Session_Dpt_Users">
+              <MappingFragment StoreEntitySet="Session_Dpt_Users">
+                <ScalarProperty Name="serialno" ColumnName="serialno" />
+                <ScalarProperty Name="dptID" ColumnName="dptID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Dpts">
+            <EntityTypeMapping TypeName="mainModel.Session_Dpts">
+              <MappingFragment StoreEntitySet="Session_Dpts">
+                <ScalarProperty Name="dptID" ColumnName="dptID" />
+                <ScalarProperty Name="parentID" ColumnName="parentID" />
+                <ScalarProperty Name="dptName" ColumnName="dptName" />
+                <ScalarProperty Name="dptTypeID" ColumnName="dptTypeID" />
+                <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_DptTypes">
+            <EntityTypeMapping TypeName="mainModel.Session_DptTypes">
+              <MappingFragment StoreEntitySet="Session_DptTypes">
+                <ScalarProperty Name="dptTypeID" ColumnName="dptTypeID" />
+                <ScalarProperty Name="dptTypeName" ColumnName="dptTypeName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Grant_Dpts">
+            <EntityTypeMapping TypeName="mainModel.Session_Grant_Dpts">
+              <MappingFragment StoreEntitySet="Session_Grant_Dpts">
+                <ScalarProperty Name="serialno" ColumnName="serialno" />
+                <ScalarProperty Name="dptID" ColumnName="dptID" />
+                <ScalarProperty Name="powerID" ColumnName="powerID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Grant_Roles">
+            <EntityTypeMapping TypeName="mainModel.Session_Grant_Roles">
+              <MappingFragment StoreEntitySet="Session_Grant_Roles">
+                <ScalarProperty Name="serialno" ColumnName="serialno" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="powerID" ColumnName="powerID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Grant_Users">
+            <EntityTypeMapping TypeName="mainModel.Session_Grant_Users">
+              <MappingFragment StoreEntitySet="Session_Grant_Users">
+                <ScalarProperty Name="serialno" ColumnName="serialno" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Powers">
+            <EntityTypeMapping TypeName="mainModel.Session_Powers">
+              <MappingFragment StoreEntitySet="Session_Powers">
+                <ScalarProperty Name="powerID" ColumnName="powerID" />
+                <ScalarProperty Name="powerName" ColumnName="powerName" />
+                <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Roles">
+            <EntityTypeMapping TypeName="mainModel.Session_Roles">
+              <MappingFragment StoreEntitySet="Session_Roles">
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+                <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Users">
+            <EntityTypeMapping TypeName="mainModel.Session_Users">
+              <MappingFragment StoreEntitySet="Session_Users">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userPhoto" ColumnName="userPhoto" />
+                <ScalarProperty Name="userPSD" ColumnName="userPSD" />
+                <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
+                <ScalarProperty Name="lastLogTime" ColumnName="lastLogTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

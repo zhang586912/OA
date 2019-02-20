@@ -7,6 +7,25 @@ using System.Threading.Tasks;
 namespace zSession.SystemSetup
 {
     /// <summary>
+    /// 系统登录类型
+    /// </summary>
+    public enum LogStatus
+    {
+        /// <summary>
+        /// 允许登录
+        /// </summary>
+        Success,
+        /// <summary>
+        /// 不允许登陆，口令错误或系统拒绝登录（停用用户）
+        /// </summary>
+        Refuse,
+        /// <summary>
+        /// 不允许登陆，用户未注册
+        /// </summary>
+        UnRegistered
+    }
+
+    /// <summary>
     /// 信号类型
     /// </summary>
     public enum ConnectStatus

@@ -27,6 +27,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,8 +57,16 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +78,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\DBModel\SessionDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SessionDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\SessionDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\SessionDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SessionDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Chat.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Dpts.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_DptTypes.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Dpt_Roles.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Dpt_Users.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Grant_Dpts.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Grant_Roles.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Grant_Users.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Powers.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Roles.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Users.cs">
+      <DependentUpon>SessionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\SystemParamters.cs" />
     <Compile Include="Basic\Assistant\AssistantPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -220,6 +279,7 @@
     <Compile Include="Base\FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="SessionService.cs" />
     <EmbeddedResource Include="Basic\Assistant\AssistantPanel.resx">
       <DependentUpon>AssistantPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +357,17 @@
     <EmbeddedResource Include="Base\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Base\DBModel\SessionDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SessionDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Base\DataBase\SessionDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Base\DBModel\SessionDB.edmx.diagram">
+      <DependentUpon>SessionDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -308,10 +379,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Base\DataBase\" />
     <Folder Include="Extend\ApplicationCenter\" />
     <Folder Include="Extend\E_Mail\" />
     <Folder Include="Extend\GameCenter\" />
@@ -828,6 +900,16 @@
     <None Include="Images\Resources\plan_edit.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Base\DBModel\SessionDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SessionDB.edmx</DependentUpon>
+      <LastGenOutput>SessionDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Base\DBModel\SessionDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SessionDB.edmx</DependentUpon>
+      <LastGenOutput>SessionDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Images\systemImages\BackGround\header.jpg" />
     <Content Include="Images\systemImages\BackGround\title.png" />
     <None Include="Images\Resources\project.ico" />
@@ -1261,6 +1343,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

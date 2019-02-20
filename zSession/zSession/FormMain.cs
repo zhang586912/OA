@@ -14,19 +14,26 @@ namespace zSession
 {
     public partial class FormMain : Form
     {
+        private string userID;
+        
+        private ConnectStatus connectStatus;
+
         private AnchorStyles StopAanhor = AnchorStyles.None;
         private Timer hoverTimer = new Timer();
-
         private Point loadPoint;
 
-        public FormMain()
+        public FormMain(string _userID,ConnectStatus _initSignal)
         {
             InitializeComponent();
+            userID = _userID;
+
+            connectStatus = _initSignal;
+
             this.MinimumSize = this.Size;
             tpMain.Location = new Point(2, 2);
             tpMain.Size = new Size(this.Width - 5, this.Height - 5);
 
-            hoverTimer.Interval = 100;//定时周期3秒
+            hoverTimer.Interval = 100;//定时周期 1/10 秒
             hoverTimer.Tick += new EventHandler((object o, EventArgs ev) => {
                 if (this.Bounds.Contains(Cursor.Position))
                 {
@@ -65,7 +72,7 @@ namespace zSession
                             break;
                     }
                 }
-            });//到3秒了自动隐藏
+            });//到 1/10 秒了自动隐藏
             hoverTimer.Enabled = true; //是否不断重复定时器操作
         }
 
@@ -89,7 +96,6 @@ namespace zSession
         #endregion
 
         //FormBorderStyle.None时，支持改变窗体大小
-
         #region 支持改变窗体大小
         private const int Guying_HTLEFT = 10;
         private const int Guying_HTRIGHT = 11;
@@ -224,6 +230,8 @@ namespace zSession
 
         private void FormMain_Shown(object sender, EventArgs e)
         {
+            //隐藏窗体
+            hoverTimer.Start();
 
             if (!bgkInit.IsBusy)
             {
@@ -248,7 +256,39 @@ namespace zSession
 
         private void bgkInit_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            hoverTimer.Start();
+            //启动网络侦测定时器，如没有实时会话消息过来，定时网络侦测
+
+            switch (connectStatus)
+            {
+                case ConnectStatus.Strong:
+                    picNetStatus.Image = Properties.Resources.wireless_blue;
+                    break;
+                case ConnectStatus.Good:
+                    picNetStatus.Image = Properties.Resources.wireless_green;
+                    break;
+                case ConnectStatus.Medium:
+                    picNetStatus.Image = Properties.Resources.wireless_yellow;
+                    break;
+                case ConnectStatus.Broken:
+                    picNetStatus.Image = Properties.Resources.wireless_red;
+                    break;
+            }
+
+            if (connectStatus == ConnectStatus.Broken)
+            {
+                picWorkStatus.Image = Properties.Resources.phone_red;
+                lblWorkStatus.Text = "离开";
+            }
+            else
+            {
+                //根据历史设置显示
+            }
+
+            
+
+
+
+
         }
 
         private bool GitConnection(out ConnectStatus NetStatus)

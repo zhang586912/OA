@@ -41,12 +41,13 @@
             this.tsmiBusyness = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiNoDisturb = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiLeave = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblWorkStatus = new System.Windows.Forms.Label();
             this.flpMessage = new System.Windows.Forms.FlowLayoutPanel();
             this.ctMSMessage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiProject = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiJournal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSession = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectPanel1 = new zSession.Assistant.project.ProjectPanel();
             this.picWeatherStatus = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -60,7 +61,7 @@
             this.tsbJournal = new System.Windows.Forms.ToolStripButton();
             this.tsbProject = new System.Windows.Forms.ToolStripButton();
             this.tsbTools = new System.Windows.Forms.ToolStripButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picNetStatus = new System.Windows.Forms.PictureBox();
             this.ctMSConnectStatus = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiConnect = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDisconnect = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +72,7 @@
             this.panelBody = new System.Windows.Forms.Panel();
             this.btnMarket = new System.Windows.Forms.Button();
             this.btnNews = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsMain = new System.Windows.Forms.ToolStrip();
             this.tsbDeviceManagement = new System.Windows.Forms.ToolStripButton();
             this.tsbApplicationCenter = new System.Windows.Forms.ToolStripButton();
             this.tsbGameCenter = new System.Windows.Forms.ToolStripButton();
@@ -87,7 +88,6 @@
             this.ctMStray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.projectPanel1 = new zSession.Assistant.project.ProjectPanel();
             this.tpMain.SuspendLayout();
             this.tpTop.SuspendLayout();
             this.tpHeader.SuspendLayout();
@@ -99,10 +99,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWeatherStatus)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tsTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picNetStatus)).BeginInit();
             this.ctMSConnectStatus.SuspendLayout();
             this.tpBody.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.tsMain.SuspendLayout();
             this.ctMStray.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,7 +113,7 @@
             this.tpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tpMain.Controls.Add(this.tpTop, 0, 0);
             this.tpMain.Controls.Add(this.tpBody, 0, 1);
-            this.tpMain.Controls.Add(this.toolStrip1, 0, 2);
+            this.tpMain.Controls.Add(this.tsMain, 0, 2);
             this.tpMain.Location = new System.Drawing.Point(0, 0);
             this.tpMain.Name = "tpMain";
             this.tpMain.RowCount = 3;
@@ -153,7 +153,7 @@
             this.tpHeader.Controls.Add(this.picPerson, 2, 1);
             this.tpHeader.Controls.Add(this.flpVIP, 2, 0);
             this.tpHeader.Controls.Add(this.picWorkStatus, 2, 3);
-            this.tpHeader.Controls.Add(this.label1, 3, 3);
+            this.tpHeader.Controls.Add(this.lblWorkStatus, 3, 3);
             this.tpHeader.Controls.Add(this.flpMessage, 1, 0);
             this.tpHeader.Controls.Add(this.picWeatherStatus, 0, 1);
             this.tpHeader.Controls.Add(this.label2, 0, 0);
@@ -241,20 +241,20 @@
             this.tsmiLeave.Size = new System.Drawing.Size(100, 22);
             this.tsmiLeave.Text = "离开";
             // 
-            // label1
+            // lblWorkStatus
             // 
-            this.label1.AutoSize = true;
-            this.label1.ContextMenuStrip = this.ctMSWorkStatus;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(397, 147);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "空闲";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWorkStatus.AutoSize = true;
+            this.lblWorkStatus.ContextMenuStrip = this.ctMSWorkStatus;
+            this.lblWorkStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblWorkStatus.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblWorkStatus.ForeColor = System.Drawing.Color.Black;
+            this.lblWorkStatus.Location = new System.Drawing.Point(397, 147);
+            this.lblWorkStatus.Margin = new System.Windows.Forms.Padding(3);
+            this.lblWorkStatus.Name = "lblWorkStatus";
+            this.lblWorkStatus.Size = new System.Drawing.Size(64, 20);
+            this.lblWorkStatus.TabIndex = 4;
+            this.lblWorkStatus.Text = "空闲";
+            this.lblWorkStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flpMessage
             // 
@@ -295,6 +295,14 @@
             this.tsmiSession.Name = "tsmiSession";
             this.tsmiSession.Size = new System.Drawing.Size(124, 22);
             this.tsmiSession.Text = "会话消息";
+            // 
+            // projectPanel1
+            // 
+            this.projectPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.projectPanel1.Location = new System.Drawing.Point(3, 3);
+            this.projectPanel1.Name = "projectPanel1";
+            this.projectPanel1.Size = new System.Drawing.Size(224, 28);
+            this.projectPanel1.TabIndex = 0;
             // 
             // picWeatherStatus
             // 
@@ -338,7 +346,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tsTitle, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.picNetStatus, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -458,18 +466,18 @@
             this.tsbTools.ToolTipText = "常用工具包";
             this.tsbTools.Click += new System.EventHandler(this.tsbTools_Click);
             // 
-            // pictureBox1
+            // picNetStatus
             // 
-            this.pictureBox1.ContextMenuStrip = this.ctMSConnectStatus;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::zSession.Properties.Resources.wireless_blue;
-            this.pictureBox1.Location = new System.Drawing.Point(1, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 29);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.picNetStatus.ContextMenuStrip = this.ctMSConnectStatus;
+            this.picNetStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picNetStatus.Image = global::zSession.Properties.Resources.wireless_blue;
+            this.picNetStatus.Location = new System.Drawing.Point(1, 0);
+            this.picNetStatus.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.picNetStatus.Name = "picNetStatus";
+            this.picNetStatus.Size = new System.Drawing.Size(28, 29);
+            this.picNetStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picNetStatus.TabIndex = 2;
+            this.picNetStatus.TabStop = false;
             // 
             // ctMSConnectStatus
             // 
@@ -612,23 +620,23 @@
             this.btnNews.UseVisualStyleBackColor = true;
             this.btnNews.Click += new System.EventHandler(this.btnNews_Click);
             // 
-            // toolStrip1
+            // tsMain
             // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip1.Font = new System.Drawing.Font("华文楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsMain.BackColor = System.Drawing.Color.Transparent;
+            this.tsMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tsMain.Font = new System.Drawing.Font("华文楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tsMain.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.tsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbDeviceManagement,
             this.tsbApplicationCenter,
             this.tsbGameCenter,
             this.tsbWareMarket});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 755);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(464, 60);
-            this.toolStrip1.TabIndex = 6;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.tsMain.Location = new System.Drawing.Point(0, 755);
+            this.tsMain.Name = "tsMain";
+            this.tsMain.Size = new System.Drawing.Size(464, 60);
+            this.tsMain.TabIndex = 6;
+            this.tsMain.Text = "toolStrip1";
             // 
             // tsbDeviceManagement
             // 
@@ -742,14 +750,6 @@
             this.tsmiExit.Text = "退出";
             this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
-            // projectPanel1
-            // 
-            this.projectPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.projectPanel1.Location = new System.Drawing.Point(3, 3);
-            this.projectPanel1.Name = "projectPanel1";
-            this.projectPanel1.Size = new System.Drawing.Size(224, 28);
-            this.projectPanel1.TabIndex = 0;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -781,11 +781,11 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tsTitle.ResumeLayout(false);
             this.tsTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picNetStatus)).EndInit();
             this.ctMSConnectStatus.ResumeLayout(false);
             this.tpBody.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsMain.ResumeLayout(false);
+            this.tsMain.PerformLayout();
             this.ctMStray.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -809,7 +809,7 @@
         private System.Windows.Forms.PictureBox picWeatherStatus;
         private System.Windows.Forms.ToolStripButton tsbDeviceManagement;
         private System.Windows.Forms.PictureBox picWorkStatus;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblWorkStatus;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ContextMenuStrip ctMSWorkStatus;
@@ -824,7 +824,7 @@
         private System.ComponentModel.BackgroundWorker bgkInit;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsMain;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
@@ -846,7 +846,7 @@
         private System.Windows.Forms.ToolStripButton tsbProject;
         private System.Windows.Forms.ToolStripButton tsbTools;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picNetStatus;
         private System.Windows.Forms.ContextMenuStrip ctMStray;
         private System.Windows.Forms.ToolStripMenuItem tsmiShow;
         private System.Windows.Forms.ToolStripMenuItem tsmiExit;
