@@ -1840,4 +1840,16 @@
   <data name="project_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Resources\project.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Electronic_Business" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\Electronic_Business.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Electronic_Business_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\Electronic_Business.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ERP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\ERP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ERP_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\ERP.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

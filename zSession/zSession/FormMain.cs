@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using zSession.Base.DBModel;
 using zSession.SystemSetup;
 
 namespace zSession
@@ -15,18 +18,22 @@ namespace zSession
     public partial class FormMain : Form
     {
         private string userID;
-        
+        private string userAccount;
+        private string userName;
+        private Image userPhoto=null;
+        private List<string> roleList = new List<string>();
+
         private ConnectStatus connectStatus;
+        private DateTime lastSessionTime;
 
         private AnchorStyles StopAanhor = AnchorStyles.None;
-        private Timer hoverTimer = new Timer();
+        private System.Windows.Forms.Timer hoverTimer = new System.Windows.Forms.Timer();
         private Point loadPoint;
 
         public FormMain(string _userID,ConnectStatus _initSignal)
         {
             InitializeComponent();
             userID = _userID;
-
             connectStatus = _initSignal;
 
             this.MinimumSize = this.Size;
@@ -230,8 +237,8 @@ namespace zSession
 
         private void FormMain_Shown(object sender, EventArgs e)
         {
-            //隐藏窗体
-            hoverTimer.Start();
+            
+            hoverTimer.Start();//隐藏窗体
 
             if (!bgkInit.IsBusy)
             {
@@ -245,50 +252,207 @@ namespace zSession
             loadPoint = this.Location;
         }
 
+        private void timerNetStatus_Tick(object sender, EventArgs e)
+        {
+
+        }
 
         private void bgkInit_DoWork(object sender, DoWorkEventArgs e)
         {
             //读取本机数据库，获取配置信息
-
-            //获取
-
-        }
-
-        private void bgkInit_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            //启动网络侦测定时器，如没有实时会话消息过来，定时网络侦测
-
-            switch (connectStatus)
+            using (mainEntities db = new mainEntities())
             {
-                case ConnectStatus.Strong:
-                    picNetStatus.Image = Properties.Resources.wireless_blue;
-                    break;
-                case ConnectStatus.Good:
-                    picNetStatus.Image = Properties.Resources.wireless_green;
-                    break;
-                case ConnectStatus.Medium:
-                    picNetStatus.Image = Properties.Resources.wireless_yellow;
-                    break;
-                case ConnectStatus.Broken:
-                    picNetStatus.Image = Properties.Resources.wireless_red;
-                    break;
+                var user = db.Session_Users.Where(x => x.userID == userID).FirstOrDefault();
+                if (user != null)
+                {
+                    
+                    userName = user.userName;//获取
+                    userAccount = user.userAccount;//获取账号
+                    //获取照片
+                    if (user.userPhoto != null)
+                    {
+                        try
+                        {
+                            Image photo = Image.FromStream(new MemoryStream(user.userPhoto));                            
+                        }
+                        catch
+                        {
+                        }
+                    }
+
+                    //获取拥有权限
+                    var rights = db.Session_Grant_Users.Where(x => x.userID == user.userID).ToList();
+                    
+                    foreach (var itm in rights)
+                    {
+                        roleList.Add(itm.roleID);                        
+                    }
+                }
+
+                //获取最后通信时间
+
             }
 
+
+
+        }
+               
+        
+        private void bgkInit_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ShowPhotoWall(userID);
+            SetUser(userAccount,userName, userPhoto, roleList);           
+                        
+            SetNetStatus(connectStatus);
             if (connectStatus == ConnectStatus.Broken)
             {
-                picWorkStatus.Image = Properties.Resources.phone_red;
-                lblWorkStatus.Text = "离开";
+                SetWorkStatus(WorkStatus.Leave);
             }
             else
             {
                 //根据历史设置显示
             }
 
+            ShowFunction(BasicFunction.Session);
+
+            //启动网络侦测定时器，如没有实时会话消息过来，定时网络侦测
+            timerNetStatus.Enabled = true;
+            //启用天气接口，实时预报天气情况
+            timerWeather.Enabled = true;
+        }
+
+        #region 设置用户个人信息
+        /// <summary>
+        /// 设置账号信息
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="userAccount"></param>       
+        /// <param name="_photo"></param>
+        /// <param name="roleList"></param>
+        private void SetUser(string userName, string userAccount, Image _photo,List<string> roleList)
+        {
+            if(roleList.Contains("ERP"))
+            {
+                //拥护有ERP账号
+                tslAccount.Text = string.Format("{0}({1})", userName, userAccount);
+            }
+            else
+            {
+                tslAccount.Text = string.Format("{0}", userName);
+            }
+
+            SetPhoto(userPhoto);
+            setRoles(roleList);
+
             
 
+        }
 
+        private void setRoles(List<string> roleList)
+        {
+            flpVIP.Controls.Clear();
+            foreach (var itm in roleList)
+            {               
+                PictureBox pic = new PictureBox();
+                pic.Image = GetRightImage(itm);
+                pic.SizeMode = PictureBoxSizeMode.Zoom;
+                pic.Size = new Size(flpVIP.Height - 4, flpVIP.Height - 4);
 
+                flpVIP.Controls.Add(pic);
+            }
+        }
 
+        private void SetPhoto(Image _photo)
+        {
+            if(_photo!=null)
+            {
+                tpPhoto.BackgroundImage = _photo;
+            }
+            else
+            {
+                tpPhoto.BackgroundImage = Properties.Resources.PhotoImages;
+            }
+        }
+
+        /// <summary>
+        /// 显示照片墙
+        /// </summary>
+        /// <param name="userID"></param>
+        private void ShowPhotoWall(string userID)
+        {
+
+            //tpHeader.BackgroundImage=
+            //tpBody.BackgroundImage=
+        }
+
+        #endregion
+
+        private void SetNetStatus(ConnectStatus netStatus)
+        {
+            picNetStatus.Image = GetSignalIntensityImage(netStatus);
+        }
+        private void SetWorkStatus(WorkStatus _workStatus)
+        {
+            switch(_workStatus)
+            {
+                case WorkStatus.Free:
+                    picWorkStatus.Image = Properties.Resources.phone_blue;
+                    lblWorkStatus.Text = "空闲";
+                    break;
+                case WorkStatus.Busyness:
+                    picWorkStatus.Image = Properties.Resources.phone_green;
+                    lblWorkStatus.Text = "繁忙";
+                    break;
+                case WorkStatus.NoDisturb:
+                    picWorkStatus.Image = Properties.Resources.phone_yellow;
+                    lblWorkStatus.Text = "勿扰";
+                    break;
+                case WorkStatus.Leave:
+                    picWorkStatus.Image = Properties.Resources.phone_red;
+                    lblWorkStatus.Text = "离开";
+                    break;
+            }
+        }
+
+        private Image GetSignalIntensityImage(ConnectStatus connectStatus)
+        {
+            Image rtn = null;
+            switch (connectStatus)
+            {
+                case ConnectStatus.Strong:
+                    rtn = Properties.Resources.wireless_blue;
+                    break;
+                case ConnectStatus.Good:
+                    rtn = Properties.Resources.wireless_green;
+                    break;
+                case ConnectStatus.Medium:
+                    rtn = Properties.Resources.wireless_yellow;
+                    break;
+                case ConnectStatus.Broken:
+                    rtn = Properties.Resources.wireless_red;
+                    break;
+            }
+
+            return rtn;
+        }
+
+        private Image GetRightImage(string roleID)
+        {
+            Image rtn = null;
+            switch (roleID)
+            {
+                case "Membership":
+                    rtn = Properties.Resources.vcard;
+                    break;
+                case "Electronic":
+                    rtn = Properties.Resources.Electronic_Business;
+                    break;
+                case "ERP":
+                    rtn = Properties.Resources.ERP;
+                    break;
+            }
+
+            return rtn;
         }
 
         private bool GitConnection(out ConnectStatus NetStatus)
@@ -311,15 +475,26 @@ namespace zSession
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        
+        private void ShowFunction(BasicFunction _func)
+        {
+            switch(_func)
+            {
+                case BasicFunction.Session:
+
+                    break;
+
+            }
+        }
 
         /// <summary>
         /// 打开内部控件
         /// </summary>
-        /// <param name="tabName"></param>
-        /// <param name="tabLabel"></param>
-        /// <param name="tabKey"></param>
+        /// <param name="tabName">内部功能控件名</param>
+        /// <param name="tabLabel">标签名称</param>
+        /// <param name="paramList">参数</param>
         /// <returns></returns>
-        private bool openTable(string tabName,string tabLabel,string tabKey)
+        private bool openTable(string tabName,string tabLabel,params object[] paramList)
         {
 
             return false;
@@ -328,11 +503,11 @@ namespace zSession
         /// <summary>
         /// 打开扩展功能
         /// </summary>
-        /// <param name="winName"></param>
-        /// <param name="winLabel"></param>
-        /// <param name="winKey"></param>
+        /// <param name="winName">扩展功能控件名</param>
+        /// <param name="winLabel">标签名称</param>
+        /// <param name="paramList">参数</param>
         /// <returns></returns>
-        private bool openWindow(string winName,string winLabel,string winKey)
+        private bool openWindow(string winName,string winLabel, params object[] paramList)
         {
 
             return false;
@@ -341,11 +516,11 @@ namespace zSession
         /// <summary>
         /// 打开外部链接
         /// </summary>
-        /// <param name="linkName"></param>
-        /// <param name="linkLabel"></param>
-        /// <param name="linkKey"></param>
+        /// <param name="linkName">链接URL</param>
+        /// <param name="linkLabel">标签名称</param>
+        /// <param name="paramList">参数</param>
         /// <returns></returns>
-        private bool openLink(string linkName,string linkLabel,string linkKey)
+        private bool openLink(string linkName,string linkLabel, params object[] paramList)
         {
 
             return false;
@@ -442,8 +617,13 @@ namespace zSession
 
 
 
+
+
         #endregion
 
-        
+        private void picWorkStatus_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

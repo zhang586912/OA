@@ -33,7 +33,6 @@
             this.tpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tpTop = new System.Windows.Forms.TableLayoutPanel();
             this.tpHeader = new System.Windows.Forms.TableLayoutPanel();
-            this.picPerson = new System.Windows.Forms.PictureBox();
             this.flpVIP = new System.Windows.Forms.FlowLayoutPanel();
             this.picWorkStatus = new System.Windows.Forms.PictureBox();
             this.ctMSWorkStatus = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -47,10 +46,10 @@
             this.tsmiProject = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiJournal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSession = new System.Windows.Forms.ToolStripMenuItem();
-            this.projectPanel1 = new zSession.Assistant.project.ProjectPanel();
             this.picWeatherStatus = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblWeek = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tsTitle = new System.Windows.Forms.ToolStrip();
             this.tslAccount = new System.Windows.Forms.ToolStripLabel();
@@ -88,15 +87,20 @@
             this.ctMStray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerNetStatus = new System.Windows.Forms.Timer(this.components);
+            this.timerWeather = new System.Windows.Forms.Timer(this.components);
+            this.lblDateTime = new System.Windows.Forms.Label();
+            this.tpPhoto = new System.Windows.Forms.TableLayoutPanel();
+            this.projectPanel1 = new zSession.Assistant.project.ProjectPanel();
             this.tpMain.SuspendLayout();
             this.tpTop.SuspendLayout();
             this.tpHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPerson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWorkStatus)).BeginInit();
             this.ctMSWorkStatus.SuspendLayout();
             this.flpMessage.SuspendLayout();
             this.ctMSMessage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWeatherStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tsTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picNetStatus)).BeginInit();
@@ -104,6 +108,7 @@
             this.tpBody.SuspendLayout();
             this.tsMain.SuspendLayout();
             this.ctMStray.SuspendLayout();
+            this.tpPhoto.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpMain
@@ -145,67 +150,55 @@
             // tpHeader
             // 
             this.tpHeader.BackColor = System.Drawing.Color.Transparent;
-            this.tpHeader.ColumnCount = 4;
-            this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tpHeader.ColumnCount = 5;
+            this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tpHeader.Controls.Add(this.picPerson, 2, 1);
+            this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tpHeader.Controls.Add(this.flpVIP, 2, 0);
-            this.tpHeader.Controls.Add(this.picWorkStatus, 2, 3);
-            this.tpHeader.Controls.Add(this.lblWorkStatus, 3, 3);
             this.tpHeader.Controls.Add(this.flpMessage, 1, 0);
             this.tpHeader.Controls.Add(this.picWeatherStatus, 0, 1);
-            this.tpHeader.Controls.Add(this.label2, 0, 0);
+            this.tpHeader.Controls.Add(this.lblWeek, 0, 0);
             this.tpHeader.Controls.Add(this.label3, 0, 2);
+            this.tpHeader.Controls.Add(this.pictureBox1, 4, 3);
+            this.tpHeader.Controls.Add(this.lblDateTime, 0, 3);
+            this.tpHeader.Controls.Add(this.tpPhoto, 2, 1);
             this.tpHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tpHeader.Location = new System.Drawing.Point(0, 30);
             this.tpHeader.Margin = new System.Windows.Forms.Padding(0);
             this.tpHeader.Name = "tpHeader";
             this.tpHeader.RowCount = 4;
-            this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tpHeader.Size = new System.Drawing.Size(464, 170);
             this.tpHeader.TabIndex = 4;
             // 
-            // picPerson
-            // 
-            this.picPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tpHeader.SetColumnSpan(this.picPerson, 2);
-            this.picPerson.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picPerson.Location = new System.Drawing.Point(368, 30);
-            this.picPerson.Margin = new System.Windows.Forms.Padding(0);
-            this.picPerson.Name = "picPerson";
-            this.tpHeader.SetRowSpan(this.picPerson, 2);
-            this.picPerson.Size = new System.Drawing.Size(96, 114);
-            this.picPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picPerson.TabIndex = 0;
-            this.picPerson.TabStop = false;
-            // 
             // flpVIP
             // 
-            this.tpHeader.SetColumnSpan(this.flpVIP, 2);
+            this.tpHeader.SetColumnSpan(this.flpVIP, 3);
             this.flpVIP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpVIP.Location = new System.Drawing.Point(368, 0);
+            this.flpVIP.Location = new System.Drawing.Point(378, 0);
             this.flpVIP.Margin = new System.Windows.Forms.Padding(0);
             this.flpVIP.Name = "flpVIP";
-            this.flpVIP.Size = new System.Drawing.Size(96, 30);
+            this.flpVIP.Size = new System.Drawing.Size(86, 26);
             this.flpVIP.TabIndex = 1;
             // 
             // picWorkStatus
             // 
             this.picWorkStatus.ContextMenuStrip = this.ctMSWorkStatus;
+            this.picWorkStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picWorkStatus.Image = global::zSession.Properties.Resources.phone_blue;
-            this.picWorkStatus.Location = new System.Drawing.Point(370, 146);
+            this.picWorkStatus.Location = new System.Drawing.Point(2, 2);
             this.picWorkStatus.Margin = new System.Windows.Forms.Padding(2);
             this.picWorkStatus.Name = "picWorkStatus";
             this.picWorkStatus.Size = new System.Drawing.Size(22, 22);
             this.picWorkStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picWorkStatus.TabIndex = 3;
             this.picWorkStatus.TabStop = false;
+            this.picWorkStatus.Click += new System.EventHandler(this.picWorkStatus_Click);
             // 
             // ctMSWorkStatus
             // 
@@ -246,12 +239,12 @@
             this.lblWorkStatus.AutoSize = true;
             this.lblWorkStatus.ContextMenuStrip = this.ctMSWorkStatus;
             this.lblWorkStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblWorkStatus.Font = new System.Drawing.Font("仿宋", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblWorkStatus.ForeColor = System.Drawing.Color.Black;
-            this.lblWorkStatus.Location = new System.Drawing.Point(397, 147);
+            this.lblWorkStatus.Font = new System.Drawing.Font("仿宋", 9F, System.Drawing.FontStyle.Bold);
+            this.lblWorkStatus.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblWorkStatus.Location = new System.Drawing.Point(29, 3);
             this.lblWorkStatus.Margin = new System.Windows.Forms.Padding(3);
             this.lblWorkStatus.Name = "lblWorkStatus";
-            this.lblWorkStatus.Size = new System.Drawing.Size(64, 20);
+            this.lblWorkStatus.Size = new System.Drawing.Size(54, 20);
             this.lblWorkStatus.TabIndex = 4;
             this.lblWorkStatus.Text = "空闲";
             this.lblWorkStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -262,7 +255,7 @@
             this.flpMessage.ContextMenuStrip = this.ctMSMessage;
             this.flpMessage.Controls.Add(this.projectPanel1);
             this.flpMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpMessage.Location = new System.Drawing.Point(63, 3);
+            this.flpMessage.Location = new System.Drawing.Point(73, 3);
             this.flpMessage.Name = "flpMessage";
             this.tpHeader.SetRowSpan(this.flpMessage, 4);
             this.flpMessage.Size = new System.Drawing.Size(302, 164);
@@ -296,49 +289,52 @@
             this.tsmiSession.Size = new System.Drawing.Size(124, 22);
             this.tsmiSession.Text = "会话消息";
             // 
-            // projectPanel1
-            // 
-            this.projectPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.projectPanel1.Location = new System.Drawing.Point(3, 3);
-            this.projectPanel1.Name = "projectPanel1";
-            this.projectPanel1.Size = new System.Drawing.Size(224, 28);
-            this.projectPanel1.TabIndex = 0;
-            // 
             // picWeatherStatus
             // 
             this.picWeatherStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picWeatherStatus.Image = global::zSession.Properties.Resources.web;
-            this.picWeatherStatus.Location = new System.Drawing.Point(3, 33);
+            this.picWeatherStatus.Location = new System.Drawing.Point(3, 29);
             this.picWeatherStatus.Name = "picWeatherStatus";
-            this.picWeatherStatus.Size = new System.Drawing.Size(54, 51);
+            this.picWeatherStatus.Size = new System.Drawing.Size(64, 53);
             this.picWeatherStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picWeatherStatus.TabIndex = 2;
             this.picWeatherStatus.TabStop = false;
             // 
-            // label2
+            // lblWeek
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("宋体", 10F);
-            this.label2.Location = new System.Drawing.Point(3, 3);
-            this.label2.Margin = new System.Windows.Forms.Padding(3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 24);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "2/10℃";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWeek.AutoSize = true;
+            this.lblWeek.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblWeek.Font = new System.Drawing.Font("宋体", 10F);
+            this.lblWeek.Location = new System.Drawing.Point(3, 3);
+            this.lblWeek.Margin = new System.Windows.Forms.Padding(3);
+            this.lblWeek.Name = "lblWeek";
+            this.lblWeek.Size = new System.Drawing.Size(64, 20);
+            this.lblWeek.TabIndex = 5;
+            this.lblWeek.Text = "星期四";
+            this.lblWeek.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 90);
+            this.label3.Location = new System.Drawing.Point(3, 88);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 51);
+            this.label3.Size = new System.Drawing.Size(64, 53);
             this.label3.TabIndex = 6;
-            this.label3.Text = "多云转晴";
+            this.label3.Text = "多云转晴2/10℃";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::zSession.Properties.Resources.camera;
+            this.pictureBox1.Location = new System.Drawing.Point(440, 144);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
@@ -750,6 +746,53 @@
             this.tsmiExit.Text = "退出";
             this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
+            // timerNetStatus
+            // 
+            this.timerNetStatus.Tick += new System.EventHandler(this.timerNetStatus_Tick);
+            // 
+            // lblDateTime
+            // 
+            this.lblDateTime.AutoSize = true;
+            this.lblDateTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDateTime.Font = new System.Drawing.Font("宋体", 7F);
+            this.lblDateTime.Location = new System.Drawing.Point(3, 147);
+            this.lblDateTime.Margin = new System.Windows.Forms.Padding(3);
+            this.lblDateTime.Name = "lblDateTime";
+            this.lblDateTime.Size = new System.Drawing.Size(64, 20);
+            this.lblDateTime.TabIndex = 9;
+            this.lblDateTime.Text = "2019/01/01";
+            this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tpPhoto
+            // 
+            this.tpPhoto.BackgroundImage = global::zSession.Properties.Resources.PhotoImages;
+            this.tpPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tpPhoto.ColumnCount = 2;
+            this.tpHeader.SetColumnSpan(this.tpPhoto, 3);
+            this.tpPhoto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tpPhoto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tpPhoto.Controls.Add(this.picWorkStatus, 0, 0);
+            this.tpPhoto.Controls.Add(this.lblWorkStatus, 1, 0);
+            this.tpPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpPhoto.Location = new System.Drawing.Point(378, 26);
+            this.tpPhoto.Margin = new System.Windows.Forms.Padding(0);
+            this.tpPhoto.Name = "tpPhoto";
+            this.tpPhoto.RowCount = 3;
+            this.tpHeader.SetRowSpan(this.tpPhoto, 2);
+            this.tpPhoto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tpPhoto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tpPhoto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tpPhoto.Size = new System.Drawing.Size(86, 118);
+            this.tpPhoto.TabIndex = 10;
+            // 
+            // projectPanel1
+            // 
+            this.projectPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.projectPanel1.Location = new System.Drawing.Point(3, 3);
+            this.projectPanel1.Name = "projectPanel1";
+            this.projectPanel1.Size = new System.Drawing.Size(224, 28);
+            this.projectPanel1.TabIndex = 0;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -772,12 +815,12 @@
             this.tpTop.ResumeLayout(false);
             this.tpHeader.ResumeLayout(false);
             this.tpHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPerson)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWorkStatus)).EndInit();
             this.ctMSWorkStatus.ResumeLayout(false);
             this.flpMessage.ResumeLayout(false);
             this.ctMSMessage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picWeatherStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tsTitle.ResumeLayout(false);
             this.tsTitle.PerformLayout();
@@ -787,6 +830,8 @@
             this.tsMain.ResumeLayout(false);
             this.tsMain.PerformLayout();
             this.ctMStray.ResumeLayout(false);
+            this.tpPhoto.ResumeLayout(false);
+            this.tpPhoto.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -799,7 +844,6 @@
         private System.Windows.Forms.ToolStripButton tsbApplicationCenter;
         private System.Windows.Forms.TableLayoutPanel tpTop;
         private System.Windows.Forms.TableLayoutPanel tpHeader;
-        private System.Windows.Forms.PictureBox picPerson;
         private System.Windows.Forms.TableLayoutPanel tpBody;
         private System.Windows.Forms.Button btnChat;
         private System.Windows.Forms.Button btnAssistant;
@@ -810,7 +854,7 @@
         private System.Windows.Forms.ToolStripButton tsbDeviceManagement;
         private System.Windows.Forms.PictureBox picWorkStatus;
         private System.Windows.Forms.Label lblWorkStatus;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblWeek;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ContextMenuStrip ctMSWorkStatus;
         private System.Windows.Forms.ToolStripMenuItem tsmiFree;
@@ -850,6 +894,11 @@
         private System.Windows.Forms.ContextMenuStrip ctMStray;
         private System.Windows.Forms.ToolStripMenuItem tsmiShow;
         private System.Windows.Forms.ToolStripMenuItem tsmiExit;
+        private System.Windows.Forms.Timer timerNetStatus;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timerWeather;
+        private System.Windows.Forms.Label lblDateTime;
+        private System.Windows.Forms.TableLayoutPanel tpPhoto;
     }
 }
 

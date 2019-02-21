@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,11 +14,17 @@ namespace zSession
         /// <summary>
         /// 
         /// </summary>                       
-        public static bool NetStatus{get;set;}
+        public static bool NetStatus
+        {
+            get
+            {
+                return SignalIntensity != ConnectStatus.Broken;
+            }
+        }
         /// <summary>
         /// 
         /// </summary>
-        public static ConnectStatus SignalIntensity { get; set; }
+        public static ConnectStatus SignalIntensity { get; set; } = ConnectStatus.Broken;
 
         /// <summary>
         /// 打开链接,侦测网络是否通
@@ -25,11 +32,13 @@ namespace zSession
         /// <returns></returns>
         public static bool Connection()
         {
+            
             FormWelcome welcome = new FormWelcome();
             welcome.Show();
 
+            
             //连接网络
-           
+
             welcome.Close();
 
             return true;

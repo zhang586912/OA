@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using zSession.Base;
+using zSession.Base.DBModel;
 using zSession.SystemSetup;
 
 namespace zSession
@@ -24,7 +25,13 @@ namespace zSession
         private void FormLogin_Shown(object sender, EventArgs e)
         {
             //从本机数据库中加载历史登录信息
-
+            using (mainEntities db = new mainEntities())
+            {
+                List<Session_Users> list = db.Session_Users.ToList();
+                cboUserID.DataSource = list;
+                cboUserID.DisplayMember = "userName";
+                cboUserID.ValueMember = "userID";                
+            }
         }
         
 
@@ -33,9 +40,9 @@ namespace zSession
             if (cboUserID.Text.Trim().Length == 0) return;
             SystemParamters.UserID = string.Empty;
 
-            if (connectCnt<3)
-            {
-                string userID = cboUserID.Text;
+            //if (connectCnt<3)
+            //{
+                string userID = cboUserID.SelectedValue.ToString();
                 string userPSD = txtUserPSD.Text;
                 if(SessionService.NetStatus)
                 {
@@ -77,7 +84,7 @@ namespace zSession
                 }
                 connectCnt++;
 
-            }
+           // }
            
 
         }
@@ -107,7 +114,18 @@ namespace zSession
         /// <returns></returns>
         private bool LocadLogin(string userID, string userPSD)
         {
-            return true;
+            using (mainEntities db = new mainEntities())
+            {
+                var user = db.Session_Users.Where(x => x.userID == userID && x.userPSD == userPSD).FirstOrDefault();
+                if(user!=null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }            
         }
 
         private void linkSetup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

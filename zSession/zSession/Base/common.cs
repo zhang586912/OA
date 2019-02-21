@@ -71,6 +71,30 @@ namespace zSession.SystemSetup
         Leave
     }
 
+    public enum BasicFunction
+    {
+        /// <summary>
+        /// 会话
+        /// </summary>
+        Session,
+        /// <summary>
+        /// 个人秘书
+        /// </summary>
+        Assistant,
+        /// <summary>
+        /// 社交网络
+        /// </summary>
+        SocialNet,
+        /// <summary>
+        /// 电子商城
+        /// </summary>
+        Market,
+        /// <summary>
+        /// 新闻
+        /// </summary>
+        News
+    }
+
     public class common
     {
     }

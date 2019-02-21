@@ -63,6 +63,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -910,6 +911,10 @@
       <DependentUpon>SessionDB.edmx</DependentUpon>
       <LastGenOutput>SessionDB.cs</LastGenOutput>
     </Content>
+    <None Include="Images\Resources\ERP.png" />
+    <None Include="Images\Resources\ERP.ico" />
+    <None Include="Images\Resources\Electronic_Business.png" />
+    <None Include="Images\Resources\Electronic_Business.ico" />
     <Content Include="Images\systemImages\BackGround\header.jpg" />
     <Content Include="Images\systemImages\BackGround\title.png" />
     <None Include="Images\Resources\project.ico" />
