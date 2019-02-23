@@ -66,6 +66,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -79,53 +80,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\DBModel\SessionDB.Context.cs">
+    <Compile Include="Base\DBModel\SessionModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SessionDB.Context.tt</DependentUpon>
+      <DependentUpon>SessionModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Base\DBModel\SessionDB.cs">
+    <Compile Include="Base\DBModel\SessionModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Base\DBModel\SessionDB.Designer.cs">
+    <Compile Include="Base\DBModel\SessionModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SessionDB.edmx</DependentUpon>
+      <DependentUpon>SessionModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Chat.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Dpts.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_DptTypes.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Dpt_Roles.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Dpt_Users.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Grant_Dpts.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Grant_Roles.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Grant_Users.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_LastOperation.cs">
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Powers.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Roles.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Users.cs">
-      <DependentUpon>SessionDB.tt</DependentUpon>
+      <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\SystemParamters.cs" />
     <Compile Include="Basic\Assistant\AssistantPanel.cs">
@@ -170,10 +174,10 @@
     <Compile Include="Basic\Assistant\project\ProjectPanel.Designer.cs">
       <DependentUpon>ProjectPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="Base\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="Base\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
@@ -200,10 +204,10 @@
     <Compile Include="Basic\News\NewsPanel.Designer.cs">
       <DependentUpon>NewsPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormWelcome.cs">
+    <Compile Include="Base\FormWelcome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormWelcome.Designer.cs">
+    <Compile Include="Base\FormWelcome.Designer.cs">
       <DependentUpon>FormWelcome.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -280,7 +284,7 @@
     <Compile Include="Base\FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="SessionService.cs" />
+    <Compile Include="Base\SessionService.cs" />
     <EmbeddedResource Include="Basic\Assistant\AssistantPanel.resx">
       <DependentUpon>AssistantPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,7 +306,7 @@
     <EmbeddedResource Include="Basic\Assistant\project\ProjectPanel.resx">
       <DependentUpon>ProjectPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="Base\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
@@ -317,7 +321,7 @@
     <EmbeddedResource Include="Basic\News\NewsPanel.resx">
       <DependentUpon>NewsPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormWelcome.resx">
+    <EmbeddedResource Include="Base\FormWelcome.resx">
       <DependentUpon>FormWelcome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -358,15 +362,15 @@
     <EmbeddedResource Include="Base\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Base\DBModel\SessionDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SessionDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="Base\DataBase\SessionDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Base\DBModel\SessionDB.edmx.diagram">
-      <DependentUpon>SessionDB.edmx</DependentUpon>
+    <EntityDeploy Include="Base\DBModel\SessionModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SessionModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Base\DBModel\SessionModel.edmx.diagram">
+      <DependentUpon>SessionModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -901,20 +905,20 @@
     <None Include="Images\Resources\plan_edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Base\DBModel\SessionDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SessionDB.edmx</DependentUpon>
-      <LastGenOutput>SessionDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Base\DBModel\SessionDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SessionDB.edmx</DependentUpon>
-      <LastGenOutput>SessionDB.cs</LastGenOutput>
-    </Content>
     <None Include="Images\Resources\ERP.png" />
     <None Include="Images\Resources\ERP.ico" />
     <None Include="Images\Resources\Electronic_Business.png" />
     <None Include="Images\Resources\Electronic_Business.ico" />
+    <Content Include="Base\DBModel\SessionModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SessionModel.edmx</DependentUpon>
+      <LastGenOutput>SessionModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Base\DBModel\SessionModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SessionModel.edmx</DependentUpon>
+      <LastGenOutput>SessionModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Images\systemImages\BackGround\header.jpg" />
     <Content Include="Images\systemImages\BackGround\title.png" />
     <None Include="Images\Resources\project.ico" />

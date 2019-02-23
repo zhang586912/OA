@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace zSession.SystemSetup
+namespace zSession.Base
 {
     /// <summary>
     /// 系统登录类型
@@ -97,5 +100,142 @@ namespace zSession.SystemSetup
 
     public class common
     {
+        #region 开机界面
+        private delegate bool tStatus();
+        
+        private static FormWelcome welcome;
+        public static void BeginWait()
+        {
+            welcome = new FormWelcome();
+            welcome.Show();
+        }
+
+        public static void SetProgress(int value)
+        {
+            if (welcome != null)
+            {
+                if (!welcome.IsDisposed)
+                {
+                    welcome.setProgressValue(value);
+                }
+            }
+        }
+        public static void EndWait()
+        {
+            if (welcome != null )
+            {
+                if(!welcome.IsDisposed)
+                {
+                    welcome.Close();
+                }                
+            }
+        }
+                
+        private static object isRunning { get; set; } = 0;
+
+        private static tStatus TStatus = new tStatus(() => {
+            return int.Parse(isRunning.ToString()) > 0;
+        });
+
+        public static void AutoWait()
+        {
+            isRunning = 1;
+            ThreadPool.QueueUserWorkItem(new WaitCallback((object _initValue) =>
+            {
+                BeginWait();
+                int i = int.Parse(_initValue.ToString());
+                bool TContinue = TStatus();
+                while (i <= 1000 && TContinue)
+                {
+                    SetProgress(i);
+                    i++;
+                    Thread.Sleep(10);
+                    if (i > 1000) i = 0;
+                    TContinue = TStatus();
+                }
+                EndWait();
+            }), 0);
+        }
+
+        public static void CancelWait()
+        {
+            ThreadPool.QueueUserWorkItem(new WaitCallback((object _isRunning) =>
+            {               
+                lock (isRunning)
+                {
+                    isRunning = int.Parse(_isRunning.ToString());
+                }
+            }),0);
+        }
+        #endregion
+
+        #region 上传下载数据
+        /// <summary>
+        /// 上载数据
+        /// </summary>
+        /// <param name="macList">MAC地址列表</param>
+        /// <param name="isAsync">是否为异步操作</param>
+        /// <returns></returns>
+        public static bool UpLoadDataToServer(List<string> macList, bool isAsync = true)
+        {
+            return ThreadPool.QueueUserWorkItem(new WaitCallback((object mac) =>
+            {
+                if (mac != null)
+                {
+                    List<string> _macList = mac as List<string>;
+                }
+
+                //上传数据
+
+
+
+            }), macList);
+        }
+
+        /// <summary>
+        /// 下载数据到本地数据库中 
+        /// </summary>
+        /// <param name="macList">MAC地址列表</param>
+        /// <param name="isAsync">是否为异步操作</param>
+        /// <returns></returns>
+        public static void DownLoadDataToLocal(List<string> macList, bool isAsync = true)
+        {
+            //下载数据
+
+        }
+
+        /// <summary>
+        /// 下载指定用户的数据到本地数据库中 
+        /// </summary>
+        /// <param name="userID">用户ID</param>
+        /// <param name="macList">MAC地址列表</param>
+        /// <param name="isAsync">是否为异步操作</param>
+        public static void DownLoadDataToLocal(string userID, List<string> macList, bool isAsync = true)
+        {
+            //下载数据
+
+        }
+
+        #endregion
+
+        /// <summary>
+        /// 获取本机MAC地址
+        /// </summary>
+        /// <returns></returns>
+        public static List<string> GetMacAddress()
+        {
+            List<string> macList = new List<string>();
+            ManagementObjectSearcher nisc = new ManagementObjectSearcher("select * from Win32_NetworkAdapterConfiguration");
+            foreach (ManagementObject nic in nisc.Get())
+            {
+                if (Convert.ToBoolean(nic["ipEnabled"]) == true)
+                {
+                    macList.Add(nic["MACAddress"].ToString());
+                }
+            }
+
+            return macList;
+        }
+
     }
 }

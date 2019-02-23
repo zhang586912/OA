@@ -1,4 +1,4 @@
-﻿namespace zSession.SystemSetup
+﻿namespace zSession.Base
 {
     partial class FormBase
     {

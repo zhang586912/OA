@@ -10,8 +10,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using zSession.Assistant;
+using zSession.Base;
 using zSession.Base.DBModel;
-using zSession.SystemSetup;
+using zSession.Market;
+using zSession.News;
+using zSession.Session;
+using zSession.SocialNet;
 
 namespace zSession
 {
@@ -26,8 +31,7 @@ namespace zSession
         private ConnectStatus connectStatus;
         private DateTime lastSessionTime;
 
-        private AnchorStyles StopAanhor = AnchorStyles.None;
-        private System.Windows.Forms.Timer hoverTimer = new System.Windows.Forms.Timer();
+        private AnchorStyles StopAanhor = AnchorStyles.None;       
         private Point loadPoint;
 
         public FormMain(string _userID,ConnectStatus _initSignal)
@@ -36,51 +40,57 @@ namespace zSession
             userID = _userID;
             connectStatus = _initSignal;
 
+            lastSessionTime = DateTime.Now;
             this.MinimumSize = this.Size;
             tpMain.Location = new Point(2, 2);
-            tpMain.Size = new Size(this.Width - 5, this.Height - 5);
+            tpMain.Size = new Size(this.Width - 5, this.Height - 5);            
+            timerHover.Enabled = true; //是否不断重复定时器操作
 
-            hoverTimer.Interval = 100;//定时周期 1/10 秒
-            hoverTimer.Tick += new EventHandler((object o, EventArgs ev) => {
-                if (this.Bounds.Contains(Cursor.Position))
+            if (!bgkInit.IsBusy)
+            {
+                bgkInit.RunWorkerAsync();
+            }
+        }
+
+        private void timerHover_Tick(object sender, EventArgs e)
+        {
+            if (this.Bounds.Contains(Cursor.Position))
+            {
+                switch (this.StopAanhor)
                 {
-                    switch (this.StopAanhor)
-                    {
-                        case AnchorStyles.Top:
-                            //窗体在最上方隐藏时，鼠标接触自动出现
-                            this.Location = new Point(this.Location.X, 0);
-                            break;
-                        case AnchorStyles.Left:
-                            //窗体在最左方隐藏时，鼠标接触自动出现
-                            this.Location = new Point(0, this.Location.Y);
-                            break;
-                        case AnchorStyles.Right:
-                            //窗体在最右方隐藏时，鼠标接触自动出现
-                            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - this.Width, this.Location.Y);
-                            break;
-                    }
+                    case AnchorStyles.Top:
+                        //窗体在最上方隐藏时，鼠标接触自动出现
+                        this.Location = new Point(this.Location.X, 0);
+                        break;
+                    case AnchorStyles.Left:
+                        //窗体在最左方隐藏时，鼠标接触自动出现
+                        this.Location = new Point(0, this.Location.Y);
+                        break;
+                    case AnchorStyles.Right:
+                        //窗体在最右方隐藏时，鼠标接触自动出现
+                        this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - this.Width, this.Location.Y);
+                        break;
                 }
-                else
+            }
+            else
+            {
+                //窗体隐藏时在靠近边界的一侧边会出现2像素原因：感应鼠标，同时2像素不会影响用户视线
+                switch (this.StopAanhor)
                 {
-                    //窗体隐藏时在靠近边界的一侧边会出现2像素原因：感应鼠标，同时2像素不会影响用户视线
-                    switch (this.StopAanhor)
-                    {
-                        case AnchorStyles.Top:
-                            //窗体在顶部时时，隐藏在顶部，底部边界出现2像素
-                            this.Location = new Point(this.Location.X, (this.Height - 2) * (-1));
-                            break;
-                        case AnchorStyles.Left:
-                            //窗体在最左边时时，隐藏在左边，右边边界出现2像素
-                            this.Location = new Point((-1) * (this.Width - 2), this.Location.Y);
-                            break;
-                        case AnchorStyles.Right:
-                            //窗体在最右边时时，隐藏在右边，左边边界出现2像素
-                            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 2, this.Location.Y);
-                            break;
-                    }
+                    case AnchorStyles.Top:
+                        //窗体在顶部时时，隐藏在顶部，底部边界出现2像素
+                        this.Location = new Point(this.Location.X, (this.Height - 2) * (-1));
+                        break;
+                    case AnchorStyles.Left:
+                        //窗体在最左边时时，隐藏在左边，右边边界出现2像素
+                        this.Location = new Point((-1) * (this.Width - 2), this.Location.Y);
+                        break;
+                    case AnchorStyles.Right:
+                        //窗体在最右边时时，隐藏在右边，左边边界出现2像素
+                        this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 2, this.Location.Y);
+                        break;
                 }
-            });//到 1/10 秒了自动隐藏
-            hoverTimer.Enabled = true; //是否不断重复定时器操作
+            }
         }
 
         #region 实现窗体可以移动
@@ -238,12 +248,7 @@ namespace zSession
         private void FormMain_Shown(object sender, EventArgs e)
         {
             
-            hoverTimer.Start();//隐藏窗体
-
-            if (!bgkInit.IsBusy)
-            {
-                bgkInit.RunWorkerAsync();
-            }   
+             
             
         }
 
@@ -254,8 +259,40 @@ namespace zSession
 
         private void timerNetStatus_Tick(object sender, EventArgs e)
         {
+            var ts = lastSessionTime - DateTime.Now;
+            if(ts.Milliseconds > 30) //30秒侦测是否断网
+            {
+                //bgkNetStatus
+                if(!bgkNetStatus.IsBusy)
+                {
+                    bgkNetStatus.RunWorkerAsync();
+                }
+            }
 
         }
+
+        #region
+        private void bgkNetStatus_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //WebSocket 发送请求
+        }
+
+        private void bgkNetStatus_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //WebSocket 获取回应
+
+            SetNetStatus(connectStatus);
+            if (connectStatus == ConnectStatus.Broken)
+            {
+                SetWorkStatus(WorkStatus.Leave);
+            }
+            else
+            {
+                //根据历史设置显示
+
+            }
+        }
+        #endregion
 
         private void bgkInit_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -290,7 +327,29 @@ namespace zSession
                 }
 
                 //获取最后通信时间
-
+                List<string> macIP = common.GetMacAddress();
+                List<DateTime> lastTime = new List<DateTime>();
+                foreach(string itm in macIP)
+                {
+                    var last = db.Session_LastOperation.Where(x => x.MacID == itm).FirstOrDefault();
+                    if(last!=null)
+                    {
+                        try
+                        {
+                            DateTime tmp = DateTime.Parse(last.LastOperationTime);
+                            if(tmp!=null)
+                            {
+                                lastTime.Add(tmp);
+                            }                           
+                        }
+                        catch { }                        
+                    }
+                }
+                if(lastTime.Count>0)
+                {
+                    lastSessionTime= lastTime.Max();
+                }
+                
             }
 
 
@@ -475,18 +534,20 @@ namespace zSession
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        
+
+        #region
         private void ShowFunction(BasicFunction _func)
         {
             switch(_func)
             {
                 case BasicFunction.Session:
-
+                    openTable("SessionPanel", "会话",userID);
                     break;
 
             }
         }
 
+        #region 打开功能
         /// <summary>
         /// 打开内部控件
         /// </summary>
@@ -496,8 +557,21 @@ namespace zSession
         /// <returns></returns>
         private bool openTable(string tabName,string tabLabel,params object[] paramList)
         {
+            //SessionPanel
+            //AssistantPanel
+            //SocialNetPanel
+            //MarketPanel
+            //NewsPanel
 
             return false;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tabName"></param>
+        private void closeTable(string tabName)
+        {
+
         }
 
         /// <summary>
@@ -509,8 +583,12 @@ namespace zSession
         /// <returns></returns>
         private bool openWindow(string winName,string winLabel, params object[] paramList)
         {
-
+            //FormBase 
             return false;
+        }
+        private void closeWindow(string winName)
+        {
+
         }
 
         /// <summary>
@@ -526,6 +604,8 @@ namespace zSession
             return false;
         }
 
+        #endregion
+        #endregion
         #region 系统基础功能
         private void btnSetup_Click(object sender, EventArgs e)
         {
@@ -619,11 +699,10 @@ namespace zSession
 
 
 
+
+
         #endregion
 
-        private void picWorkStatus_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

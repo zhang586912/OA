@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace zSession.SystemSetup
+namespace zSession.Base
 {
     public partial class FormBase : Form
     {
