@@ -33,16 +33,15 @@
             this.tpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tpTop = new System.Windows.Forms.TableLayoutPanel();
             this.tpHeader = new System.Windows.Forms.TableLayoutPanel();
-            this.flpVIP = new System.Windows.Forms.FlowLayoutPanel();
             this.flpMessage = new System.Windows.Forms.FlowLayoutPanel();
             this.ctMSMessage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiProject = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiJournal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSession = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectPanel1 = new zSession.Assistant.project.ProjectPanel();
             this.picWeatherStatus = new System.Windows.Forms.PictureBox();
             this.lblWeek = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.tpPhoto = new System.Windows.Forms.TableLayoutPanel();
             this.picWorkStatus = new System.Windows.Forms.PictureBox();
@@ -52,6 +51,8 @@
             this.tsmiNoDisturb = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiLeave = new System.Windows.Forms.ToolStripMenuItem();
             this.lblWorkStatus = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.flpVIP = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tsTitle = new System.Windows.Forms.ToolStrip();
             this.tslAccount = new System.Windows.Forms.ToolStripLabel();
@@ -92,15 +93,14 @@
             this.timerNetStatus = new System.Windows.Forms.Timer(this.components);
             this.timerWeather = new System.Windows.Forms.Timer(this.components);
             this.timerHover = new System.Windows.Forms.Timer(this.components);
-            this.projectPanel1 = new zSession.Assistant.project.ProjectPanel();
             this.bgkNetStatus = new System.ComponentModel.BackgroundWorker();
+            this.tsbWallet = new System.Windows.Forms.ToolStripButton();
             this.tpMain.SuspendLayout();
             this.tpTop.SuspendLayout();
             this.tpHeader.SuspendLayout();
             this.flpMessage.SuspendLayout();
             this.ctMSMessage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWeatherStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tpPhoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWorkStatus)).BeginInit();
             this.ctMSWorkStatus.SuspendLayout();
@@ -124,9 +124,9 @@
             this.tpMain.Location = new System.Drawing.Point(0, 0);
             this.tpMain.Name = "tpMain";
             this.tpMain.RowCount = 3;
-            this.tpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tpMain.Size = new System.Drawing.Size(464, 815);
             this.tpMain.TabIndex = 1;
             // 
@@ -146,26 +146,25 @@
             this.tpTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tpTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tpTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tpTop.Size = new System.Drawing.Size(464, 200);
+            this.tpTop.Size = new System.Drawing.Size(464, 180);
             this.tpTop.TabIndex = 4;
             // 
             // tpHeader
             // 
             this.tpHeader.BackColor = System.Drawing.Color.Transparent;
-            this.tpHeader.ColumnCount = 5;
+            this.tpHeader.ColumnCount = 4;
             this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tpHeader.Controls.Add(this.flpVIP, 2, 0);
+            this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tpHeader.Controls.Add(this.flpMessage, 1, 0);
             this.tpHeader.Controls.Add(this.picWeatherStatus, 0, 1);
             this.tpHeader.Controls.Add(this.lblWeek, 0, 0);
             this.tpHeader.Controls.Add(this.label3, 0, 2);
-            this.tpHeader.Controls.Add(this.pictureBox1, 4, 3);
             this.tpHeader.Controls.Add(this.lblDateTime, 0, 3);
-            this.tpHeader.Controls.Add(this.tpPhoto, 2, 1);
+            this.tpHeader.Controls.Add(this.tpPhoto, 2, 0);
+            this.tpHeader.Controls.Add(this.flpVIP, 2, 3);
             this.tpHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tpHeader.Location = new System.Drawing.Point(0, 30);
             this.tpHeader.Margin = new System.Windows.Forms.Padding(0);
@@ -175,18 +174,11 @@
             this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tpHeader.Size = new System.Drawing.Size(464, 170);
+            this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tpHeader.Size = new System.Drawing.Size(464, 150);
             this.tpHeader.TabIndex = 4;
-            // 
-            // flpVIP
-            // 
-            this.tpHeader.SetColumnSpan(this.flpVIP, 3);
-            this.flpVIP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpVIP.Location = new System.Drawing.Point(378, 0);
-            this.flpVIP.Margin = new System.Windows.Forms.Padding(0);
-            this.flpVIP.Name = "flpVIP";
-            this.flpVIP.Size = new System.Drawing.Size(86, 26);
-            this.flpVIP.TabIndex = 1;
             // 
             // flpMessage
             // 
@@ -197,7 +189,7 @@
             this.flpMessage.Location = new System.Drawing.Point(73, 3);
             this.flpMessage.Name = "flpMessage";
             this.tpHeader.SetRowSpan(this.flpMessage, 4);
-            this.flpMessage.Size = new System.Drawing.Size(302, 164);
+            this.flpMessage.Size = new System.Drawing.Size(302, 144);
             this.flpMessage.TabIndex = 7;
             // 
             // ctMSMessage
@@ -228,13 +220,21 @@
             this.tsmiSession.Size = new System.Drawing.Size(124, 22);
             this.tsmiSession.Text = "会话消息";
             // 
+            // projectPanel1
+            // 
+            this.projectPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.projectPanel1.Location = new System.Drawing.Point(3, 3);
+            this.projectPanel1.Name = "projectPanel1";
+            this.projectPanel1.Size = new System.Drawing.Size(224, 28);
+            this.projectPanel1.TabIndex = 0;
+            // 
             // picWeatherStatus
             // 
             this.picWeatherStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picWeatherStatus.Image = global::zSession.Properties.Resources.web;
             this.picWeatherStatus.Location = new System.Drawing.Point(3, 29);
             this.picWeatherStatus.Name = "picWeatherStatus";
-            this.picWeatherStatus.Size = new System.Drawing.Size(64, 53);
+            this.picWeatherStatus.Size = new System.Drawing.Size(64, 43);
             this.picWeatherStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picWeatherStatus.TabIndex = 2;
             this.picWeatherStatus.TabStop = false;
@@ -256,31 +256,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 88);
+            this.label3.Location = new System.Drawing.Point(3, 78);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 53);
+            this.label3.Size = new System.Drawing.Size(64, 43);
             this.label3.TabIndex = 6;
             this.label3.Text = "多云转晴2/10℃";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::zSession.Properties.Resources.camera;
-            this.pictureBox1.Location = new System.Drawing.Point(440, 144);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 26);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
             // 
             // lblDateTime
             // 
             this.lblDateTime.AutoSize = true;
             this.lblDateTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDateTime.Font = new System.Drawing.Font("宋体", 7F);
-            this.lblDateTime.Location = new System.Drawing.Point(3, 147);
+            this.lblDateTime.Location = new System.Drawing.Point(3, 127);
             this.lblDateTime.Margin = new System.Windows.Forms.Padding(3);
             this.lblDateTime.Name = "lblDateTime";
             this.lblDateTime.Size = new System.Drawing.Size(64, 20);
@@ -293,21 +282,22 @@
             this.tpPhoto.BackgroundImage = global::zSession.Properties.Resources.PhotoImages;
             this.tpPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tpPhoto.ColumnCount = 2;
-            this.tpHeader.SetColumnSpan(this.tpPhoto, 3);
+            this.tpHeader.SetColumnSpan(this.tpPhoto, 2);
             this.tpPhoto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tpPhoto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tpPhoto.Controls.Add(this.picWorkStatus, 0, 0);
             this.tpPhoto.Controls.Add(this.lblWorkStatus, 1, 0);
+            this.tpPhoto.Controls.Add(this.button1, 0, 2);
             this.tpPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tpPhoto.Location = new System.Drawing.Point(378, 26);
+            this.tpPhoto.Location = new System.Drawing.Point(378, 0);
             this.tpPhoto.Margin = new System.Windows.Forms.Padding(0);
             this.tpPhoto.Name = "tpPhoto";
             this.tpPhoto.RowCount = 3;
-            this.tpHeader.SetRowSpan(this.tpPhoto, 2);
+            this.tpHeader.SetRowSpan(this.tpPhoto, 3);
             this.tpPhoto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tpPhoto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tpPhoto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tpPhoto.Size = new System.Drawing.Size(86, 118);
+            this.tpPhoto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tpPhoto.Size = new System.Drawing.Size(86, 124);
             this.tpPhoto.TabIndex = 10;
             // 
             // picWorkStatus
@@ -370,7 +360,30 @@
             this.lblWorkStatus.Size = new System.Drawing.Size(54, 20);
             this.lblWorkStatus.TabIndex = 4;
             this.lblWorkStatus.Text = "空闲";
-            this.lblWorkStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWorkStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::zSession.Properties.Resources.camera;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(3, 107);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(20, 14);
+            this.button1.TabIndex = 9;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // flpVIP
+            // 
+            this.tpHeader.SetColumnSpan(this.flpVIP, 2);
+            this.flpVIP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpVIP.Location = new System.Drawing.Point(378, 124);
+            this.flpVIP.Margin = new System.Windows.Forms.Padding(0);
+            this.flpVIP.Name = "flpVIP";
+            this.flpVIP.Size = new System.Drawing.Size(86, 26);
+            this.flpVIP.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -406,7 +419,8 @@
             this.tsbMail,
             this.tsbJournal,
             this.tsbProject,
-            this.tsbTools});
+            this.tsbTools,
+            this.tsbWallet});
             this.tsTitle.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.tsTitle.Location = new System.Drawing.Point(30, 0);
             this.tsTitle.Name = "tsTitle";
@@ -548,17 +562,13 @@
             this.tpBody.Controls.Add(this.btnMarket, 3, 1);
             this.tpBody.Controls.Add(this.btnNews, 4, 1);
             this.tpBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tpBody.Location = new System.Drawing.Point(1, 201);
+            this.tpBody.Location = new System.Drawing.Point(1, 181);
             this.tpBody.Margin = new System.Windows.Forms.Padding(1);
             this.tpBody.Name = "tpBody";
             this.tpBody.RowCount = 2;
             this.tpBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tpBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tpBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tpBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tpBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tpBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tpBody.Size = new System.Drawing.Size(462, 553);
+            this.tpBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tpBody.Size = new System.Drawing.Size(462, 583);
             this.tpBody.TabIndex = 5;
             // 
             // btnChat
@@ -568,10 +578,10 @@
             this.btnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChat.Font = new System.Drawing.Font("华文楷体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnChat.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnChat.Location = new System.Drawing.Point(0, 513);
+            this.btnChat.Location = new System.Drawing.Point(0, 557);
             this.btnChat.Margin = new System.Windows.Forms.Padding(0);
             this.btnChat.Name = "btnChat";
-            this.btnChat.Size = new System.Drawing.Size(80, 40);
+            this.btnChat.Size = new System.Drawing.Size(80, 26);
             this.btnChat.TabIndex = 0;
             this.btnChat.Text = "会话";
             this.btnChat.UseVisualStyleBackColor = true;
@@ -584,10 +594,10 @@
             this.btnAssistant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssistant.Font = new System.Drawing.Font("华文楷体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnAssistant.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnAssistant.Location = new System.Drawing.Point(80, 513);
+            this.btnAssistant.Location = new System.Drawing.Point(80, 557);
             this.btnAssistant.Margin = new System.Windows.Forms.Padding(0);
             this.btnAssistant.Name = "btnAssistant";
-            this.btnAssistant.Size = new System.Drawing.Size(80, 40);
+            this.btnAssistant.Size = new System.Drawing.Size(80, 26);
             this.btnAssistant.TabIndex = 1;
             this.btnAssistant.Text = "个人秘书";
             this.btnAssistant.UseVisualStyleBackColor = true;
@@ -600,10 +610,10 @@
             this.btnSocialNet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSocialNet.Font = new System.Drawing.Font("华文楷体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSocialNet.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnSocialNet.Location = new System.Drawing.Point(160, 513);
+            this.btnSocialNet.Location = new System.Drawing.Point(160, 557);
             this.btnSocialNet.Margin = new System.Windows.Forms.Padding(0);
             this.btnSocialNet.Name = "btnSocialNet";
-            this.btnSocialNet.Size = new System.Drawing.Size(80, 40);
+            this.btnSocialNet.Size = new System.Drawing.Size(80, 26);
             this.btnSocialNet.TabIndex = 2;
             this.btnSocialNet.Text = "社交网络";
             this.btnSocialNet.UseVisualStyleBackColor = true;
@@ -617,7 +627,7 @@
             this.panelBody.Location = new System.Drawing.Point(2, 2);
             this.panelBody.Margin = new System.Windows.Forms.Padding(2);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(458, 509);
+            this.panelBody.Size = new System.Drawing.Size(458, 553);
             this.panelBody.TabIndex = 2;
             // 
             // btnMarket
@@ -627,10 +637,10 @@
             this.btnMarket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMarket.Font = new System.Drawing.Font("华文楷体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnMarket.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnMarket.Location = new System.Drawing.Point(240, 513);
+            this.btnMarket.Location = new System.Drawing.Point(240, 557);
             this.btnMarket.Margin = new System.Windows.Forms.Padding(0);
             this.btnMarket.Name = "btnMarket";
-            this.btnMarket.Size = new System.Drawing.Size(80, 40);
+            this.btnMarket.Size = new System.Drawing.Size(80, 26);
             this.btnMarket.TabIndex = 3;
             this.btnMarket.Text = "电子商城";
             this.btnMarket.UseVisualStyleBackColor = true;
@@ -643,10 +653,10 @@
             this.btnNews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNews.Font = new System.Drawing.Font("华文楷体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnNews.ForeColor = System.Drawing.Color.CadetBlue;
-            this.btnNews.Location = new System.Drawing.Point(320, 513);
+            this.btnNews.Location = new System.Drawing.Point(320, 557);
             this.btnNews.Margin = new System.Windows.Forms.Padding(0);
             this.btnNews.Name = "btnNews";
-            this.btnNews.Size = new System.Drawing.Size(80, 40);
+            this.btnNews.Size = new System.Drawing.Size(80, 26);
             this.btnNews.TabIndex = 4;
             this.btnNews.Text = "新闻";
             this.btnNews.UseVisualStyleBackColor = true;
@@ -657,16 +667,16 @@
             this.tsMain.BackColor = System.Drawing.Color.Transparent;
             this.tsMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tsMain.Font = new System.Drawing.Font("华文楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tsMain.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.tsMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.tsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbDeviceManagement,
             this.tsbApplicationCenter,
             this.tsbGameCenter,
             this.tsbWareMarket});
             this.tsMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.tsMain.Location = new System.Drawing.Point(0, 755);
+            this.tsMain.Location = new System.Drawing.Point(0, 765);
             this.tsMain.Name = "tsMain";
-            this.tsMain.Size = new System.Drawing.Size(464, 60);
+            this.tsMain.Size = new System.Drawing.Size(464, 50);
             this.tsMain.TabIndex = 6;
             this.tsMain.Text = "toolStrip1";
             // 
@@ -676,7 +686,7 @@
             this.tsbDeviceManagement.Image = global::zSession.Properties.Resources.intelligent;
             this.tsbDeviceManagement.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDeviceManagement.Name = "tsbDeviceManagement";
-            this.tsbDeviceManagement.Size = new System.Drawing.Size(76, 54);
+            this.tsbDeviceManagement.Size = new System.Drawing.Size(76, 46);
             this.tsbDeviceManagement.Text = "设备管理";
             this.tsbDeviceManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbDeviceManagement.Click += new System.EventHandler(this.tsbDeviceManagement_Click);
@@ -687,7 +697,7 @@
             this.tsbApplicationCenter.Image = global::zSession.Properties.Resources.app_comment;
             this.tsbApplicationCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbApplicationCenter.Name = "tsbApplicationCenter";
-            this.tsbApplicationCenter.Size = new System.Drawing.Size(76, 54);
+            this.tsbApplicationCenter.Size = new System.Drawing.Size(76, 46);
             this.tsbApplicationCenter.Text = "应用管理";
             this.tsbApplicationCenter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbApplicationCenter.Click += new System.EventHandler(this.tsbApplicationCenter_Click);
@@ -698,7 +708,7 @@
             this.tsbGameCenter.Image = global::zSession.Properties.Resources.GameControllers;
             this.tsbGameCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbGameCenter.Name = "tsbGameCenter";
-            this.tsbGameCenter.Size = new System.Drawing.Size(76, 54);
+            this.tsbGameCenter.Size = new System.Drawing.Size(76, 46);
             this.tsbGameCenter.Text = "游戏中心";
             this.tsbGameCenter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbGameCenter.Click += new System.EventHandler(this.tsbGameCenter_Click);
@@ -709,7 +719,7 @@
             this.tsbWareMarket.Image = global::zSession.Properties.Resources.App_Lib;
             this.tsbWareMarket.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbWareMarket.Name = "tsbWareMarket";
-            this.tsbWareMarket.Size = new System.Drawing.Size(76, 54);
+            this.tsbWareMarket.Size = new System.Drawing.Size(76, 46);
             this.tsbWareMarket.Text = "软件市场";
             this.tsbWareMarket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbWareMarket.Click += new System.EventHandler(this.tsbWareMarket_Click);
@@ -790,18 +800,21 @@
             // 
             this.timerHover.Tick += new System.EventHandler(this.timerHover_Tick);
             // 
-            // projectPanel1
-            // 
-            this.projectPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.projectPanel1.Location = new System.Drawing.Point(3, 3);
-            this.projectPanel1.Name = "projectPanel1";
-            this.projectPanel1.Size = new System.Drawing.Size(224, 28);
-            this.projectPanel1.TabIndex = 0;
-            // 
             // bgkNetStatus
             // 
             this.bgkNetStatus.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgkNetStatus_DoWork);
             this.bgkNetStatus.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgkNetStatus_RunWorkerCompleted);
+            // 
+            // tsbWallet
+            // 
+            this.tsbWallet.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbWallet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbWallet.Image = global::zSession.Properties.Resources.wallet;
+            this.tsbWallet.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbWallet.Name = "tsbWallet";
+            this.tsbWallet.Size = new System.Drawing.Size(28, 27);
+            this.tsbWallet.Text = "个人钱包";
+            this.tsbWallet.Click += new System.EventHandler(this.tsbWallet_Click);
             // 
             // FormMain
             // 
@@ -828,7 +841,6 @@
             this.flpMessage.ResumeLayout(false);
             this.ctMSMessage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picWeatherStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tpPhoto.ResumeLayout(false);
             this.tpPhoto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWorkStatus)).EndInit();
@@ -905,12 +917,13 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiShow;
         private System.Windows.Forms.ToolStripMenuItem tsmiExit;
         private System.Windows.Forms.Timer timerNetStatus;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timerWeather;
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.TableLayoutPanel tpPhoto;
         private System.Windows.Forms.Timer timerHover;
         private System.ComponentModel.BackgroundWorker bgkNetStatus;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripButton tsbWallet;
     }
 }
 

@@ -112,6 +112,7 @@
             this.txtUserPSD.PasswordChar = '*';
             this.txtUserPSD.Size = new System.Drawing.Size(237, 32);
             this.txtUserPSD.TabIndex = 1;
+            this.txtUserPSD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUserPSD_KeyDown);
             // 
             // tableLayoutPanel2
             // 

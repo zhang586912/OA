@@ -34,7 +34,7 @@ namespace zSession
                 common.DownLoadDataToLocal(macList);//下载本机数据库
                 common.UpLoadDataToServer(macList);//上载本机数据到服务器
             }
-            Thread.Sleep(10000);
+            Thread.Sleep(6000);
 
             
             if (SessionService.LogIn())

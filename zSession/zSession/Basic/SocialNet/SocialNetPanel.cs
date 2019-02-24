@@ -12,9 +12,12 @@ namespace zSession.SocialNet
 {
     public partial class SocialNetPanel : UserControl
     {
-        public SocialNetPanel()
+        private string userID;
+        public SocialNetPanel(string userID, params object[] paramlist)
         {
             InitializeComponent();
+
+            this.userID = userID;
         }
     }
 }

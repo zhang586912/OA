@@ -12,9 +12,12 @@ namespace zSession.Assistant
 {
     public partial class AssistantPanel : UserControl
     {
-        public AssistantPanel()
+        private string userID;
+        public AssistantPanel(string userID, params object[] paramlist)
         {
             InitializeComponent();
+
+            this.userID = userID;
         }
     }
 }

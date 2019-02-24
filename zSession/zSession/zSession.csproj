@@ -138,6 +138,18 @@
     <Compile Include="Basic\Assistant\AssistantPanel.Designer.cs">
       <DependentUpon>AssistantPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Basic\Assistant\Journal\JournalMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Basic\Assistant\Journal\JournalMessage.Designer.cs">
+      <DependentUpon>JournalMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\Session\SessionMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Basic\Session\SessionMessage.Designer.cs">
+      <DependentUpon>SessionMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extend\Intelligent\DevicePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -162,17 +174,17 @@
     <Compile Include="Extend\Intelligent\Monitor.Designer.cs">
       <DependentUpon>Monitor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Basic\Assistant\project\ProjectManagement.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Basic\Assistant\project\ProjectManagement.Designer.cs">
-      <DependentUpon>ProjectManagement.cs</DependentUpon>
-    </Compile>
     <Compile Include="Basic\Assistant\project\ProjectPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Basic\Assistant\project\ProjectPanel.Designer.cs">
       <DependentUpon>ProjectPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\Assistant\project\ProjectMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Basic\Assistant\project\ProjectMessage.Designer.cs">
+      <DependentUpon>ProjectMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="Base\FormLogin.cs">
       <SubType>Form</SubType>
@@ -272,11 +284,6 @@
     <Compile Include="Basic\SocialNet\SocialNetPanel.Designer.cs">
       <DependentUpon>SocialNetPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Base\common.cs" />
     <Compile Include="Base\FormBase.cs">
       <SubType>Form</SubType>
@@ -287,6 +294,12 @@
     <Compile Include="Base\SessionService.cs" />
     <EmbeddedResource Include="Basic\Assistant\AssistantPanel.resx">
       <DependentUpon>AssistantPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Basic\Assistant\Journal\JournalMessage.resx">
+      <DependentUpon>JournalMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Basic\Session\SessionMessage.resx">
+      <DependentUpon>SessionMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Extend\Intelligent\DevicePanel.resx">
       <DependentUpon>DevicePanel.cs</DependentUpon>
@@ -300,11 +313,11 @@
     <EmbeddedResource Include="Extend\Intelligent\Monitor.resx">
       <DependentUpon>Monitor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Basic\Assistant\project\ProjectManagement.resx">
-      <DependentUpon>ProjectManagement.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Basic\Assistant\project\ProjectPanel.resx">
       <DependentUpon>ProjectPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Basic\Assistant\project\ProjectMessage.resx">
+      <DependentUpon>ProjectMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Base\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -377,6 +390,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -919,6 +937,26 @@
       <DependentUpon>SessionModel.edmx</DependentUpon>
       <LastGenOutput>SessionModel.cs</LastGenOutput>
     </Content>
+    <None Include="Images\Resources\Membership.png" />
+    <None Include="Images\Resources\Membership.ico" />
+    <None Include="Images\Resources\Academic.png" />
+    <None Include="Images\Resources\Company.png" />
+    <None Include="Images\Resources\non-profit.png" />
+    <None Include="Images\Resources\Party.png" />
+    <None Include="Images\Resources\Academic.ico" />
+    <None Include="Images\Resources\Company.ico" />
+    <None Include="Images\Resources\non-profit.ico" />
+    <None Include="Images\Resources\Party.ico" />
+    <None Include="Images\Resources\groupchat.png" />
+    <None Include="Images\Resources\uploadMessage.png" />
+    <None Include="Images\Resources\workflow.png" />
+    <None Include="Images\Resources\groupchat.ico" />
+    <None Include="Images\Resources\uploadMessage.ico" />
+    <None Include="Images\Resources\workflow.ico" />
+    <None Include="Images\Resources\SendMessage.png" />
+    <None Include="Images\Resources\SendMessage.ico" />
+    <None Include="Images\Resources\wallet.png" />
+    <None Include="Images\Resources\wallet.ico" />
     <Content Include="Images\systemImages\BackGround\header.jpg" />
     <Content Include="Images\systemImages\BackGround\title.png" />
     <None Include="Images\Resources\project.ico" />

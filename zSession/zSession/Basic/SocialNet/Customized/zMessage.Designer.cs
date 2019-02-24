@@ -156,7 +156,7 @@
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.Image = global::zSession.Properties.Resources.label_orange;
+            this.toolStripButton1.Image = global::zSession.Properties.Resources.label_yellow;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(76, 23);

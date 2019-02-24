@@ -625,8 +625,8 @@
   <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Resources\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="label_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Resources\offert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label_yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\label-yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="folder_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Resources\folder-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -982,8 +982,8 @@
   <data name="key_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Resources\key.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="label_orange_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Resources\offert.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label_yellow_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\label-yellow.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="last_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Resources\last.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1851,5 +1851,65 @@
   </data>
   <data name="ERP_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Resources\ERP.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Membership" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\Membership.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Membership_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\Membership.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Academic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\Academic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Academic_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\Academic.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Company" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\Company.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Company_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\Company.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="non_profit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\non-profit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="non_profit_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\non-profit.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Party" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\Party.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Party_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\Party.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="groupchat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\groupchat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="groupchat_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\groupchat.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SendMessage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\SendMessage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SendMessage_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\SendMessage.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="uploadMessage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\uploadMessage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="uploadMessage_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\uploadMessage.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="workflow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\workflow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="workflow_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\workflow.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\wallet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wallet_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Resources\wallet.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

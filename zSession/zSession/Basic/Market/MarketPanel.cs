@@ -12,9 +12,12 @@ namespace zSession.Market
 {
     public partial class MarketPanel : UserControl
     {
-        public MarketPanel()
+        private string userID;
+        public MarketPanel(string userID, params object[] paramlist)
         {
             InitializeComponent();
+
+            this.userID = userID;
         }
     }
 }

@@ -12,9 +12,12 @@ namespace zSession.News
 {
     public partial class NewsPanel : UserControl
     {
-        public NewsPanel()
+        private string userID;
+        public NewsPanel(string userID, params object[] paramlist)
         {
             InitializeComponent();
+
+            this.userID = userID;
         }
     }
 }

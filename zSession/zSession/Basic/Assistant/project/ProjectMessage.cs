@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace zSession.Assistant.project
 {
-    public partial class ProjectManagement : UserControl
+    public partial class ProjectPanel : UserControl
     {
-        public ProjectManagement()
+        public ProjectPanel()
         {
             InitializeComponent();
         }

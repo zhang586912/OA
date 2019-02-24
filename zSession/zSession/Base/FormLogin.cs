@@ -34,60 +34,84 @@ namespace zSession.Base
         {
             //common.CancelWait();
         }
-        
+
+        private void txtUserPSD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (cboUserID.Text.Trim().Length == 0) return;
+                SystemParamters.UserID = string.Empty;
+
+                string userID = cboUserID.SelectedValue.ToString();
+                string userPSD = txtUserPSD.Text;
+
+                if (confirm(userID, userPSD))
+                {
+                    this.Close();
+                }
+            }
+        }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
             if (cboUserID.Text.Trim().Length == 0) return;
             SystemParamters.UserID = string.Empty;
 
-            //if (connectCnt<3)
-            //{
-                string userID = cboUserID.SelectedValue.ToString();
-                string userPSD = txtUserPSD.Text;
-                if(SessionService.NetStatus)
+            string userID = cboUserID.SelectedValue.ToString();
+            string userPSD = txtUserPSD.Text;
+
+            if(confirm(userID, userPSD))
+            {
+                this.Close();
+            }
+            
+
+        }
+
+        private bool confirm(string userID,string userPSD)
+        {
+            bool rtn = false;
+            if (SessionService.NetStatus)
+            {
+                SystemParamters.Log_Status = WebLogin(userID, userPSD);
+                if (SystemParamters.Log_Status == LogStatus.Success)
                 {
-                    SystemParamters.Log_Status = WebLogin(userID, userPSD);
-                    if(SystemParamters.Log_Status == LogStatus.Success)
-                    {
-                        SystemParamters.UserID = userID;
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
-                    }
-                    else if (SystemParamters.Log_Status == LogStatus.Refuse)
-                    {
-                        //
-                        if (LocadLogin(userID, userPSD))
-                        {
-                            SystemParamters.UserID = userID;
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
-                        }
-                        else
-                        {
-                            SystemParamters.Log_Status = LogStatus.UnRegistered;
-                        }
-                    }                    
-                }                
-                else
+                    SystemParamters.UserID = userID;
+                    this.DialogResult = DialogResult.OK;
+                    rtn = true;
+                }
+                else if (SystemParamters.Log_Status == LogStatus.Refuse)
                 {
-                    SystemParamters.Log_Status = LogStatus.Refuse;
+                    //
                     if (LocadLogin(userID, userPSD))
                     {
                         SystemParamters.UserID = userID;
                         this.DialogResult = DialogResult.OK;
-                        this.Close();
+                        rtn = true;
                     }
                     else
                     {
                         SystemParamters.Log_Status = LogStatus.UnRegistered;
                     }
                 }
-                connectCnt++;
+            }
+            else
+            {
+                SystemParamters.Log_Status = LogStatus.Refuse;
+                if (LocadLogin(userID, userPSD))
+                {
+                    SystemParamters.UserID = userID;
+                    this.DialogResult = DialogResult.OK;
+                    rtn = true;
+                }
+                else
+                {
+                    SystemParamters.Log_Status = LogStatus.UnRegistered;
+                }
+            }
+            connectCnt++;
 
-           // }
-           
-
+            return rtn;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

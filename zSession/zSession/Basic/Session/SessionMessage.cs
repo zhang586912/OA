@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace zSession.Assistant.project
+namespace zSession.Basic.Session
 {
-    public partial class ProjectManagement : UserControl
+    public partial class SessionMessage : UserControl
     {
-        public ProjectManagement()
+        public SessionMessage()
         {
             InitializeComponent();
         }

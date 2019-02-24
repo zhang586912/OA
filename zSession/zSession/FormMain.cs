@@ -501,7 +501,7 @@ namespace zSession
             switch (roleID)
             {
                 case "Membership":
-                    rtn = Properties.Resources.vcard;
+                    rtn = Properties.Resources.Membership;
                     break;
                 case "Electronic":
                     rtn = Properties.Resources.Electronic_Business;
@@ -541,7 +541,7 @@ namespace zSession
             switch(_func)
             {
                 case BasicFunction.Session:
-                    openTable("SessionPanel", "会话",userID);
+                    openTable(BasicFunction.Session.ToString(), "会话",userID);
                     break;
 
             }
@@ -555,13 +555,45 @@ namespace zSession
         /// <param name="tabLabel">标签名称</param>
         /// <param name="paramList">参数</param>
         /// <returns></returns>
-        private bool openTable(string tabName,string tabLabel,params object[] paramList)
-        {
-            //SessionPanel
-            //AssistantPanel
-            //SocialNetPanel
-            //MarketPanel
-            //NewsPanel
+        private bool openTable(string tabName,string tabLabel,string userID, params object[] paramlist)
+        {           
+            if(panelBody.Controls.Count>0)
+            {
+
+            }
+            panelBody.Controls.Clear();
+            var sw = (BasicFunction) Enum.Parse(typeof(BasicFunction), tabName);
+
+            switch (sw)
+            {
+                case BasicFunction.Session:
+                    SessionPanel tabSession = new SessionPanel(userID, paramlist);
+                    tabSession.Dock = DockStyle.Fill; 
+                    panelBody.Controls.Add(tabSession);
+                    break;
+                case BasicFunction.Assistant:
+                    AssistantPanel tabAssistant = new AssistantPanel(userID, paramlist);
+                    tabAssistant.Dock = DockStyle.Fill;
+                    panelBody.Controls.Add(tabAssistant);
+                    break;
+                case BasicFunction.SocialNet:
+                    SocialNetPanel tabSocialNet = new SocialNetPanel(userID, paramlist);
+                    tabSocialNet.Dock = DockStyle.Fill;
+                    panelBody.Controls.Add(tabSocialNet);
+                    break;
+                case BasicFunction.Market:
+                    MarketPanel tabMarket = new MarketPanel(userID, paramlist);
+                    tabMarket.Dock = DockStyle.Fill;
+                    panelBody.Controls.Add(tabMarket);
+                    break;
+                case BasicFunction.News:
+                    NewsPanel tabNews = new NewsPanel(userID, paramlist);
+                    tabNews.Dock = DockStyle.Fill;
+                    panelBody.Controls.Add(tabNews);
+                    break;
+            }
+
+
 
             return false;
         }
@@ -581,7 +613,7 @@ namespace zSession
         /// <param name="winLabel">标签名称</param>
         /// <param name="paramList">参数</param>
         /// <returns></returns>
-        private bool openWindow(string winName,string winLabel, params object[] paramList)
+        private bool openWindow(string winName,string winLabel, string userID, params object[] paramlist)
         {
             //FormBase 
             return false;
@@ -598,7 +630,7 @@ namespace zSession
         /// <param name="linkLabel">标签名称</param>
         /// <param name="paramList">参数</param>
         /// <returns></returns>
-        private bool openLink(string linkName,string linkLabel, params object[] paramList)
+        private bool openLink(string linkName,string linkLabel, string userID,params object[] paramlist)
         {
 
             return false;
@@ -611,7 +643,10 @@ namespace zSession
         {
 
         }
-
+        private void tsbWallet_Click(object sender, EventArgs e)
+        {
+            //个人钱包管理
+        }
 
         private void btnMail_Click(object sender, EventArgs e)
         {
@@ -701,8 +736,9 @@ namespace zSession
 
 
 
+
         #endregion
 
-        
+       
     }
 }
