@@ -74,6 +74,26 @@ namespace zSession.Base
         Leave
     }
 
+    /// <summary>
+    /// 在线操作类型
+    /// </summary>
+    public enum OnLineOperateType
+    {
+        /// <summary>
+        /// 登入
+        /// </summary>
+        LogIn,
+        /// <summary>
+        /// 登出
+        /// </summary>
+        LogOut,
+        /// <summary>
+        /// 
+        /// </summary>
+        NetDetection
+
+    }
+
     public enum BasicFunction
     {
         /// <summary>
@@ -237,5 +257,17 @@ namespace zSession.Base
             return macList;
         }
 
+        /// <summary>
+        /// 打开外部链接
+        /// </summary>
+        /// <param name="linkName">链接URL</param>
+        /// <param name="linkLabel">标签名称</param>
+        /// <param name="paramList">参数</param>
+        /// <returns></returns>
+        private static bool openLink(string linkName, string linkLabel, string userID, params object[] paramlist)
+        {
+
+            return false;
+        }
     }
 }

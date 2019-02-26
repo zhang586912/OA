@@ -34,9 +34,6 @@ namespace zSession.Base
         public static bool Connection()
         {
 
-
-
-
             //连接网络
             Thread.Sleep(3000);
             

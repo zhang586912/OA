@@ -27,19 +27,17 @@ namespace zSession
             //AppDomain.CurrentDomain.SetData("DataPassword", "zSession@zysheng.com");
             
             common.AutoWait();
-            List<string> macList = common.GetMacAddress();
+            SystemParamters.MacAddress = common.GetMacAddress();
             SessionService.Connection();
             if (SessionService.SignalIntensity != ConnectStatus.Broken)
             {
-                common.DownLoadDataToLocal(macList);//下载本机数据库
-                common.UpLoadDataToServer(macList);//上载本机数据到服务器
+                common.DownLoadDataToLocal(SystemParamters.MacAddress);//下载本机数据库
+                common.UpLoadDataToServer(SystemParamters.MacAddress);//上载本机数据到服务器
             }
-            Thread.Sleep(6000);
-
             
             if (SessionService.LogIn())
             {
-                common.DownLoadDataToLocal(SystemParamters.UserID, macList);
+                common.DownLoadDataToLocal(SystemParamters.UserID, SystemParamters.MacAddress);
                 
                 //进入主界面
                 Application.Run(new FormMain(SystemParamters.UserID, SessionService.SignalIntensity));

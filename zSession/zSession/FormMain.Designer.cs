@@ -63,6 +63,7 @@
             this.tsbJournal = new System.Windows.Forms.ToolStripButton();
             this.tsbProject = new System.Windows.Forms.ToolStripButton();
             this.tsbTools = new System.Windows.Forms.ToolStripButton();
+            this.tsbWallet = new System.Windows.Forms.ToolStripButton();
             this.picNetStatus = new System.Windows.Forms.PictureBox();
             this.ctMSConnectStatus = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiConnect = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,7 +95,8 @@
             this.timerWeather = new System.Windows.Forms.Timer(this.components);
             this.timerHover = new System.Windows.Forms.Timer(this.components);
             this.bgkNetStatus = new System.ComponentModel.BackgroundWorker();
-            this.tsbWallet = new System.Windows.Forms.ToolStripButton();
+            this.timerTitleMessage = new System.Windows.Forms.Timer(this.components);
+            this.bgkTitleMessage = new System.ComponentModel.BackgroundWorker();
             this.tpMain.SuspendLayout();
             this.tpTop.SuspendLayout();
             this.tpHeader.SuspendLayout();
@@ -203,9 +205,11 @@
             // 
             // tsmiProject
             // 
+            this.tsmiProject.Image = global::zSession.Properties.Resources.ok;
             this.tsmiProject.Name = "tsmiProject";
             this.tsmiProject.Size = new System.Drawing.Size(124, 22);
             this.tsmiProject.Text = "到期项目";
+            this.tsmiProject.Click += new System.EventHandler(this.tsmiProject_Click);
             // 
             // tsmiJournal
             // 
@@ -213,12 +217,15 @@
             this.tsmiJournal.Name = "tsmiJournal";
             this.tsmiJournal.Size = new System.Drawing.Size(124, 22);
             this.tsmiJournal.Text = "到期日程";
+            this.tsmiJournal.Click += new System.EventHandler(this.tsmiJournal_Click);
             // 
             // tsmiSession
             // 
+            this.tsmiSession.Image = global::zSession.Properties.Resources.ok;
             this.tsmiSession.Name = "tsmiSession";
             this.tsmiSession.Size = new System.Drawing.Size(124, 22);
             this.tsmiSession.Text = "会话消息";
+            this.tsmiSession.Click += new System.EventHandler(this.tsmiSession_Click);
             // 
             // projectPanel1
             // 
@@ -328,24 +335,28 @@
             this.tsmiFree.Name = "tsmiFree";
             this.tsmiFree.Size = new System.Drawing.Size(100, 22);
             this.tsmiFree.Text = "空闲";
+            this.tsmiFree.Click += new System.EventHandler(this.tsmiFree_Click);
             // 
             // tsmiBusyness
             // 
             this.tsmiBusyness.Name = "tsmiBusyness";
             this.tsmiBusyness.Size = new System.Drawing.Size(100, 22);
             this.tsmiBusyness.Text = "忙碌";
+            this.tsmiBusyness.Click += new System.EventHandler(this.tsmiBusyness_Click);
             // 
             // tsmiNoDisturb
             // 
             this.tsmiNoDisturb.Name = "tsmiNoDisturb";
             this.tsmiNoDisturb.Size = new System.Drawing.Size(100, 22);
             this.tsmiNoDisturb.Text = "勿扰";
+            this.tsmiNoDisturb.Click += new System.EventHandler(this.tsmiNoDisturb_Click);
             // 
             // tsmiLeave
             // 
             this.tsmiLeave.Name = "tsmiLeave";
             this.tsmiLeave.Size = new System.Drawing.Size(100, 22);
             this.tsmiLeave.Text = "离开";
+            this.tsmiLeave.Click += new System.EventHandler(this.tsmiLeave_Click);
             // 
             // lblWorkStatus
             // 
@@ -465,6 +476,8 @@
             this.tsbSetup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSetup.Name = "tsbSetup";
             this.tsbSetup.Size = new System.Drawing.Size(28, 27);
+            this.tsbSetup.Tag = "Setup";
+            this.tsbSetup.Text = "系统设置";
             this.tsbSetup.ToolTipText = "系统设置";
             this.tsbSetup.Click += new System.EventHandler(this.btnSetup_Click);
             // 
@@ -476,6 +489,8 @@
             this.tsbMail.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMail.Name = "tsbMail";
             this.tsbMail.Size = new System.Drawing.Size(28, 27);
+            this.tsbMail.Tag = "Mail";
+            this.tsbMail.Text = "电子邮件";
             this.tsbMail.ToolTipText = "电子邮件";
             this.tsbMail.Click += new System.EventHandler(this.btnMail_Click);
             // 
@@ -487,6 +502,8 @@
             this.tsbJournal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbJournal.Name = "tsbJournal";
             this.tsbJournal.Size = new System.Drawing.Size(28, 27);
+            this.tsbJournal.Tag = "Journal";
+            this.tsbJournal.Text = "日程安排";
             this.tsbJournal.ToolTipText = "日程安排";
             this.tsbJournal.Click += new System.EventHandler(this.tsbJournal_Click);
             // 
@@ -498,6 +515,8 @@
             this.tsbProject.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbProject.Name = "tsbProject";
             this.tsbProject.Size = new System.Drawing.Size(28, 27);
+            this.tsbProject.Tag = "Project";
+            this.tsbProject.Text = "项目管理";
             this.tsbProject.ToolTipText = "项目管理";
             this.tsbProject.Click += new System.EventHandler(this.tsbProject_Click);
             // 
@@ -509,8 +528,22 @@
             this.tsbTools.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbTools.Name = "tsbTools";
             this.tsbTools.Size = new System.Drawing.Size(28, 27);
+            this.tsbTools.Tag = "Tools";
+            this.tsbTools.Text = "常用工具包";
             this.tsbTools.ToolTipText = "常用工具包";
             this.tsbTools.Click += new System.EventHandler(this.tsbTools_Click);
+            // 
+            // tsbWallet
+            // 
+            this.tsbWallet.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbWallet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbWallet.Image = global::zSession.Properties.Resources.wallet;
+            this.tsbWallet.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbWallet.Name = "tsbWallet";
+            this.tsbWallet.Size = new System.Drawing.Size(28, 27);
+            this.tsbWallet.Tag = "Wallet";
+            this.tsbWallet.Text = "个人钱包";
+            this.tsbWallet.Click += new System.EventHandler(this.tsbWallet_Click);
             // 
             // picNetStatus
             // 
@@ -538,12 +571,14 @@
             this.tsmiConnect.Name = "tsmiConnect";
             this.tsmiConnect.Size = new System.Drawing.Size(100, 22);
             this.tsmiConnect.Text = "连接";
+            this.tsmiConnect.Click += new System.EventHandler(this.tsmiConnect_Click);
             // 
             // tsmiDisconnect
             // 
             this.tsmiDisconnect.Name = "tsmiDisconnect";
             this.tsmiDisconnect.Size = new System.Drawing.Size(100, 22);
             this.tsmiDisconnect.Text = "断开";
+            this.tsmiDisconnect.Click += new System.EventHandler(this.tsmiDisconnect_Click);
             // 
             // tpBody
             // 
@@ -687,6 +722,7 @@
             this.tsbDeviceManagement.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDeviceManagement.Name = "tsbDeviceManagement";
             this.tsbDeviceManagement.Size = new System.Drawing.Size(76, 46);
+            this.tsbDeviceManagement.Tag = "Device";
             this.tsbDeviceManagement.Text = "设备管理";
             this.tsbDeviceManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbDeviceManagement.Click += new System.EventHandler(this.tsbDeviceManagement_Click);
@@ -698,6 +734,7 @@
             this.tsbApplicationCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbApplicationCenter.Name = "tsbApplicationCenter";
             this.tsbApplicationCenter.Size = new System.Drawing.Size(76, 46);
+            this.tsbApplicationCenter.Tag = "AppCenter";
             this.tsbApplicationCenter.Text = "应用管理";
             this.tsbApplicationCenter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbApplicationCenter.Click += new System.EventHandler(this.tsbApplicationCenter_Click);
@@ -709,6 +746,7 @@
             this.tsbGameCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbGameCenter.Name = "tsbGameCenter";
             this.tsbGameCenter.Size = new System.Drawing.Size(76, 46);
+            this.tsbGameCenter.Tag = "GameCenter";
             this.tsbGameCenter.Text = "游戏中心";
             this.tsbGameCenter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbGameCenter.Click += new System.EventHandler(this.tsbGameCenter_Click);
@@ -720,6 +758,7 @@
             this.tsbWareMarket.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbWareMarket.Name = "tsbWareMarket";
             this.tsbWareMarket.Size = new System.Drawing.Size(76, 46);
+            this.tsbWareMarket.Tag = "WareMarket";
             this.tsbWareMarket.Text = "软件市场";
             this.tsbWareMarket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbWareMarket.Click += new System.EventHandler(this.tsbWareMarket_Click);
@@ -805,16 +844,14 @@
             this.bgkNetStatus.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgkNetStatus_DoWork);
             this.bgkNetStatus.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgkNetStatus_RunWorkerCompleted);
             // 
-            // tsbWallet
+            // timerTitleMessage
             // 
-            this.tsbWallet.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbWallet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbWallet.Image = global::zSession.Properties.Resources.wallet;
-            this.tsbWallet.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbWallet.Name = "tsbWallet";
-            this.tsbWallet.Size = new System.Drawing.Size(28, 27);
-            this.tsbWallet.Text = "个人钱包";
-            this.tsbWallet.Click += new System.EventHandler(this.tsbWallet_Click);
+            this.timerTitleMessage.Tick += new System.EventHandler(this.timerTitleMessage_Tick);
+            // 
+            // bgkTitleMessage
+            // 
+            this.bgkTitleMessage.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgkTitleMessage_DoWork);
+            this.bgkTitleMessage.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgkTitleMessage_RunWorkerCompleted);
             // 
             // FormMain
             // 
@@ -924,6 +961,8 @@
         private System.ComponentModel.BackgroundWorker bgkNetStatus;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripButton tsbWallet;
+        private System.Windows.Forms.Timer timerTitleMessage;
+        private System.ComponentModel.BackgroundWorker bgkTitleMessage;
     }
 }
 

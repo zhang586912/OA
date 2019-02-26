@@ -26,14 +26,17 @@ namespace zSession.Base.DBModel
         }
     
         public DbSet<Session_Chat> Session_Chat { get; set; }
+        public DbSet<Session_Dpt_Controllers> Session_Dpt_Controllers { get; set; }
         public DbSet<Session_Dpt_Roles> Session_Dpt_Roles { get; set; }
         public DbSet<Session_Dpt_Users> Session_Dpt_Users { get; set; }
         public DbSet<Session_Dpts> Session_Dpts { get; set; }
         public DbSet<Session_DptTypes> Session_DptTypes { get; set; }
+        public DbSet<Session_Friend_Controllers> Session_Friend_Controllers { get; set; }
         public DbSet<Session_Grant_Dpts> Session_Grant_Dpts { get; set; }
         public DbSet<Session_Grant_Roles> Session_Grant_Roles { get; set; }
         public DbSet<Session_Grant_Users> Session_Grant_Users { get; set; }
         public DbSet<Session_LastOperation> Session_LastOperation { get; set; }
+        public DbSet<Session_LogIn> Session_LogIn { get; set; }
         public DbSet<Session_Powers> Session_Powers { get; set; }
         public DbSet<Session_Roles> Session_Roles { get; set; }
         public DbSet<Session_Users> Session_Users { get; set; }

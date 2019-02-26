@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using zSession.Assistant;
 using zSession.Base;
 using zSession.Base.DBModel;
+using zSession.Basic;
+using zSession.Extend;
 using zSession.Market;
 using zSession.News;
 using zSession.Session;
@@ -29,10 +31,37 @@ namespace zSession
         private List<string> roleList = new List<string>();
 
         private ConnectStatus connectStatus;
+       
         private DateTime lastSessionTime;
+
+        private FormBase tool = new FormBase();
+
 
         private AnchorStyles StopAanhor = AnchorStyles.None;       
         private Point loadPoint;
+
+        private WorkStatus _OldWorkStatus;        
+        public WorkStatus OldWorkStatus
+        {
+            get
+            {
+                return _OldWorkStatus;
+            }
+            set
+            {
+                _OldWorkStatus = value;
+                using (mainEntities db = new mainEntities())
+                {
+                    string _macAddress = string.Join(",",SystemParamters.MacAddress);
+                    var _login = db.Session_LogIn.FirstOrDefault(x=>x.lastLogMacID == _macAddress);
+                    if(_login!=null)
+                    {
+                        _login.WorkStatus = _OldWorkStatus.ToString();
+                        db.SaveChanges();
+                    }
+                }
+            }
+        }
 
         public FormMain(string _userID,ConnectStatus _initSignal)
         {
@@ -289,7 +318,7 @@ namespace zSession
             else
             {
                 //根据历史设置显示
-
+                SetWorkStatus(OldWorkStatus);
             }
         }
         #endregion
@@ -328,28 +357,30 @@ namespace zSession
 
                 //获取最后通信时间
                 List<string> macIP = common.GetMacAddress();
-                List<DateTime> lastTime = new List<DateTime>();
+                List<Session_LastOperation> lastTime = new List<Session_LastOperation>();
                 foreach(string itm in macIP)
                 {
-                    var last = db.Session_LastOperation.Where(x => x.MacID == itm).FirstOrDefault();
+                    var last = db.Session_LastOperation.Where(x => x.MacID.Contains( itm)).FirstOrDefault();
                     if(last!=null)
                     {
-                        try
-                        {
-                            DateTime tmp = DateTime.Parse(last.LastOperationTime);
-                            if(tmp!=null)
-                            {
-                                lastTime.Add(tmp);
-                            }                           
-                        }
-                        catch { }                        
+                        lastTime.Add(last);                                           
                     }
                 }
                 if(lastTime.Count>0)
-                {
-                    lastSessionTime= lastTime.Max();
+                {                    
+                    lastSessionTime = DateTime.Parse(lastTime.Max(x => x.LastOperationTime));                    
                 }
-                
+
+                string _MacAddress = string.Join(",", macIP.ToArray());
+                var  _login = db.Session_LogIn.FirstOrDefault(x => x.lastLogMacID == _MacAddress);
+                if(_login!=null)
+                {
+                    WorkStatus _t;
+                    if (Enum.TryParse(_login.WorkStatus, out _t))
+                    {
+                        OldWorkStatus = _t;
+                    }                    
+                }
             }
 
 
@@ -370,6 +401,7 @@ namespace zSession
             else
             {
                 //根据历史设置显示
+                SetWorkStatus(OldWorkStatus);
             }
 
             ShowFunction(BasicFunction.Session);
@@ -378,8 +410,29 @@ namespace zSession
             timerNetStatus.Enabled = true;
             //启用天气接口，实时预报天气情况
             timerWeather.Enabled = true;
+            //启动题头消息刷新
+            timerTitleMessage.Enabled = true;
         }
 
+        private void timerTitleMessage_Tick(object sender, EventArgs e)
+        {
+            if(!bgkTitleMessage.IsBusy)
+            {
+                bgkTitleMessage.RunWorkerAsync();
+            }
+
+        }
+
+        private void bgkTitleMessage_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //获取实时消息
+        }
+
+        private void bgkTitleMessage_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //显示实时消息
+            //flpMessage
+        }
         #region 设置用户个人信息
         /// <summary>
         /// 设置账号信息
@@ -535,15 +588,31 @@ namespace zSession
             this.WindowState = FormWindowState.Minimized;
         }
 
-        #region
+        #region 内部功能
+
+        /// <summary>
+        /// 显示主功能
+        /// </summary>
+        /// <param name="_func"></param>
         private void ShowFunction(BasicFunction _func)
         {
             switch(_func)
             {
                 case BasicFunction.Session:
-                    openTable(BasicFunction.Session.ToString(), "会话",userID);
+                    openTable(_func.ToString(), "会话",userID);
                     break;
-
+                case BasicFunction.Assistant:
+                    openTable(_func.ToString(), "个人秘书", userID);
+                    break;
+                case BasicFunction.SocialNet:
+                    openTable(_func.ToString(), "社交网络", userID);
+                    break;
+                case BasicFunction.Market:
+                    openTable(_func.ToString(), "电子商城", userID);
+                    break;
+                case BasicFunction.News:
+                    openTable(_func.ToString(), "新闻", userID);
+                    break;
             }
         }
 
@@ -556,54 +625,91 @@ namespace zSession
         /// <param name="paramList">参数</param>
         /// <returns></returns>
         private bool openTable(string tabName,string tabLabel,string userID, params object[] paramlist)
-        {           
-            if(panelBody.Controls.Count>0)
+        {
+            bool rtn = false;
+            try
+            {
+                if (panelBody.Controls.Count > 0)
+                {
+                    panelBody.Controls.Clear();
+                }
+               
+                var sw = (BasicFunction)Enum.Parse(typeof(BasicFunction), tabName);
+
+                switch (sw)
+                {
+                    case BasicFunction.Session:
+                        SessionPanel tabSession = new SessionPanel(userID, paramlist);
+                        tabSession.Name = string.Format("p_{0}", tabName);
+                        tabSession.Dock = DockStyle.Fill;
+                        panelBody.Controls.Add(tabSession);
+                        ctMSMessage.Items["tsmiProject"].Visible = true;
+                        ctMSMessage.Items["tsmiJournal"].Visible = true;
+                        ctMSMessage.Items["tsmiSession"].Visible = false;
+                        break;
+                    case BasicFunction.Assistant:
+                        AssistantPanel tabAssistant = new AssistantPanel(userID, paramlist);
+                        tabAssistant.Name = string.Format("p_{0}", tabName);
+                        tabAssistant.Dock = DockStyle.Fill;
+                        panelBody.Controls.Add(tabAssistant);
+                        ctMSMessage.Items["tsmiProject"].Visible = false;
+                        ctMSMessage.Items["tsmiJournal"].Visible = false;
+                        ctMSMessage.Items["tsmiSession"].Visible = true;
+                        break;
+                    case BasicFunction.SocialNet:
+                        SocialNetPanel tabSocialNet = new SocialNetPanel(userID, paramlist);
+                        tabSocialNet.Name = string.Format("p_{0}", tabName);
+                        tabSocialNet.Dock = DockStyle.Fill;
+                        panelBody.Controls.Add(tabSocialNet);
+                        ctMSMessage.Items["tsmiProject"].Visible = true;
+                        ctMSMessage.Items["tsmiJournal"].Visible = true;
+                        ctMSMessage.Items["tsmiSession"].Visible = true;
+                        break;
+                    case BasicFunction.Market:
+                        MarketPanel tabMarket = new MarketPanel(userID, paramlist);
+                        tabMarket.Name = string.Format("p_{0}", tabName);
+                        tabMarket.Dock = DockStyle.Fill;
+                        panelBody.Controls.Add(tabMarket);
+                        ctMSMessage.Items["tsmiProject"].Visible = true;
+                        ctMSMessage.Items["tsmiJournal"].Visible = true;
+                        ctMSMessage.Items["tsmiSession"].Visible = true;
+                        break;
+                    case BasicFunction.News:
+                        NewsPanel tabNews = new NewsPanel(userID, paramlist);
+                        tabNews.Name = string.Format("p_{0}", tabName);
+                        tabNews.Dock = DockStyle.Fill;
+                        panelBody.Controls.Add(tabNews);
+                        ctMSMessage.Items["tsmiProject"].Visible = true;
+                        ctMSMessage.Items["tsmiJournal"].Visible = true;
+                        ctMSMessage.Items["tsmiSession"].Visible = true;
+                        break;
+                }
+
+                rtn = true;
+            }
+            catch
             {
 
+                rtn = false;
             }
-            panelBody.Controls.Clear();
-            var sw = (BasicFunction) Enum.Parse(typeof(BasicFunction), tabName);
-
-            switch (sw)
-            {
-                case BasicFunction.Session:
-                    SessionPanel tabSession = new SessionPanel(userID, paramlist);
-                    tabSession.Dock = DockStyle.Fill; 
-                    panelBody.Controls.Add(tabSession);
-                    break;
-                case BasicFunction.Assistant:
-                    AssistantPanel tabAssistant = new AssistantPanel(userID, paramlist);
-                    tabAssistant.Dock = DockStyle.Fill;
-                    panelBody.Controls.Add(tabAssistant);
-                    break;
-                case BasicFunction.SocialNet:
-                    SocialNetPanel tabSocialNet = new SocialNetPanel(userID, paramlist);
-                    tabSocialNet.Dock = DockStyle.Fill;
-                    panelBody.Controls.Add(tabSocialNet);
-                    break;
-                case BasicFunction.Market:
-                    MarketPanel tabMarket = new MarketPanel(userID, paramlist);
-                    tabMarket.Dock = DockStyle.Fill;
-                    panelBody.Controls.Add(tabMarket);
-                    break;
-                case BasicFunction.News:
-                    NewsPanel tabNews = new NewsPanel(userID, paramlist);
-                    tabNews.Dock = DockStyle.Fill;
-                    panelBody.Controls.Add(tabNews);
-                    break;
-            }
-
-
-
-            return false;
+            
+            return rtn;
         }
+
         /// <summary>
-        /// 
+        /// 删除主功能
         /// </summary>
         /// <param name="tabName"></param>
         private void closeTable(string tabName)
         {
-
+            if(panelBody.Controls.Count>0)
+            {                
+                var ctrl =panelBody.Controls.IndexOfKey(string.Format("p_{0}", tabName));
+                if(ctrl>0)
+                {
+                    panelBody.Controls.RemoveAt(ctrl);
+                }
+            }
         }
 
         /// <summary>
@@ -615,56 +721,114 @@ namespace zSession
         /// <returns></returns>
         private bool openWindow(string winName,string winLabel, string userID, params object[] paramlist)
         {
-            //FormBase 
-            return false;
-        }
-        private void closeWindow(string winName)
-        {
+            bool rtn = false;
+            BasisComponent _basFunc;
+            ExtendFunction _extfunc;
+            if (Enum.TryParse(winName, out _extfunc))
+            {
+                //调用扩展功能
+                rtn = SessionExtend.ShowFunction(userID, _extfunc);
+            }
+            else if (Enum.TryParse(winName, out _basFunc))
+            {
+                //调用基础功能扩展组件
+                rtn = BasicComponent.ShowFunction(userID, _basFunc);
+            }
+            else
+            {
+                try
+                {
+                    switch (winName)
+                    {
+                        case "Setup":
+                            tool = new FormBase(userID, winName, "系统设置");
+                            break;
+                        case "Tools":
+                            tool = new FormBase(userID, winName, "常用工具包");
+                            break;
+                    }
+                    tool.Show();
 
+                    rtn = true;
+                }
+                catch
+                {
+                    rtn = false;
+                }
+                
+            }
+            
+            return rtn;
         }
 
         /// <summary>
-        /// 打开外部链接
+        /// 关闭弹出功能
         /// </summary>
-        /// <param name="linkName">链接URL</param>
-        /// <param name="linkLabel">标签名称</param>
-        /// <param name="paramList">参数</param>
-        /// <returns></returns>
-        private bool openLink(string linkName,string linkLabel, string userID,params object[] paramlist)
+        /// <param name="winName"></param>
+        private void closeWindow(string winName)
         {
-
-            return false;
+            BasisComponent _basFunc;
+            ExtendFunction _extfunc;
+            if (Enum.TryParse(winName, out _extfunc))
+            {
+                //调用扩展功能
+                SessionExtend.CloseFunction();
+            }
+            else if (Enum.TryParse(winName, out _basFunc))
+            {
+                //调用基础功能扩展组件
+                BasicComponent.CloseFunction();
+            }
+            else
+            {
+                if(tool!=null)
+                {
+                    if (tool.IsDisposed)
+                    {
+                        tool.Close();
+                    }
+                }                  
+                
+            }
         }
+        
+        #endregion
+        #endregion
 
-        #endregion
-        #endregion
         #region 系统基础功能
         private void btnSetup_Click(object sender, EventArgs e)
         {
-
+            var o = (sender as ToolStripButton);
+            openWindow(o.Tag.ToString(), o.Text, userID);
         }
         private void tsbWallet_Click(object sender, EventArgs e)
         {
             //个人钱包管理
+            var o = (sender as ToolStripButton);
+            openWindow(o.Tag.ToString(), o.Text, userID);
         }
 
         private void btnMail_Click(object sender, EventArgs e)
         {
-
+            var o = (sender as ToolStripButton);
+            openWindow(o.Tag.ToString(), o.Text, userID);
         }
 
         private void tsbJournal_Click(object sender, EventArgs e)
         {
-
+            var o = (sender as ToolStripButton);
+            openWindow(o.Tag.ToString(), o.Text, userID);
         }
         private void tsbProject_Click(object sender, EventArgs e)
         {
-
+            var o = (sender as ToolStripButton);
+            openWindow(o.Tag.ToString(), o.Text, userID);
         }
 
         private void tsbTools_Click(object sender, EventArgs e)
         {
-
+            var o = (sender as ToolStripButton);
+            openWindow(o.Tag.ToString(), o.Text, userID);
         }
 
         #endregion
@@ -672,53 +836,57 @@ namespace zSession
         #region 主要功能
         private void btnChat_Click(object sender, EventArgs e)
         {
-
+            ShowFunction(BasicFunction.Session);
         }               
 
         private void btnAssistant_Click(object sender, EventArgs e)
         {
-
+            ShowFunction(BasicFunction.Assistant);
         }
 
         private void btnSocialNet_Click(object sender, EventArgs e)
         {
-
+            ShowFunction(BasicFunction.SocialNet);
         }
 
         private void btnMarket_Click(object sender, EventArgs e)
         {
-
+            ShowFunction(BasicFunction.Market);
         }
 
         private void btnNews_Click(object sender, EventArgs e)
         {
-
+            ShowFunction(BasicFunction.News);
         }
 
         #endregion
-
-
-
+        
         #region  扩展功能
         private void tsbDeviceManagement_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("");
+            var o = (sender as ToolStripButton);            
+            openWindow(o.Tag.ToString(), o.Text, userID);
         }
 
         private void tsbApplicationCenter_Click(object sender, EventArgs e)
         {
-
+            var o = (sender as ToolStripButton);
+            openWindow(o.Tag.ToString(), o.Text, userID);
         }
 
         private void tsbGameCenter_Click(object sender, EventArgs e)
         {
-
+            var o = (sender as ToolStripButton);
+            openWindow(o.Tag.ToString(), o.Text, userID);
         }
 
         private void tsbWareMarket_Click(object sender, EventArgs e)
         {
-
+            var o = (sender as ToolStripButton);
+            openWindow(o.Tag.ToString(), o.Text, userID);
         }
+
+
 
 
 
@@ -739,6 +907,152 @@ namespace zSession
 
         #endregion
 
-       
+        private void tsmiConnect_Click(object sender, EventArgs e)
+        {
+            if(SessionService.Connection())
+            {
+                connectStatus = SessionService.SignalIntensity;
+                //写入最后通信时间
+                using (mainEntities db = new mainEntities())
+                {
+                    string _macAddress = string.Join(",", SystemParamters.MacAddress);
+                    var last = db.Session_LastOperation.FirstOrDefault(x=>x.MacID== _macAddress);
+                    if(last!=null)
+                    {
+                        last.LastOperationTime = DateTime.Now.ToString();
+                        last.LastOperator = userID;
+                        last.OperateType = OnLineOperateType.NetDetection.ToString();
+                        db.SaveChanges();
+                    }
+                }
+            }
+            else
+            {
+                connectStatus = ConnectStatus.Broken;
+            }
+        }
+
+        private void tsmiDisconnect_Click(object sender, EventArgs e)
+        {
+            SessionService.DisConnection();
+            connectStatus = ConnectStatus.Broken;
+        }
+
+
+        private void tsmiFree_Click(object sender, EventArgs e)
+        {
+            if(connectStatus!= ConnectStatus.Broken)
+            {
+                OldWorkStatus = WorkStatus.Free;
+                SetWorkStatus(OldWorkStatus);
+            }
+            
+        }
+
+        private void tsmiBusyness_Click(object sender, EventArgs e)
+        {
+            if (connectStatus != ConnectStatus.Broken)
+            {
+                OldWorkStatus = WorkStatus.Busyness;
+                SetWorkStatus(OldWorkStatus);
+            }
+        }
+
+        private void tsmiNoDisturb_Click(object sender, EventArgs e)
+        {
+            if (connectStatus != ConnectStatus.Broken)
+            {
+                OldWorkStatus = WorkStatus.NoDisturb;
+                SetWorkStatus(OldWorkStatus);
+            }
+        }
+
+        private void tsmiLeave_Click(object sender, EventArgs e)
+        {
+            
+                OldWorkStatus = WorkStatus.Leave;
+                SetWorkStatus(OldWorkStatus);
+            
+        }
+
+
+        private bool _ShowProject = true;
+        private bool _ShowJournal = true;
+        private bool _ShowSession = true;
+        public bool ShowProject
+        {
+            get
+            {
+                return _ShowProject;
+            }
+            set
+            {
+                _ShowProject = value;
+                if(_ShowProject)
+                {
+                    ctMSMessage.Items["tsmiProject"].Image = Properties.Resources.ok;
+                }
+                else
+                {
+                    ctMSMessage.Items["tsmiProject"].Image = null;
+                }
+                
+            }
+        }
+        public bool ShowJournal {
+            get
+            {
+                return _ShowJournal;
+            }
+            set
+            {
+                _ShowJournal = value;
+                if(_ShowJournal)
+                {
+                    ctMSMessage.Items["tsmiJournal"].Image = Properties.Resources.ok;
+                }
+                else
+                {
+                    ctMSMessage.Items["tsmiJournal"].Image =null;
+                }
+               
+
+            }
+        }
+        public bool ShowSession
+        {
+            get
+            {
+                return _ShowSession;
+            }
+            set
+            {
+                _ShowSession = value;
+                if (_ShowSession)
+                {
+                    ctMSMessage.Items["tsmiSession"].Image = Properties.Resources.ok;
+                }
+                else
+                {
+                    ctMSMessage.Items["tsmiSession"].Image = null;
+                }
+                   
+            }
+        }
+
+        private void tsmiProject_Click(object sender, EventArgs e)
+        {
+            ShowProject = !ShowProject;
+        }
+
+        private void tsmiJournal_Click(object sender, EventArgs e)
+        {
+            ShowJournal = !ShowJournal;
+        }
+
+        private void tsmiSession_Click(object sender, EventArgs e)
+        {
+            ShowSession = !ShowSession;
+        }
     }
 }

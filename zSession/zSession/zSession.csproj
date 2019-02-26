@@ -104,10 +104,16 @@
     <Compile Include="Base\DBModel\Session_DptTypes.cs">
       <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Base\DBModel\Session_Dpt_Controllers.cs">
+      <DependentUpon>SessionModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Base\DBModel\Session_Dpt_Roles.cs">
       <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Dpt_Users.cs">
+      <DependentUpon>SessionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\DBModel\Session_Friend_Controllers.cs">
       <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Base\DBModel\Session_Grant_Dpts.cs">
@@ -122,6 +128,9 @@
     <Compile Include="Base\DBModel\Session_LastOperation.cs">
       <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Base\DBModel\Session_LogIn.cs">
+      <DependentUpon>SessionModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Base\DBModel\Session_Powers.cs">
       <DependentUpon>SessionModel.tt</DependentUpon>
     </Compile>
@@ -130,6 +139,12 @@
     </Compile>
     <Compile Include="Base\DBModel\Session_Users.cs">
       <DependentUpon>SessionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Base\SetupPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\SetupPanel.Designer.cs">
+      <DependentUpon>SetupPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Base\SystemParamters.cs" />
     <Compile Include="Basic\Assistant\AssistantPanel.cs">
@@ -144,11 +159,24 @@
     <Compile Include="Basic\Assistant\Journal\JournalMessage.Designer.cs">
       <DependentUpon>JournalMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Basic\BasicComponent.cs" />
+    <Compile Include="Basic\FormComponent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Basic\FormComponent.Designer.cs">
+      <DependentUpon>FormComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Basic\Session\SessionMessage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Basic\Session\SessionMessage.Designer.cs">
       <DependentUpon>SessionMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extend\FormExtend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\FormExtend.Designer.cs">
+      <DependentUpon>FormExtend.cs</DependentUpon>
     </Compile>
     <Compile Include="Extend\Intelligent\DevicePanel.cs">
       <SubType>UserControl</SubType>
@@ -192,6 +220,7 @@
     <Compile Include="Base\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extend\SessionExtend.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,14 +321,29 @@
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Base\SessionService.cs" />
+    <Compile Include="Base\Tools\toolPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\Tools\toolPanel.Designer.cs">
+      <DependentUpon>toolPanel.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Base\SetupPanel.resx">
+      <DependentUpon>SetupPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Basic\Assistant\AssistantPanel.resx">
       <DependentUpon>AssistantPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Basic\Assistant\Journal\JournalMessage.resx">
       <DependentUpon>JournalMessage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Basic\FormComponent.resx">
+      <DependentUpon>FormComponent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Basic\Session\SessionMessage.resx">
       <DependentUpon>SessionMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\FormExtend.resx">
+      <DependentUpon>FormExtend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Extend\Intelligent\DevicePanel.resx">
       <DependentUpon>DevicePanel.cs</DependentUpon>
@@ -375,6 +419,9 @@
     <EmbeddedResource Include="Base\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Base\Tools\toolPanel.resx">
+      <DependentUpon>toolPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Base\DataBase\SessionDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -409,11 +456,11 @@
   <ItemGroup>
     <Folder Include="Extend\ApplicationCenter\" />
     <Folder Include="Extend\E_Mail\" />
+    <Folder Include="Extend\Finance\" />
     <Folder Include="Extend\GameCenter\" />
     <Folder Include="Extend\WareMarket\" />
     <Folder Include="Images\Personnel\" />
     <Folder Include="Images\Weather\" />
-    <Folder Include="SystemSetup\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Resources\wireless-blue.png" />
@@ -927,16 +974,6 @@
     <None Include="Images\Resources\ERP.ico" />
     <None Include="Images\Resources\Electronic_Business.png" />
     <None Include="Images\Resources\Electronic_Business.ico" />
-    <Content Include="Base\DBModel\SessionModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SessionModel.edmx</DependentUpon>
-      <LastGenOutput>SessionModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Base\DBModel\SessionModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SessionModel.edmx</DependentUpon>
-      <LastGenOutput>SessionModel.cs</LastGenOutput>
-    </Content>
     <None Include="Images\Resources\Membership.png" />
     <None Include="Images\Resources\Membership.ico" />
     <None Include="Images\Resources\Academic.png" />
@@ -957,6 +994,16 @@
     <None Include="Images\Resources\SendMessage.ico" />
     <None Include="Images\Resources\wallet.png" />
     <None Include="Images\Resources\wallet.ico" />
+    <Content Include="Base\DBModel\SessionModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SessionModel.edmx</DependentUpon>
+      <LastGenOutput>SessionModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Base\DBModel\SessionModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SessionModel.edmx</DependentUpon>
+      <LastGenOutput>SessionModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Images\systemImages\BackGround\header.jpg" />
     <Content Include="Images\systemImages\BackGround\title.png" />
     <None Include="Images\Resources\project.ico" />
@@ -1375,8 +1422,6 @@
     <Content Include="Images\Finance\signature.png" />
     <Content Include="Images\Finance\stockmarket.ico" />
     <Content Include="Images\Finance\stockmarket.png" />
-    <Content Include="Images\Finance\wallet.ico" />
-    <Content Include="Images\Finance\wallet.png" />
     <Content Include="Images\systemImages\BackGround\backgrond.jpeg" />
   </ItemGroup>
   <ItemGroup>

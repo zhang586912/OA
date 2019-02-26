@@ -30,21 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SessionPanel));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("节点0", 1, 1);
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("节点3", 2, 2);
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("节点4");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("节点1", 3, 3, new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("节点5");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("节点2", 4, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("节点0", 3, 3);
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("节点0", 0, 0, new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode4,
-            treeNode6,
-            treeNode7});
+            this.ctMSTools = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiSearch = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiView = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSend = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDel = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiStop = new System.Windows.Forms.ToolStripMenuItem();
             this.tpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tpHeader = new System.Windows.Forms.TableLayoutPanel();
             this.btnCorporation = new System.Windows.Forms.Button();
@@ -52,23 +45,74 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tpBody = new System.Windows.Forms.TableLayoutPanel();
             this.flpGroup = new System.Windows.Forms.FlowLayoutPanel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelBody = new System.Windows.Forms.Panel();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.ctMSTools = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiSend = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSearch = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiView = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmiAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiDel = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiStop = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.bkgInit = new System.ComponentModel.BackgroundWorker();
+            this.ctMSTools.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.tpHeader.SuspendLayout();
             this.tpBody.SuspendLayout();
-            this.panelBody.SuspendLayout();
-            this.ctMSTools.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // ctMSTools
+            // 
+            this.ctMSTools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiSearch,
+            this.tsmiView,
+            this.tsmiSend,
+            this.toolStripSeparator1,
+            this.tsmiAdd,
+            this.tsmiDel,
+            this.tsmiStop});
+            this.ctMSTools.Name = "ctMSTools";
+            this.ctMSTools.Size = new System.Drawing.Size(125, 142);
+            // 
+            // tsmiSearch
+            // 
+            this.tsmiSearch.Image = global::zSession.Properties.Resources.search2;
+            this.tsmiSearch.Name = "tsmiSearch";
+            this.tsmiSearch.Size = new System.Drawing.Size(124, 22);
+            this.tsmiSearch.Text = "查找";
+            // 
+            // tsmiView
+            // 
+            this.tsmiView.Image = global::zSession.Properties.Resources.chat_info;
+            this.tsmiView.Name = "tsmiView";
+            this.tsmiView.Size = new System.Drawing.Size(124, 22);
+            this.tsmiView.Text = "查看消息";
+            // 
+            // tsmiSend
+            // 
+            this.tsmiSend.Image = global::zSession.Properties.Resources.SendMessage;
+            this.tsmiSend.Name = "tsmiSend";
+            this.tsmiSend.Size = new System.Drawing.Size(124, 22);
+            this.tsmiSend.Text = "发送消息";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(121, 6);
+            // 
+            // tsmiAdd
+            // 
+            this.tsmiAdd.Image = global::zSession.Properties.Resources.add;
+            this.tsmiAdd.Name = "tsmiAdd";
+            this.tsmiAdd.Size = new System.Drawing.Size(124, 22);
+            this.tsmiAdd.Text = "增加";
+            // 
+            // tsmiDel
+            // 
+            this.tsmiDel.Image = global::zSession.Properties.Resources.delete;
+            this.tsmiDel.Name = "tsmiDel";
+            this.tsmiDel.Size = new System.Drawing.Size(124, 22);
+            this.tsmiDel.Text = "删除";
+            // 
+            // tsmiStop
+            // 
+            this.tsmiStop.Image = global::zSession.Properties.Resources.delete_alt;
+            this.tsmiStop.Name = "tsmiStop";
+            this.tsmiStop.Size = new System.Drawing.Size(124, 22);
+            this.tsmiStop.Text = "静音";
             // 
             // tpMain
             // 
@@ -180,6 +224,15 @@
             this.flpGroup.Size = new System.Drawing.Size(437, 24);
             this.flpGroup.TabIndex = 10;
             // 
+            // panelBody
+            // 
+            this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBody.Location = new System.Drawing.Point(0, 24);
+            this.panelBody.Margin = new System.Windows.Forms.Padding(0);
+            this.panelBody.Name = "panelBody";
+            this.panelBody.Size = new System.Drawing.Size(437, 482);
+            this.panelBody.TabIndex = 11;
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -190,120 +243,10 @@
             this.imageList1.Images.SetKeyName(3, "non-profit.ico");
             this.imageList1.Images.SetKeyName(4, "Party.ico");
             // 
-            // panelBody
+            // bkgInit
             // 
-            this.panelBody.Controls.Add(this.treeView1);
-            this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBody.Location = new System.Drawing.Point(0, 24);
-            this.panelBody.Margin = new System.Windows.Forms.Padding(0);
-            this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(437, 482);
-            this.panelBody.TabIndex = 11;
-            // 
-            // treeView1
-            // 
-            this.treeView1.ContextMenuStrip = this.ctMSTools;
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Font = new System.Drawing.Font("华文楷体", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.treeView1.ImageIndex = 0;
-            this.treeView1.ImageList = this.imageList1;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Name = "treeView1";
-            treeNode1.ContextMenuStrip = this.ctMSTools;
-            treeNode1.ImageIndex = 1;
-            treeNode1.Name = "节点0";
-            treeNode1.SelectedImageIndex = 1;
-            treeNode1.Text = "节点0";
-            treeNode2.ImageIndex = 2;
-            treeNode2.Name = "节点3";
-            treeNode2.SelectedImageIndex = 2;
-            treeNode2.Text = "节点3";
-            treeNode3.Name = "节点4";
-            treeNode3.Text = "节点4";
-            treeNode4.ImageIndex = 3;
-            treeNode4.Name = "节点1";
-            treeNode4.SelectedImageIndex = 3;
-            treeNode4.Text = "节点1";
-            treeNode5.Name = "节点5";
-            treeNode5.Text = "节点5";
-            treeNode6.ImageIndex = 4;
-            treeNode6.Name = "节点2";
-            treeNode6.SelectedImageIndex = 4;
-            treeNode6.Text = "节点2";
-            treeNode7.ImageIndex = 3;
-            treeNode7.Name = "节点0";
-            treeNode7.SelectedImageIndex = 3;
-            treeNode7.Text = "节点0";
-            treeNode8.ContextMenuStrip = this.ctMSTools;
-            treeNode8.ImageIndex = 0;
-            treeNode8.Name = "节点0";
-            treeNode8.SelectedImageIndex = 0;
-            treeNode8.Text = "节点0";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8});
-            this.treeView1.SelectedImageIndex = 0;
-            this.treeView1.Size = new System.Drawing.Size(437, 482);
-            this.treeView1.TabIndex = 12;
-            // 
-            // ctMSTools
-            // 
-            this.ctMSTools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiSearch,
-            this.tsmiView,
-            this.tsmiSend,
-            this.toolStripSeparator1,
-            this.tsmiAdd,
-            this.tsmiDel,
-            this.tsmiStop});
-            this.ctMSTools.Name = "ctMSTools";
-            this.ctMSTools.Size = new System.Drawing.Size(125, 142);
-            // 
-            // tsmiSend
-            // 
-            this.tsmiSend.Image = global::zSession.Properties.Resources.SendMessage;
-            this.tsmiSend.Name = "tsmiSend";
-            this.tsmiSend.Size = new System.Drawing.Size(124, 22);
-            this.tsmiSend.Text = "发送消息";
-            // 
-            // tsmiSearch
-            // 
-            this.tsmiSearch.Image = global::zSession.Properties.Resources.search2;
-            this.tsmiSearch.Name = "tsmiSearch";
-            this.tsmiSearch.Size = new System.Drawing.Size(124, 22);
-            this.tsmiSearch.Text = "查找";
-            // 
-            // tsmiView
-            // 
-            this.tsmiView.Image = global::zSession.Properties.Resources.chat_info;
-            this.tsmiView.Name = "tsmiView";
-            this.tsmiView.Size = new System.Drawing.Size(124, 22);
-            this.tsmiView.Text = "查看消息";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(121, 6);
-            // 
-            // tsmiAdd
-            // 
-            this.tsmiAdd.Image = global::zSession.Properties.Resources.add;
-            this.tsmiAdd.Name = "tsmiAdd";
-            this.tsmiAdd.Size = new System.Drawing.Size(124, 22);
-            this.tsmiAdd.Text = "增加";
-            // 
-            // tsmiDel
-            // 
-            this.tsmiDel.Image = global::zSession.Properties.Resources.delete;
-            this.tsmiDel.Name = "tsmiDel";
-            this.tsmiDel.Size = new System.Drawing.Size(124, 22);
-            this.tsmiDel.Text = "删除";
-            // 
-            // tsmiStop
-            // 
-            this.tsmiStop.Image = global::zSession.Properties.Resources.delete_alt;
-            this.tsmiStop.Name = "tsmiStop";
-            this.tsmiStop.Size = new System.Drawing.Size(124, 22);
-            this.tsmiStop.Text = "静音";
+            this.bkgInit.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bkgInit_DoWork);
+            this.bkgInit.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bkgInit_RunWorkerCompleted);
             // 
             // SessionPanel
             // 
@@ -312,12 +255,11 @@
             this.Controls.Add(this.tpMain);
             this.Name = "SessionPanel";
             this.Size = new System.Drawing.Size(449, 545);
+            this.ctMSTools.ResumeLayout(false);
             this.tpMain.ResumeLayout(false);
             this.tpHeader.ResumeLayout(false);
             this.tpHeader.PerformLayout();
             this.tpBody.ResumeLayout(false);
-            this.panelBody.ResumeLayout(false);
-            this.ctMSTools.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -333,7 +275,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel panelBody;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ContextMenuStrip ctMSTools;
         private System.Windows.Forms.ToolStripMenuItem tsmiSearch;
         private System.Windows.Forms.ToolStripMenuItem tsmiView;
@@ -342,5 +283,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiAdd;
         private System.Windows.Forms.ToolStripMenuItem tsmiDel;
         private System.Windows.Forms.ToolStripMenuItem tsmiStop;
+        private System.ComponentModel.BackgroundWorker bkgInit;
     }
 }

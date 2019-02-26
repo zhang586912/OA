@@ -15,6 +15,21 @@
           <Property Name="ContextType" Type="text" />
           <Property Name="Remark" Type="text" />
         </EntityType>
+        <EntityType Name="Session_Dpt_Controllers">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="text" />
+          <Property Name="dptID" Type="text" />
+          <Property Name="isVisble" Type="integer" />
+          <Property Name="isRecv" Type="integer" />
+          <Property Name="isSend" Type="integer" />
+          <Property Name="isAlterPerson" Type="integer" />
+          <Property Name="isStopPerson" Type="integer" />
+          <Property Name="isDelPerson" Type="integer" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
         <EntityType Name="Session_Dpt_Roles">
           <Key>
             <PropertyRef Name="serialno" />
@@ -52,13 +67,28 @@
           <Property Name="dptTypeName" Type="text" />
           <Property Name="Remark" Type="text" />
         </EntityType>
+        <EntityType Name="Session_Friend_Controllers">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="text" />
+          <Property Name="friendID" Type="text" />
+          <Property Name="isVisble" Type="integer" />
+          <Property Name="isRecv" Type="integer" />
+          <Property Name="isSend" Type="integer" />
+          <Property Name="isOhterVisble" Type="integer" />
+          <Property Name="isOhterRecv" Type="integer" />
+          <Property Name="isOhterSend" Type="integer" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
         <EntityType Name="Session_Grant_Dpts">
           <Key>
             <PropertyRef Name="serialno" />
           </Key>
           <Property Name="serialno" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="dptID" Type="text" Nullable="false" />
-          <Property Name="powerID" Type="text" Nullable="false" />
+          <Property Name="dptID" Type="text" />
+          <Property Name="powerID" Type="text" />
           <Property Name="Remark" Type="text" />
         </EntityType>
         <EntityType Name="Session_Grant_Roles">
@@ -90,6 +120,18 @@
           <Property Name="LastOperator" Type="text" />
           <Property Name="Remark" Type="text" />
         </EntityType>
+        <EntityType Name="Session_LogIn">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="text" />
+          <Property Name="userPSD" Type="text" />
+          <Property Name="WorkStatus" Type="text" />
+          <Property Name="lastLogMacID" Type="text" />
+          <Property Name="lastLogTime" Type="text" />
+          <Property Name="Remark" Type="text" />
+        </EntityType>
         <EntityType Name="Session_Powers">
           <Key>
             <PropertyRef Name="powerID" />
@@ -116,21 +158,22 @@
           <Property Name="userAccount" Type="text" />
           <Property Name="userName" Type="text" />
           <Property Name="userPhoto" Type="blob" />
-          <Property Name="userPSD" Type="text" />
           <Property Name="isEnabled" Type="integer" />
-          <Property Name="lastLogTime" Type="text" />
           <Property Name="Remark" Type="text" />
         </EntityType>
         <EntityContainer Name="mainModelStoreContainer">
           <EntitySet Name="Session_Chat" EntityType="Self.Session_Chat" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Dpt_Controllers" EntityType="Self.Session_Dpt_Controllers" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_Dpt_Roles" EntityType="Self.Session_Dpt_Roles" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_Dpt_Users" EntityType="Self.Session_Dpt_Users" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_Dpts" EntityType="Self.Session_Dpts" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_DptTypes" EntityType="Self.Session_DptTypes" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_Friend_Controllers" EntityType="Self.Session_Friend_Controllers" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_Grant_Dpts" EntityType="Self.Session_Grant_Dpts" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_Grant_Roles" EntityType="Self.Session_Grant_Roles" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_Grant_Users" EntityType="Self.Session_Grant_Users" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_LastOperation" EntityType="Self.Session_LastOperation" Schema="main" store:Type="Tables" />
+          <EntitySet Name="Session_LogIn" EntityType="Self.Session_LogIn" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_Powers" EntityType="Self.Session_Powers" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_Roles" EntityType="Self.Session_Roles" Schema="main" store:Type="Tables" />
           <EntitySet Name="Session_Users" EntityType="Self.Session_Users" Schema="main" store:Type="Tables" />
@@ -147,6 +190,21 @@
           <Property Name="userID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SessionContext" Type="Binary" MaxLength="2147483647" FixedLength="false" />
           <Property Name="ContextType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Session_Dpt_Controllers">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dptID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isVisble" Type="Int64" />
+          <Property Name="isRecv" Type="Int64" />
+          <Property Name="isSend" Type="Int64" />
+          <Property Name="isAlterPerson" Type="Int64" />
+          <Property Name="isStopPerson" Type="Int64" />
+          <Property Name="isDelPerson" Type="Int64" />
           <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Session_Dpt_Roles">
@@ -186,13 +244,28 @@
           <Property Name="dptTypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Session_Friend_Controllers">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="friendID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isVisble" Type="Int64" />
+          <Property Name="isRecv" Type="Int64" />
+          <Property Name="isSend" Type="Int64" />
+          <Property Name="isOhterVisble" Type="Int64" />
+          <Property Name="isOhterRecv" Type="Int64" />
+          <Property Name="isOhterSend" Type="Int64" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Session_Grant_Dpts">
           <Key>
             <PropertyRef Name="serialno" />
           </Key>
           <Property Name="serialno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="dptID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="powerID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dptID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="powerID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Session_Grant_Roles">
@@ -224,6 +297,18 @@
           <Property Name="LastOperator" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Session_LogIn">
+          <Key>
+            <PropertyRef Name="serialno" />
+          </Key>
+          <Property Name="serialno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="userPSD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lastLogMacID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lastLogTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkStatus" Type="String" />
+        </EntityType>
         <EntityType Name="Session_Powers">
           <Key>
             <PropertyRef Name="powerID" />
@@ -250,21 +335,22 @@
           <Property Name="userAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="userName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="userPhoto" Type="Binary" MaxLength="2147483647" FixedLength="false" />
-          <Property Name="userPSD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="isEnabled" Type="Int64" />
-          <Property Name="lastLogTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="mainEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Session_Chat" EntityType="Self.Session_Chat" />
+          <EntitySet Name="Session_Dpt_Controllers" EntityType="Self.Session_Dpt_Controllers" />
           <EntitySet Name="Session_Dpt_Roles" EntityType="Self.Session_Dpt_Roles" />
           <EntitySet Name="Session_Dpt_Users" EntityType="Self.Session_Dpt_Users" />
           <EntitySet Name="Session_Dpts" EntityType="Self.Session_Dpts" />
           <EntitySet Name="Session_DptTypes" EntityType="Self.Session_DptTypes" />
+          <EntitySet Name="Session_Friend_Controllers" EntityType="Self.Session_Friend_Controllers" />
           <EntitySet Name="Session_Grant_Dpts" EntityType="Self.Session_Grant_Dpts" />
           <EntitySet Name="Session_Grant_Roles" EntityType="Self.Session_Grant_Roles" />
           <EntitySet Name="Session_Grant_Users" EntityType="Self.Session_Grant_Users" />
           <EntitySet Name="Session_LastOperation" EntityType="Self.Session_LastOperation" />
+          <EntitySet Name="Session_LogIn" EntityType="Self.Session_LogIn" />
           <EntitySet Name="Session_Powers" EntityType="Self.Session_Powers" />
           <EntitySet Name="Session_Roles" EntityType="Self.Session_Roles" />
           <EntitySet Name="Session_Users" EntityType="Self.Session_Users" />
@@ -282,6 +368,22 @@
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="SessionContext" ColumnName="SessionContext" />
                 <ScalarProperty Name="ContextType" ColumnName="ContextType" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Dpt_Controllers">
+            <EntityTypeMapping TypeName="mainModel.Session_Dpt_Controllers">
+              <MappingFragment StoreEntitySet="Session_Dpt_Controllers">
+                <ScalarProperty Name="serialno" ColumnName="serialno" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="dptID" ColumnName="dptID" />
+                <ScalarProperty Name="isVisble" ColumnName="isVisble" />
+                <ScalarProperty Name="isRecv" ColumnName="isRecv" />
+                <ScalarProperty Name="isSend" ColumnName="isSend" />
+                <ScalarProperty Name="isAlterPerson" ColumnName="isAlterPerson" />
+                <ScalarProperty Name="isStopPerson" ColumnName="isStopPerson" />
+                <ScalarProperty Name="isDelPerson" ColumnName="isDelPerson" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -323,6 +425,22 @@
               <MappingFragment StoreEntitySet="Session_DptTypes">
                 <ScalarProperty Name="dptTypeID" ColumnName="dptTypeID" />
                 <ScalarProperty Name="dptTypeName" ColumnName="dptTypeName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Session_Friend_Controllers">
+            <EntityTypeMapping TypeName="mainModel.Session_Friend_Controllers">
+              <MappingFragment StoreEntitySet="Session_Friend_Controllers">
+                <ScalarProperty Name="serialno" ColumnName="serialno" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="friendID" ColumnName="friendID" />
+                <ScalarProperty Name="isVisble" ColumnName="isVisble" />
+                <ScalarProperty Name="isRecv" ColumnName="isRecv" />
+                <ScalarProperty Name="isSend" ColumnName="isSend" />
+                <ScalarProperty Name="isOhterVisble" ColumnName="isOhterVisble" />
+                <ScalarProperty Name="isOhterRecv" ColumnName="isOhterRecv" />
+                <ScalarProperty Name="isOhterSend" ColumnName="isOhterSend" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -369,6 +487,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Session_LogIn">
+            <EntityTypeMapping TypeName="mainModel.Session_LogIn">
+              <MappingFragment StoreEntitySet="Session_LogIn">
+                <ScalarProperty Name="WorkStatus" ColumnName="WorkStatus" />
+                <ScalarProperty Name="serialno" ColumnName="serialno" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userPSD" ColumnName="userPSD" />
+                <ScalarProperty Name="lastLogMacID" ColumnName="lastLogMacID" />
+                <ScalarProperty Name="lastLogTime" ColumnName="lastLogTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Session_Powers">
             <EntityTypeMapping TypeName="mainModel.Session_Powers">
               <MappingFragment StoreEntitySet="Session_Powers">
@@ -396,9 +527,7 @@
                 <ScalarProperty Name="userAccount" ColumnName="userAccount" />
                 <ScalarProperty Name="userName" ColumnName="userName" />
                 <ScalarProperty Name="userPhoto" ColumnName="userPhoto" />
-                <ScalarProperty Name="userPSD" ColumnName="userPSD" />
                 <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
-                <ScalarProperty Name="lastLogTime" ColumnName="lastLogTime" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
               </MappingFragment>
             </EntityTypeMapping>

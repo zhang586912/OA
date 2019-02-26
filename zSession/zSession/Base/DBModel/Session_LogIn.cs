@@ -12,13 +12,14 @@ namespace zSession.Base.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Session_Users
+    public partial class Session_LogIn
     {
+        public long serialno { get; set; }
         public string userID { get; set; }
-        public string userAccount { get; set; }
-        public string userName { get; set; }
-        public byte[] userPhoto { get; set; }
-        public Nullable<long> isEnabled { get; set; }
+        public string userPSD { get; set; }
+        public string lastLogMacID { get; set; }
+        public string lastLogTime { get; set; }
         public string Remark { get; set; }
+        public string WorkStatus { get; set; }
     }
 }

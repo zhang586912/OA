@@ -128,9 +128,50 @@ namespace zSession.Base
         /// <returns></returns>
         private LogStatus WebLogin(string userID,string userPSD)
         {
+
+            //WriteOnLineStatus
             return LogStatus.Success;
         }
 
+        /// <summary>
+        /// 保存网络最新操作状态
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="macAddress"></param>
+        /// <param name="onLineStatus"></param>
+        /// <param name="OperateContext"></param>
+        private void WriteOnLineStatus(string userID,List<string> macAddress, OnLineOperateType onLineStatus,string OperateContext="")
+        {
+            string _mac = string.Join(",", macAddress.ToArray());
+            using (mainEntities db = new mainEntities())
+            {
+                var lines = db.Session_LastOperation.Where(x => x.MacID== _mac).FirstOrDefault();
+                if(lines!=null)
+                {
+                    lines.LastOperator = onLineStatus.ToString();
+                    lines.OperateContext = OperateContext;
+                    lines.LastOperationTime = DateTime.Now.ToString();
+                    lines.LastOperator = userID;
+                }
+                else
+                {
+                    lines = new Session_LastOperation();
+                    lines.MacID = _mac;
+                    lines.LastOperator = onLineStatus.ToString();
+                    lines.OperateContext = OperateContext;
+                    lines.LastOperationTime = DateTime.Now.ToString();
+                    lines.LastOperator = userID;
+
+                    db.Session_LastOperation.Add(lines);
+                }
+
+                db.SaveChanges();
+                
+            }
+
+
+
+        }
         /// <summary>
         /// 连接本机数据库，是否允许登录
         /// </summary>
@@ -139,20 +180,67 @@ namespace zSession.Base
         /// <returns></returns>
         private bool LocadLogin(string userID, string userPSD)
         {
+            bool bStatus = false;
             using (mainEntities db = new mainEntities())
             {
-                var user = db.Session_Users.Where(x => x.userID == userID && x.userPSD == userPSD).FirstOrDefault();
-                if(user!=null)
+                bool isLogIn = false;
+                Session_LogIn login = null;
+
+                var users = db.Session_LogIn.Where(x => x.userID == userID).ToList();
+                if (users.Count > 0)
                 {
-                    return true;
+                    users = users.Where(x => x.userPSD == userPSD).ToList();
+                    if(users.Count>0)
+                    {
+                        bStatus = true;
+                        //有无当前机器MAC地址的登录记录
+                        foreach (var itm in SystemParamters.MacAddress)
+                        {
+                            var user = users.FirstOrDefault(x => x.lastLogMacID.Contains(itm));
+                            if (user != null)
+                            {
+                                isLogIn = true;
+                                login = user;
+                                break;
+                            }
+                        }
+                    }                    
                 }
                 else
                 {
-                    return false;
+                    var userRegister = db.Session_Users.Where(x => x.userID == userID).ToList();
+                    string userInitPSD = "666666";//登录初始口令
+                    bStatus = (userRegister.Count > 0 && userPSD == userInitPSD);
                 }
-            }            
+
+                if(bStatus)
+                {
+                    if (!isLogIn)
+                    {
+                        login = new Session_LogIn();
+                        login.userID = userID;
+                        login.userPSD = userPSD;
+                        login.lastLogMacID = string.Join(",", SystemParamters.MacAddress.ToArray());
+                        login.lastLogTime = DateTime.Now.ToString();
+
+                        db.Session_LogIn.Add(login);                        
+                    }
+                    else
+                    {
+                        login.lastLogTime = DateTime.Now.ToString();
+                    }
+                    db.SaveChanges();
+
+                    //
+
+                }                
+            }
+            
+            
+            return bStatus;
         }
 
+       
         private void linkSetup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 

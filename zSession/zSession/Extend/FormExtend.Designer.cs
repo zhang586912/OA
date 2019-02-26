@@ -1,6 +1,6 @@
-﻿namespace zSession.Base
+﻿namespace zSession.Extend
 {
-    partial class FormBase
+    partial class FormExtend
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBase));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExtend));
+            this.panelBody = new System.Windows.Forms.Panel();
             this.tpMain = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.tsbMin = new System.Windows.Forms.ToolStripButton();
             this.tslTitle = new System.Windows.Forms.ToolStripLabel();
-            this.panelBody = new System.Windows.Forms.Panel();
             this.tpMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panelBody
+            // 
+            this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBody.Location = new System.Drawing.Point(0, 25);
+            this.panelBody.Margin = new System.Windows.Forms.Padding(0);
+            this.panelBody.Name = "panelBody";
+            this.panelBody.Size = new System.Drawing.Size(620, 303);
+            this.panelBody.TabIndex = 1;
             // 
             // tpMain
             // 
@@ -53,8 +62,8 @@
             this.tpMain.RowCount = 2;
             this.tpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tpMain.Size = new System.Drawing.Size(766, 488);
-            this.tpMain.TabIndex = 0;
+            this.tpMain.Size = new System.Drawing.Size(620, 328);
+            this.tpMain.TabIndex = 1;
             // 
             // toolStrip1
             // 
@@ -71,7 +80,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(766, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(620, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -83,7 +92,7 @@
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
             this.tsbClose.Size = new System.Drawing.Size(23, 22);
-            this.tsbClose.Text = "关闭";
+            this.tsbClose.Text = "toolStripButton1";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // tsbMin
@@ -94,7 +103,7 @@
             this.tsbMin.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMin.Name = "tsbMin";
             this.tsbMin.Size = new System.Drawing.Size(23, 22);
-            this.tsbMin.Text = "最小化";
+            this.tsbMin.Text = "toolStripButton2";
             this.tsbMin.Click += new System.EventHandler(this.tsbMin_Click);
             // 
             // tslTitle
@@ -103,25 +112,16 @@
             this.tslTitle.Size = new System.Drawing.Size(32, 22);
             this.tslTitle.Text = "标题";
             // 
-            // panelBody
-            // 
-            this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBody.Location = new System.Drawing.Point(0, 25);
-            this.panelBody.Margin = new System.Windows.Forms.Padding(0);
-            this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(766, 463);
-            this.panelBody.TabIndex = 1;
-            // 
-            // FormBase
+            // FormExtend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 488);
+            this.ClientSize = new System.Drawing.Size(620, 328);
             this.Controls.Add(this.tpMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormBase";
+            this.Name = "FormExtend";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormBase";
+            this.Text = "FormExtend";
             this.tpMain.ResumeLayout(false);
             this.tpMain.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -131,11 +131,12 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panelBody;
+        public System.Windows.Forms.TableLayoutPanel tpMain;
+        public System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.ToolStripButton tsbMin;
         private System.Windows.Forms.ToolStripLabel tslTitle;
-        public System.Windows.Forms.ToolStrip toolStrip1;
-        public System.Windows.Forms.TableLayoutPanel tpMain;
-        private System.Windows.Forms.Panel panelBody;
     }
 }
