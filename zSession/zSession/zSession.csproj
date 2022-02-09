@@ -454,6 +454,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Base\DBModel\Entity\" />
+    <Folder Include="Base\DBModel\SQL\" />
     <Folder Include="Extend\ApplicationCenter\" />
     <Folder Include="Extend\E_Mail\" />
     <Folder Include="Extend\Finance\" />
